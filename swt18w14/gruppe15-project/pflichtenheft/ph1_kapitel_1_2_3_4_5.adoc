@@ -1,0 +1,149 @@
+:project_name: Papas Pizza
+:doctype: book
+:numbered:
+:source-highlighter: highlightjs
+
+== Parteien
+
+Papas Pizza +
+vertreten durch Herrn Landfried +
+ -- nachfolgend Kunde genannt --
+
+Gruppe 15, bestehend aus:
+
+* Artém Bykov
+* Christian Gärber
+* Julian Willingmann
+* Vincent Adam
+* Nick Lehmann
+
+-- nachfolgend Entwicklerteam oder Gruppe genannt --
+
+
+== Zusammenfassung
+
+Dieses Pflichtenheft repräsentiert die Anforderungen an das Managementsystem von Papas Pizza, welches unsere Gruppe im
+Rahmen des Softwarepraktikums erstellen soll. Dieses Dokument dient als Verschriftlichung der Kommunikation zwischen uns
+als Entwicklerteam und dem Kunden und somit auch als potenitelle Grundlage für einen Vertrag. Hier wird festgelegt,
+welche Aufgaben das Entwicklerteam zu implementieren hat und teilweise auch, in welcher Form dies getan wird.
+
+Das Pflichtenheft dient auch der Aufgabe, nach Abschluss der Implementierung zu entscheiden, ob die Aufgabe hinreichend
+erfüllt wurde. Deswegen werden alle Ziele in einer Form formuliert, das am Ende des Projektes eindeutig bestimmt werden kann,
+ob ein Aspekt erfüllt wurde oder nicht. Bereits der erste Entwurf ist als komplett anzusehen und während des Entwurfs sollen
+lediglich Kleinigkeiten hinzugefügt oder verändert werden. Dies muss allerdings immer in Rücksprache mit dem Kunden
+geschehen.
+
+== Aufgabenstellung und Zielsetzung
+
+Der Pizza-Service Papa Pizza ist ein Pizza-Unternehmen, welches für seine lokale Filiale ein Managementsystem entwickeln
+lassen möchte. In diesem Abschnitt wird beschrieben, welche anfänglichen Anforderungen der Kunde an das System stellt.
+
+Als Hauptbestandteil des System ist die Verwaltung von Bestellungen anzusehen. Aufgrund von schlechten Erfahrungen mit
+Telefonscherzen möchte der Kunde, dass die Annahme und Verarbeitung von Bestellungen wie folgt ablaufen soll:
+
+* Neue Kunden tätigen ihre erste Bestellung persönlich in der Papa Pizza-Filiale. Dabei werden die Kundendaten nebst
+Telefonnummer aufgenommen. Mit der Rechnung erhält der Kunde seine erste TAN (Transaktionsnummer).
+* Im Regelfall bestellen Kunden telefonisch und weisen sich dabei mit ihrer Telefonnummer und TAN aus. Damit ist die TAN
+für den Kunden verbraucht.
+* Bei Auslieferung erhalten Kunden mit der Rechnung eine neue TAN.
+* Wer seine Pizza persönlich abholt, erhält einen Rabatt von 10%.
+
+Ein weiterer, wichtiger Bestandteil der Bestellungsverwaltung ist das individuelle Zusammenstellen von Pizzen. Daher
+sollen Kunden in der Lage sein, vorkonfigurierte Pizzen zu bestellen, diese nach Wunsch zu erweitern oder gänzlich
+individuell ihre eigene Pizza zusammenzustellen. Zusätzlich zu den Pizzen sollen Kunden ebenfalls Salate und Getränke
+bestellen können. Bei der Erstellung soll das System zusätlich darauf achten, dass ein Kunde ab einem Bestellwert von
+30€ ein Gratisgetränk erhält.
+
+Um die Arbeit in der Filiale zu unterstützen, soll das System ebenfalls eine einfache Lagerverwaltung
+ermöglichen. Dazu gehört eine Übersicht über Zutaten und Getränke, sowie das Vorkonfigurieren von Pizzen und Salaten.
+Für alle Inhalte im Lager soll es möglich sein, diese neu anzulegen, zu verändern oder zu löschen.
+
+Damit der Kunde bereits vor dem Anruf in der Filiale eine Übersicht über das reichhaltige Angebot bekommen kann, soll
+das System auch über eine Website verfügen, die die aktuellen Daten der Lagerverwaltung in einer leicht verständlichen
+Form dem Kunden präsentiert.
+
+Weiterhin soll das System die Öfen in der Filiale verwalten. Pizzen werden in den verfügbaren Öfen im 5-Minuten-Takt
+gebacken, d.h. alle 5 Minuten kann eine weitere Pizza in einen der Öfen geschoben werden. Das System soll eine bestellte
+Pizza zum nächsten Zeitpunkt für einen Ofen einplanen und somit auch vorhersagen, wann die Pizza geliefert werden kann.
+Da die Anzahl der benötigten Öfen und Pizzabäcker vom Kundenandrang abhängt, soll das System eine bequeme Übersicht über
+die aktuelle und vergangene Auslastung der Öfen anzeigen können, damit die Anzahl der Öfen vierteljährlich an die
+aktuellen Bestellungszahlen angepasst werden kann.
+
+Inwieweit die Fahrer in das System mit eingebunden werden sollen, wird in diesem Dokument noch nicht genau beschrieben,
+sondern im Verlauf des Entwurfes mit dem Kunden weiter geklärt.
+
+Desweitern soll das System eine Komponente für die Buchhaltung enthalten. Dazu gehört die Übersicht über vergangene
+Bestellungen und den Gewinn der Filiale. Auch die Verwaltung von Essgarnituren, die ein Kunde auf Wunsch zu seinem Essen
+gegen eine Kaution von 15€ bestellen kann, soll von dieser Komponente übernommen werden. Wird eine Garnitur nämlich
+nicht innerhalb von vier Wochen wieder abgegeben, wird sie als verkauft angesehen.
+
+Weitere Aufgaben des Systems sind auch die Verwaltung des Personals und des Kundenstammes, wozu auch die Generierung
+von TANs für die Bestellungen zählt.
+
+Das System soll in Form einer Website entwickelt werden, auf der sich die Angestellten mit ihrem Nutzernamen und Kennwort
+anmelden können sollen, um Zugriff auf alle Funktionen zu bekommen.
+
+
+== Produktnutzung
+
+Das System soll ausschließlich an den Rechnern in der Filiale genutzt werden. Somit sind die einzigen Nutzer, die vollen
+Zugriff auf das System haben, die Angestellten von Papas Pizza. Es kann daher davon ausgegangen werden, dass alle diese
+Nutzer nicht fachfremd sind und es für sie keiner weiteren Erklärung der internen Arbeitsprozesse bedarf. Jedoch soll
+es für diese Gruppe von Nutzern möglich sein, dass System vollständig ohne weitreichende technische Kenntnisse bedienen
+zu können. Deshalb soll die Bedienoberfläche aufgeräumt und benutzerfreundlich erstellt werden.
+
+Bei den Angestellten soll desweiteren zwischen normalen Angestellten und Managern unterschieden werden. Während der normale
+Angestellte lediglich Zugriff auf die Bestellungs- und Kundenverwaltung haben soll sowie rudimentären Zugriff auf die
+Lagerverwaltung, hat der Manager alle Befugnisse (Ofen-, Personal und Lagerverwaltung). Es ist besonders darauf zu achten,
+dass sich die Benutzeroberfläche daran anpasst, welche Rolle der angemeldete Angestellte hat. Das heißt, während es dem
+normalen Angestellten unkompliziert möglich sein soll, neue Bestellungen und Kunden anzulegen, ist der einfache Zugriff
+auf den Lagerverwaltung und auf die finanziellen Übersichten das wichtigste für den Manager.
+
+Weitere Nutzer des Systems sind die Kunden von Papas Pizza, die sich über eine Website über das aktuelle Angebot von
+Papas Pizza informieren können müssen.
+
+
+== Interessensgruppen
+Der folgende Abschnitt beschreibt eine Liste aller Personengruppen, die einen Einfluss auf die Anforderungen an das
+System haben. Zusätzlich dazu wird jeder Gruppe von Personen eine Priorität zugeordnet, um im Fall eines
+Interessenkonfliktes schneller entscheiden zu können, welchem Anliegen Vorrang gegeben werdenSoll
+
+
+[options="header", cols="2, ^1, 4, 4"]
+|===
+|Name
+|Priorität (zwischen 1 und 5)
+|Beschreibung
+|Interessen und Ziele
+
+|Manager der Papas Pizza Filiale
+|5
+|Der Hauptkunde des Projektes
+a|
+- Steigerung des Gewinnes
+- Optimmierung der Arbeitszeit
+- Zugang zu einfachen finanziellen Übersichten
+- Vereinfachung der Lagerverwaltung
+
+|normale Angestellte in der Filiale
+|4
+|Hauptnutzer der Software
+a|
+- Einfache Abbildung und Automatisierung der Arbeitsprozesse
+- Einfaches Erstellen von Bestellungen
+- Automatische Verwaltung der TANs
+
+|Kunden der Filiale
+|3
+|Kunden, die bei der Filiale bestellen
+a|
+- Übersicht über das Angebot der Filiale
+
+|Developers
+|2
+|Softwareentwickler, die das System später warten müssen
+a|
+- Klare Benennung der Komponenten
+- ausführliche Dokumentation
+- umfangreiche Tests, um spätere Updates zu vereinfachen
+|===

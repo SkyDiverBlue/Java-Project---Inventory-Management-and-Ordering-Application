@@ -1,0 +1,13 @@
+CriticalAmount = 2
+OvenAmount = 2
+NAME = PapaPizza
+STRASSE = Bismark Straße 41
+POSTCODE = 01217
+CITY = Dresden
+INFORMATIONEN = Pizza, Pasta, Salat & mehr mit besten Zutaten, schnell und zuverlässig geliefert – das hat bei PapaPizza System. Nur was frisch zubereitet ist, schmeckt auch so. Von traditionell bis extravagant – jede Rezeptur wird fein abgestimmt und die große Auswahl an Variatione ständig verbessert und weiterentwickelt.
+
+Ein Stern am Himmel des guten Geschmacks, der überall da aufleuchtet, wo Leute einmal die Freddy-Fresh-Frische gekostet und den unkomplizierten Service ausprobiert haben. Langweilige Rezepte kommen uns nicht in den Ofen.
+TELEPHONNUMBER = 037209537256
+WOCHENTAGE = 09:00 bis 18:00
+SAMSTAG = 10:00 bis 18:00
+EMAIL = info@papapizza.de

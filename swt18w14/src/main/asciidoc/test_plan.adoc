@@ -1,0 +1,91 @@
+= Test-Plan
+
+Dieser Testplan stellt eine vereinfachte Version der IEEE 829-1998 Vorlage dar.
+
+== Einführung
+_Zielgruppe_: Entwiklerteam
+_Ziel_: Teststand übersicht, Test timeline, 
+
+== Aufbau der Testbezeichner
+Die Testbezeichner übernehmen die Ziffern der Akzeptanzfälle des Pflichtenhefts. Diese folgen der
+Reigenfolge der Benutzer die erforderlisch sind um diese Teste durchzuführen (Unregistered User,
+Admin, OrderManager, Baker und Deliverer).
+
+== Test Gegenstände
+
+== Zu testende Funktionalitäten
+alle eigen programmierten Funktionen.
+
+== Nicht zu testende Funktionalitäten
+Externe Libs von Salespoint und Spring
+
+== Herangehensweise
+
+- Klassen werden zunächst mit JUnit getestet.
+- Überprüfung der Testakzeptanz von Jenkins
+- Integrationstests nach Bottom-Up Prinzip
+
+== Umgebungsvoraussetzungen
+*Ein Admin-Account musst schon angelegt sein und die dazu gehörigen Anmeldedaten müssen bekannt sein
+*Die in der Entwiklerdokumentation spezifizierten Hardware und Software Anforderung müssen eingehalten werden
+
+== Testfälle und Verantwortlichkeit
+- Form-Bezogene Test die mit Mocking zu tun haben: Marine
+- Controller-Tests: Marine
+- Tests der packages baking und customer (zT. Office): Emely
+- Tests der packages coupons und Teil der order: Felix
+- Tests der packages (alle übrigen): Marine
+
+[options="headers"]
+|===
+|ID |Anwendungsfall |Vorbedingungen |Eingabe |Ausgabe
+|1 |[UC001] |authorize="!isAuthenticated()" |"/salads" |"catalog" (items enthält nur/alle PRODUCTTYPE_SALAD)
+|2 |[UC001] |authorize="!isAuthenticated()" |"/toppings" |"catalog" (items enthält nur/alle PRODUCTTYPE_TOPPING)
+|3 |[UC001] |authorize="!isAuthenticated()" |"/beverages" |"catalog" (items enthält nur/alle PRODUCTTYPE_BEVERAGES)
+|4 |[UC003] |authorize="!isAuthenticated()" |"/searchca?search=s" |"catalog" (items enthält alle produkte die ein 's' im Namen enthalten)
+|5 |[UC003] |authorize="!isAuthenticated()" |"/searchca?search=qwqw" |"catalog" (items enthält keine produkte) (fehlermeldung)
+|- |[UC004] |authorize="!isAuthenticated()" |"/login", correct username, correct password | authenticated with corresponding role
+|- |[UC004] |authorize="isAuthenticated()" | "/login", incorrect username or password | "/login"
+|- |[UC004] |authorize="isAuthenticated()" | logout | authorize="!isAuthenticated()", looses privileges of authentication
+|- |[UC005] |authorize="hasRole('ROLE_AMIN')" | "/registerEmployee", all form input fields filled out | "/employees", employee listed in list of employees(message: Der Mitarbeiter wurde erfolgreich erstellt.)
+|- |[UC005] |authorize="hasRole('ROLE_AMIN')", employee already in system with username "o"| "/registerEmployee", all form input fields filled out, input username "o" | "/employees", employee not listed in list of employees (warning: Der eingegebene Nutzername existiert bereits. & Der Mitarbeiter konnte nicht erstellt werden.)
+|- |[UC006] |authorize="hasRole('ROLE_AMIN')", stock has products | "/stock/{id}", input in quantity field -> positive integer | "/stock", product listed in stock list with correct amount (message: Der Lagerbestand wurde erfolgreich bearbeitet.)
+|- |[UC006] |authorize="hasRole('ROLE_AMIN')", stock has products | "/stock/{id}", input in quantity field -> negative integer or other non numerical symbol | "/stock", product listed in stock list with unchanged amount , (message: Der Lagerbestand konnte nicht bearbeitet werden.)
+|- |[UC   ] |authorize="hasRole('ROLE_AMIN')", stock has products | "/stock/", critical quantity -> positive integer | "/stock/", all products in stock list with quantity ≤ the critical quantity -> highlighted in table
+|- |[UC   ] |authorize="hasRole('ROLE_AMIN')", stock has products | "/stock/", critical quantity -> negative integer or non numerical symbol | "/stock/", wrong datatype input warning
+|- |[UC007] |authorize="hasRole('ROLE_AMIN')" | "/oven", positive integer | "/oven", amount of oven updated in system
+|- |[UC007] |authorize="hasRole('ROLE_AMIN')" | "/oven", negative integer or non numerical symbol | "/oven", wrong datatype input warning
+|- |[UC008] |authorize="hasRole('ROLE_AMIN')", stock has products | "/stock" | products in stock shown in list form
+|- |[UC008] |authorize="hasRole('ROLE_AMIN')", stock has no products | "/stock" | list of products in stock empty
+|- |[UC009] |authorize="hasRole('ROLE_AMIN')", system has employees | "/employees" | employees in system shown in list form
+|- |[UC009] |authorize="hasRole('ROLE_AMIN')", system has no employees | "/employees" | list of employees is empty
+|- |[UC010] |authorize="hasRole('ROLE_AMIN')", system has employees | "/employee/{id}", all input fields filled out | "/employees", employee listed in list with correct new values (message: Der Mitarbeiter wurde erfolgreich bearbeitet.)
+|- |[UC010] |authorize="hasRole('ROLE_AMIN')", system has employees | "/employee/{id}", not all input fields filled out | "/employee/{id}" (message: please fill in missing field)
+|- |[UC0  ] |authorize="hasRole('ROLE_AMIN')", system has employees | "/employee", select delete employee button | "/employee" (message: Der Mitarbeiter wurde erfolgreich gelöscht.)
+|- |[UC011] |authorize="hasRole('ROLE_AMIN')" system has existing customer with phone number "1" | "/registerCustomer" with phone number "1" | "/registerCustomer" (warning: Die angegebene Telefonnummer existiert bereits im System.)
+|- |[UC011] |authorize="hasRole('ROLE_AMIN')" | "/registerCustomer", all input fields filled out | "/customers", newly created employee in list (message: Der Kunde wurde erfolgreich angelegt.)
+|- |[UC011] |authorize="hasRole('ROLE_AMIN')" | "/registerCustomer", not all input fields filled out | "/registerCustomer" (message: please fill in missing field)
+|- |[UC012] |authorize="hasRole('ROLE_ORDERMANAGER')", customer verified, total of order > 30EURO | "/orderScreen/", confirm order | "/orderScreen/freeBeverage"
+|- |[UC012] |authorize="hasRole('ROLE_ORDERMANAGER')", customer verified |"/orderScreen/", to pick-up | "/orderScreen/complete", accountancy entry made
+|- |[UC012] |authorize="hasRole('ROLE_ORDERMANAGER')", customer verified |"/orderScreen/", to deliver | "/orderScreen/complete", no accountancy entry made, 10% discount on order
+|- |[UC012] |authorize="hasRole('ROLE_ORDERMANAGER')", customer verified | "/orderScreen/", cancel | no accountancy entry made, back to homepage
+|- |[UC013] |authorize="hasRole('ROLE_ORDERMANAGER')", has customers saved in system | /"verifyCustomer", correct phone number, incorrect TAN | /"verifyCustomer", (message: Die angegebene TAN ist falsch)
+|- |[UC013] |authorize="hasRole('ROLE_ORDERMANAGER')", has customers saved in system  | /"verifyCustomer", incorrect phone number |/"verifyCustomer", (message: Die angegebene Telefonnummer ist nicht im System registriert)
+|- |[UC013] |authorize="hasRole('ROLE_ORDERMANAGER')", has customers saved in system | /"verifyCustomer", correct phone number and TAN | "/orderScreen/"
+|- |[UC014] |authorize="hasRole('ROLE_ORDERMANAGER')", order not empty | /orderScreen/complete | expected delivery time is displayed
+|- |[UC015] |authorize="hasRole('ROLE_ORDERMANAGER')", products in stock exist, no ovens | "/orderScreen/", product of type Beverage added | product added to cart (message: 'Product' wurde zur Bestellung hinzugefügt.)
+|- |[UC015] |authorize="hasRole('ROLE_ORDERMANAGER')", products in stock exist, no ovens | "/orderScreen/", product of type Topping added | product not added to cart (message: Es sind derzeit keine Öfen vorhanden um Pizzen zu backen...)
+|- |[UC015] |authorize="hasRole('ROLE_ORDERMANAGER')", products in stock exist with not enough of said product | "/orderScreen/", add said product | product is not added to the cart (message: Es gibt derzeit keine 'product name' mehr.)
+|- |[UC015] |authorize="hasRole('ROLE_ORDERMANAGER')", products in stock exist with high enough quantity | "/orderScreen/", add product of type Beverage | product added to cart (message: 'Product' wurde zur Bestellung hinzugefügt.)
+|- |[UC0  ] |authorize="hasRole('ROLE_BAKER')", pizzas in oven | "/inOven/" | "/inOven/" table populated with correct pizza that are in oven
+|- |[UC0  ] |authorize="hasRole('ROLE_BAKER')", no pizzas in oven | "/inOven/" | "/inOven/" empty table
+|- |[UC016] |authorize="hasRole('ROLE_BAKER')", no pizzas to be backed exist | "/nextPizza/" | redirect to homepage
+|- |[UC016] |authorize="hasRole('ROLE_BAKER')", pizzas to be baked exist | "/nextPizza/" | Pizza with list of ingredients, 'bake' button
+|- |[UC017] |authorize="hasRole('ROLE_BAKER')", is baking, oven is free | "/nextPizza/{id}" | "/nextPizza" (warning: two pizza cannot be backed at the same time)
+|- |[UC017] |authorize="hasRole('ROLE_BAKER')", is baking, no oven is free |"/nextPizza/{id}"|"/nextPizza" (warning: kein ofen frei)
+|- |[UC017] |authorize="hasRole('ROLE_BAKER')", is not baking, no oven is free |"/nextPizza/{id}"|"/nextPizza" (warnung: kein ofen frei)
+|- |[UC017] |authorize="hasRole('ROLE_BAKER')", is baking, oven is free |"/nextPizza/{id}"|"/nextPizza/{id}" (toppings der pizza, die schon gebacken wurde) (warnung dass nicht noch eine gebacken werden kann)
+|- |[UC017] |authorize="hasRole('ROLE_BAKER')", is not baking, oven is free |"/nextPizza/{id}"|"/nextPizza/{id}" (toppings der pizza)
+|- |[UC018] |authorize="hasRole('ROLE_DELIVERER')" |"/deliverableProducts" |"deliverableProducts" (bills enthält orders die als deliverable markiert sind)
+|- |[UC021] |authorize="hasRole('ROLE_DELIVERER')", order in OrderRepo|"/printBill", order.id |"printBill" (as new tab)
+|===

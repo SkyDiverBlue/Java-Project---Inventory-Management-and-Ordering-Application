@@ -1,0 +1,24 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2017/18
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von:** Voigt, Moritz 
+
+**Gruppe:** 14
+
+== Was habe ich gelernt?
+Das Praktikum hat einen guten ersten Einblick in die professionelle Softwareentwicklung gegeben. Ich konnte im Verlauf mein Wissen sowohl im Bereich der OOA und OOD anwenden und vertiefen, als auch Erfahrung in der Entwicklung einer Anwendung im Team sammeln. Das setzen von Meilensteinen und Deadlines führte zwar manchmal zu etwas Stress, förderte aber vor allem das disziplinierte Arbeiten am Projekt. Das Einarbeiten in verschieden Frameworks und deren Nutzung waren zu Beginn ziemlich herausfordernd und teils auch frustrierend, allerdings auch sehr lehrreich. So fällt mir mitlerweile das Arbeiten mit Dokumentationen leichter und es ist mir schneller möglich, mein Wissen selbst auszubauen. Damit gibt das Praktikum auch einen Anstoß zu weiteren, eigenen Projekten.
+
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+Entgegen meiner Erwartungen entstand in unserer Gruppe schon direkt zu Beginn ein gutes Arbeitsklima, gerade in der OOA und OOD Phase wurde viel diskutiert und jeder brachte sich mit guten Ideen ein in die Plannung. Nachdem für das Programmmieren ersteinmal die grundlegenden Aufagben verteilt waren, wurde die Kommunikation etwas schwach, was dazu führte das eine kurze Zeit lang die Aufgaben schlecht verteilt waren. Dies wurde allerdings durch selbstkritsches Verhalten bemerkt und behoben, was im folgenden auch zu einem effektiveren und offeneren arbeiten führte. Als großer Antrieb ist an dieser Stelle auch unser Scrum Master Emely zunennen, die immer wieder die Gruppe vorantrieb und versucht hat die Aufgaben den Fähigkeiten der Teammitglieder entsprechend zu verteilen.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+Die Nutzung von Salespoint war sehr praktisch, da es gerade Anfängern eine gute und relativ einfache Möglichkeit gibt sich in Spring einzuarbeiten, wenn auch nur oberflächlich. Es ist äußerst geeignet um guten Coding Style zu lernen, da es über seine schon gegeben Einteilung in packages ein gutes Konzept vermittelt. Natürlich stößt man mit so einem vereinfachten Framework auch schnell mal an die Granzen was dann aber dazu motiviert sich tiefer gehend mit z.B. Spring zu beschäftigen. Die Nutzung von CSS Frameworks wie Semantics UI vereinfachte das gestalten der Seite und gab uns so die Möglichkeit uns mehr mit dem eigentlichen Java Code zu beschäftigen, was ich persönlich als sehr vorteilhaft einschätze.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+Das einarbeiten in die Nutzung der Frameworks war zuerst recht mühsam. Die Einführungsveranstaltungen mit Oliver Gierke waren sehr hilfreich, allerdings ist es schwer gefallen durch die kurze Zeit und fülle der Information durchgängig zu folgen. Vielleicht wäre es sinnvoll den Stoff auf mehr Veranstaltungen zu verteilen.
+
+== Feedback für den Tutor
+Der Tutor konnte uns häufig mit Tipps und Ratschlägen helfen. Er sorgte dafür das die Gruppe im Zeitplan blieb und alle Aufgaben ordentlich erledigte. Allerdings gab er manchmal Informationen erst spät weiter und die Aufgaben waren teils etwas ungenau, was allerdings nie zu größeren Problemen führte. Auf Fragen und Kommentare reagierte er meist sehr schnell, auch außerhalb von Gruppentreffen.

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet"
+          href="../static/resources/css/style.css" type="text/css"/>
+</head>
+
+
+<header>
+    <h1>Kontakt</h1>
+</header>
+<body>
+    <nav th:include="navigation :: navigation"></nav>
+
+<div class="ui three column grid container">
+
+
+    <div class="four wide column">
+        <h2><b>Bei Fragen...</b></h2>
+        <p>
+            <span th:text="${name}"></span><br>
+            <span th:text="${street}"></span><br>
+            <span th:text="${postCode}"> </span>
+            <span th:text="${city}"></span>
+        </p>
+        <p>
+            Tel.: <span th:text="${teleNum}"></span><br>
+            <a href="mailto:${email}" th:text="${email}"></a>
+        </p>
+        <p>
+            <b>Öffnungszeiten</b><br>
+            <div class="ui two column grid">
+                <div class="five wide column">
+                    Mo-Fr: <br>
+                    Sa:
+                </div>
+                <div class="ten wide column">
+                    <span th:text="${weekdays}"></span><br>
+                    <span th:text="${satDay}"></span>
+                </div>
+            </div>
+        </p>
+    </div>
+
+
+    <div class="eight wide column">
+        <h2 style="color: #cb0000"><b>Über uns:</b></h2>
+        <p th:text="${info}"></p>
+    </div>
+
+    <div class="two wide right floated column">
+        <a th:href="@{aboutUsEdit}"><button class="ui right floated button" sec:authorize="hasRole('ROLE_ADMIN')">Bearbeiten</button></a>
+    </div>
+
+</div>
+</body>
+</html>

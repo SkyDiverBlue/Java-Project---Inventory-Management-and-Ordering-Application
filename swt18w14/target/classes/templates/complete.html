@@ -1,0 +1,87 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+    <title>Abgeschlossene Bestellung | PapaPizza</title>
+</head>
+<body>
+
+    <header>
+        <h1>Fertig!</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <div class="ui container">
+        <div class="ui negative message" th:if="${hasCoupon==true}" th:text="'Sie haben bereits einen Coupon eingegeben!'"/>
+        <div class="ui positive message" th:if="${setCoupon==true}" th:text="'Coupon wurde akzeptiert. Sie bekommen 10% Rabatt'"/>
+        <div class="ui positive message" th:if="${setCoupon==false}" th:text="'Coupon wurde akzeptiert. Sie bekommen 20% Rabatt'"/>
+        <div class="ui negative message" th:if="${isCoupon==false}" th:text="'Coupon wurde nicht akzeptiert!'"/>
+
+    <h2>Bestellung abgeschlossen!</h2>
+
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th >Produkt</th>
+            <th >Preis</th>
+            <th >Anzahl</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" product : ${products}">
+            <td th:text="${product.productName}">Name</td>
+            <td th:text="${product.price}">price</td>
+            <td th:text="${product.quantity}">quant</td>
+        </tr>
+        <tr th:if="${discounted}">
+            <td>Rabatt</td>
+            <td th:text="${discount}">EUR 1.7</td>
+            <td>1</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="ui centered grid">
+        <div class="four column centered row">
+            <div class="row">
+                <div class="ui horizontal statistic" style="margin-top: 5px">
+                    <div class="label">Summe</div>
+                    <div class="value"><span th:text="${total}">1,65 EUR</span></div>
+                </div>
+            </div>
+            <p />
+            <div class="row">
+                <th>Zeit bis die Bestellung fertig ist:</th>
+                <td th:text="${time}">25</td>
+                <th> Minuten</th>
+            </div>
+        </div>
+    </div>
+
+<br>
+<br>
+<form class="ui form" method="get" th:action="@{/orderScreen/findByCode}">
+    <div class="fields">
+        <div class="four wide field">
+            <input th:type="text" th:name="code" required/>
+        </div>
+        <div class="three wide field">
+            <button type="submit" class="ui left floated button"> Coupon Code </button>
+        </div>
+        <div class="ten wide field">
+            <a th:href="@{/orderScreen/returnHome}"><button  type="button" class="ui right floated button">zurück zur Startseite</button></a>
+        </div>
+    </div>
+</form>
+
+    </div>
+</body>
+</html>

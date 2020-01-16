@@ -1,0 +1,518 @@
+:project_name: Papas Pizza
+:doctype: book
+:numbered:
+:source-highlighter: highlightjs
+
+== Anwendungsfälle
+
+Dieser Abschnitt soll einen Überblick über die unterschiedlichen Anwendungsfälle bieten, mit welchen die zu erstellende
+Software umgehen können muss.
+
+=== Akteure
+
+Akteure sind die Benutzer des Software-Systems oder Nachbarsysteme, welche darauf zugreifen. Die folgende Tabelle
+dokumentiert alle Akteure und beschreibt diese kurz.
+
+[options="header"]
+[cols="1,1,4"]
+|===
+|Name |Rolle| Beschreibung
+|Nutzer [[A01]]  |entfällt |Repräsentiert jegliche Person, welche mit dem System interagiert.
+|Kunde [[A02]]   |entfällt |Personen, welche keinen Zugriff auf den Internen Bereich haben und lediglich den Webauftritt
+(mit Katalog) einsehen können
+|Mitarbeiter [[A03]] |Manager |Person mit administrativen Rechten im System. Hat Zugriff auf die komplette Logistik und
+Datenbanken.
+|Mitarbeiter [[A04]] |Normal |Anderweitig angestellte Person, kann keine Änderungen an den Bestands- und
+Mitarbeiterdatenbanken vornehmen.
+|===
+
+=== Überblick Anwendungsfalldiagramm
+
+image::..\models\analysis\images\Anwendungsfalldiagramm.png[Anwendungsfalldiagramm, 100%, 100%, pdfwidth=100%, title= "Anwendungsfalldiagramm von {project_name}", align=center]
+
+=== Anwendungsfallbeschreibungen
+Dieser Abschnitt beschreibt die bereits genannten Anwendungsfälle genauer. Die einzelnen Anwendungsfälle sind jeweils
+mit einem zusätzlichen Sequenzdiagramm versehen.
+
+[[UC0101]]
+[cols="1,4"]
+|===
+|Name, ID | Element löschen _(Katalog)_, <<UC0101>>
+|Beschreibung | Einem Manager soll es möglich sein einzelne Elemente aus dem Katalog und der dazugehörigen Datenbank zu
+zu löschen. Dies sollte bei Auslösung zusätzlich bestätigt werden müssen.
+|Akteure | Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Eingeloggter Mitarbeiter _(Manager)_ klickt auf Löschen-Schaltfläche in der Auflistung des
+Katalogs (Manager-Ansicht).
+|Voraussetzungen | Mitarbeiter hat Manager-Rechte, ist eingeloggt, ist in Katalog-Ansicht
+|Schritte a|
+1. Klicken auf Schaltfläche "Katalog anzeigen"
+2. Klicken auf Löschen-Icon neben einem Katalog-Eintrag
+3. Bestätigen in zusätzlichem Pop-Up, dass die Aktion erfolgen soll
+|Funktionale Anforderungen | <<F0401>>, <<F0301>>, <<F0302>>, <<F0504>>, <<F0102>>
+|Sequenzdiagramm | <<SD0101>>
+|===
+
+[[SD0101]]
+image::..\models\analysis\images\KatalogItemLöschen.png[SD0101, 100%, 100%, pdfwidth=100%, title= "Element löschen", align=center]
+
+___
+
+[[UC0102]]
+[cols="1,4"]
+|===
+|Name, ID | Element hinzufügen _(Katalog)_, <<UC0102>>
+|Beschreibung | Einem Manager soll es möglich sein dem vorhandenen Sortiment Neues hinzuzufügen.
+|Akteure | Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Eingeloggter Mitarbeiter _(Manager)_ klickt auf "Neues Element hinzufügen" in der Auflistung des Katalogs
+(Manager-Ansicht).
+|Voraussetzungen | Mitarbeiter hat Manager-Rechte, ist eingeloggt, ist in Katalog-Ansicht
+|Schritte a|
+1. Klicken auf Schaltfläche "Katalog anzeigen"
+2. Klicken auf "Neues Element hinzufügen"
+3. Informationen eingeben
+4. Klicken auf Schaltfläche "Bestätigen"
+|Funktionale Anforderungen | <<F0401>>, <<F0301>>, <<F0302>>, <<F0504>>, <<F0104>>, <<F0102>>
+|Sequenzdiagramm | <<SD0102>>
+|===
+
+[[SD0102]]
+image::..\models\analysis\images\KatalogItemHinzufügen.png[SD0102, 100%, 100%, pdfwidth=100%, title= "Element hinzufügen", align=center]
+
+___
+
+[[UC0103]]
+[cols="1,4"]
+|===
+|Name, ID | Element bearbeiten _(Katalog)_, <<UC0103>>
+|Beschreibung | Einem Manager soll es möglich sein, vorhandene Einträge im Katalog zu editieren, um deren Details
+anzupassen.
+|Akteure | Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Eingeloggter Mitarbeiter _(Manager)_ klickt auf Editieren-Schaltfläche in der Auflistung des
+Katalogs (Manager-Ansicht).
+|Voraussetzungen | Mitarbeiter hat Manager-Rechte, ist eingloggt, ist in Katalog-Ansicht
+|Schritte a|
+1. Klicken auf Schaltfläche "Katalog anzeigen"
+2. Klicken auf Editieren-Icon neben einem Katalog-Eintrag
+3. Neue Informationen eingeben
+4. Klicken auf Schaltfläche "Bestätigen"
+|Funktionale Anforderungen | <<F0402>>, <<F0301>>, <<F0302>>, <<F0504>>, <<F0104>>, <<F0102>>
+|Sequenzdiagramm | <<SD0103>>
+|===
+
+[[SD0103]]
+image::..\models\analysis\images\KatalogItemBearbeiten.png[SD0103, 100%, 100%, pdfwidth=100%, title= "Element bearbeiten", align=center]
+
+___
+
+[[UC0104]]
+[cols="1,4"]
+|===
+|Name, ID | Lagerware bearbeiten, <<UC0104>>
+|Beschreibung | Dem Manager soll es möglich sein die Lagerbestände anzupassen.
+|Akteure | Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Eingeloggter Mitarbeiter _(Manager)_ klickt auf "Lagerware editieren"-Schaltfläche in der Auflistung des
+Katalogs (Manager-Ansicht).
+|Voraussetzungen | Mitarbeiter hat Manager-Rechte, ist eingloggt, ist in Katalog-Ansicht
+|Schritte a|
+1. Klicken auf Schaltfläche "Katalog anzeigen"
+2. Klicken auf "Lagerware bearbeiten"
+3. Neue Informationen in die Auflistung eintragen
+|Funktionale Anforderungen | <<F0401>>, <<F0301>>, <<F0302>>, <<F0504>>, <<F0104>>, <<F0102>>
+|Sequenzdiagramm | <<SD0104>>
+|===
+
+[[SD0104]]
+image::..\models\analysis\images\LagerwareBearbeiten.png[SD0104, 100%, 100%, pdfwidth=100%, title= "Lagerware bearbeiten", align=center]
+
+___
+
+[[UC0105]]
+[cols="1,4"]
+|===
+|Name, ID | Katalog anzeigen, <<UC0105>>
+|Beschreibung | Dem Besucher der Webseite soll es möglich sein sich den Katalog anzeigen zu lassen.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+* Kunde, <<A02>>
+|Auslöser | Klicken auf die "Katalog"-Schaltfläche auf der Webseite
+|Voraussetzungen | Nutzer ist auf der Webseite
+|Schritte | Auf Schaltfläche "Katalog" klicken
+|Funktionale Anforderungen | <<F0104>>, <<F0301>>
+|Sequenzdiagramm | <<SD0105>>
+|===
+
+[[SD0105]]
+image::..\models\analysis\images\KatalogAnzeigen.png[SD0105, 100%, 100%, pdfwidth=100%, title= "Katalog Anzeigen", align=center]
+
+___
+
+[[UC0106]]
+[cols="1,4"]
+|===
+|Name, ID | Garnitur zurückgeben, <<UC0106>>
+|Beschreibung | Einem Mitarbeiter muss es möglich sein die ausgeliehene Essgarnitur entgegen zu nehmen und dies wieder
+im System zu vermerken.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Klicken auf "Garnitur zurückgeben" in der Übersicht
+|Voraussetzungen | Eingeloggter Mitarbeiter klickt in der Übersicht auf den Button
+|Schritte a|
+1. Übersichtsseite öffnen
+2. Auf "Garnitur zurückgeben" klicken, Kundendaten eingeben
+|Funktionale Anforderungen | <<F0107>>, <<F0701>>, <<F0702>>, <<F0102>>, <<F0301>>
+|Sequenzdiagramm | <<SD0106>>
+|===
+
+[[SD0106]]
+image::..\models\analysis\images\GarniturZurückgeben.png[SD0106, 100%, 100%, pdfwidth=100%, title= "Garnitur zurückgeben", align=center]
+
+___
+
+[[UC0107]]
+[cols="1,4"]
+|===
+|Name, ID | Vorlage erstellen, <<UC0107>>
+|Beschreibung | Dem Manager soll es möglich sein ein Vorlage, basierend auf Zutaten für einen Salat oder eine Pizza,
+zu erstellen.
+|Akteure |Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Klicken auf "Vorlage erstellen" in der Vorlagen-Übersicht.
+|Voraussetzungen | Eingeloggter Mitarbeiter _(Manager)_ klickt in der Übersicht auf den Button.
+|Schritte a|
+1. Übersichtsseite öffnen
+2. Vorlagen-Übersicht öffnen
+3. Auf "Vorlage erstellen" klicken
+|Funktionale Anforderungen | <<F0102>>, <<F0504>>, <<F0901>>, <<F0302>>, <<F0301>>
+|Sequenzdiagramm | <<SD0107>>
+|===
+
+[[SD0107]]
+image::..\models\analysis\images\VorlageHinzufügen.png[SD0107, 100%, 100%, pdfwidth=100%, title= "Vorlage Hinzufügen", align=center]
+
+___
+
+[[UC0108]]
+[cols="1,4"]
+|===
+|Name, ID | Vorlage löschen, <<UC0108>>
+|Beschreibung | Dem Manager soll es möglich sein eine vorhandene Vorlage zu löschen.
+|Akteure |Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Klicken auf Löschen-Icon neben einer Vorlage in der Vorlagen-Übersicht.
+|Voraussetzungen | Eingeloggter Mitarbeiter _(Manager)_ klickt in der Übersicht auf den Button.
+|Schritte a|
+1. Übersichtsseite öffnen
+2. Vorlagen-Übersicht öffnen
+3. Auf Icon klicken
+4. Aktion bestätigen
+|Funktionale Anforderungen | <<F0102>>, <<F0504>>, <<F0401>>, <<F0302>>, <<F0301>>
+|Sequenzdiagramm | <<SD0108>>
+|===
+
+[[SD0108]]
+image::..\models\analysis\images\VorlageLöschen.png[SD0108, 100%, 100%, pdfwidth=100%, title= "Vorlage Löschen", align=center]
+___
+
+[[UC0109]]
+[cols="1,4"]
+|===
+|Name, ID | Vorlage bearbeiten, <<UC0109>>
+|Beschreibung | Dem Manager soll es möglich sein eine vorhandene Vorlage zu bearbeiten.
+|Akteure |Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Klicken auf Bearbeiten-Icon neben einer Vorlage in der Vorlagen-Übersicht.
+|Voraussetzungen | Eingeloggter Mitarbeiter _(Manager)_ klickt in der Übersicht auf den Button.
+|Schritte a|
+1. Übersichtsseite öffnen
+2. Vorlagen-Übersicht öffnen
+3. Auf Icon klicken
+4. Neue Daten eingeben
+5. Bestätigen
+|Funktionale Anforderungen | <<F0102>>, <<F0504>>, <<F0902>>, <<F0302>>, <<F0301>>
+|Sequenzdiagramm | <<SD0109>>
+|===
+
+[[SD0109]]
+image::..\models\analysis\images\VorlageBearbeiten.png[SD0109, 100%, 100%, pdfwidth=100%, title= "Vorlage Bearbeiten", align=center]
+
+___
+
+[[UC0201]]
+[cols="1,4"]
+|===
+|Name, ID | Nutzer hinzufügen, <<UC0201>>
+|Beschreibung | Einem Mitarbeiter muss es möglich sein Nutzer zum System hinzuzufügen. Falls es sich um einen Manager
+handelt muss dieser auch Mitarbeiter anlegen können.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Eingeloggter Mitarbeiter klickt auf Schaltfläche "Nutzer hinzufügen".
+|Voraussetzungen | Mitarbeiter ist eingeloggt
+|Schritte a|
+_Manager_:
+
+1. Öffne "Nutzer" Tab
+2. Wähle "Nutzer anlegen" oder "Mitarbeiter anlegen"
+3. Daten eingeben
+4. Daten prüfen, bestätigen
+
+_Normal_:
+
+Selbes Verfahren, ohne "Mitarbeiter anlegen"
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0504>>, <<F0101>>, <<F0102>>, <<F0501>>
+|Sequenzdiagramm | <<SD0201a>>, <<SD0201b>>
+|===
+
+[[SD0201a]]
+image::..\models\analysis\images\KundenHinzufügen.png[SD0201a, 100%, 100%, pdfwidth=100%, title= "Kunde hinzufügen", align=center]
+
+[[SD0201b]]
+image::..\models\analysis\images\MitarbeiterHinzufügen.png[SD0201b, 100%, 100%, pdfwidth=100%, title= "Mitarbeiter hinzufügen", align=center]
+
+___
+
+[[UC0202]]
+[cols="1,4"]
+|===
+|Name, ID | Nutzer löschen, <<UC0202>>
+|Beschreibung | Dem Manager soll es möglich sein Nutzer aus dem System zu löschen.
+|Akteure | Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Auf das Löschen-Icon neben einem Nutzer klicken
+|Voraussetzungen | Eingeloggter Mitarbeiter _(Manager)_ klickt auf Löschen-Icon.
+|Schritte a|
+1. Nutzerübersicht öffnen
+2. Neben betreffendem Nutzer Icon klicken
+3. Aktion bestätigen
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0504>>, <<F0101>>, <<F0102>>, <<F0502>>
+|Sequenzdiagramm | <<SD0202a>>, <<SD0202b>>
+|===
+
+[[SD0202a]]
+image::..\models\analysis\images\KundenLöschen.png[SD0202a, 100%, 100%, pdfwidth=100%, title= "Kunde löschen", align=center]
+
+[[SD0202b]]
+image::..\models\analysis\images\MitarbeiterLöschen.png[SD0202b, 100%, 100%, pdfwidth=100%, title= "Mitarbeiter löschen", align=center]
+
+___
+
+[[UC0203]]
+[cols="1,4"]
+|===
+|Name, ID | Nutzer bearbeiten, <<UC0203>>
+|Beschreibung | Den Mitarbeitern soll es möglich sein Kunden zu editieren und deren gespeicherte Informationen
+anzupassen. Der Manager soll zusätzlich die Möglichkeit haben auch Mitarbeiter zu editieren.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Auf das "Editieren"-Icon neben einem Nutzer klicken
+|Voraussetzungen | Eingeloggter Mitarbeiter klickt auf Editieren-Icon.
+|Schritte a|
+1. Nutzerübersicht öffnen
+2. Neben betreffendem Nutzer Editieren-Icon klicken
+3. Neue Daten eingeben
+4. Aktion bestätigen
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0504>>, <<F0101>>, <<F0102>>, <<F0503>>
+|Sequenzdiagramm | <<SD0203a>>, <<SD0203b>>
+|===
+
+[[SD0203a]]
+image::..\models\analysis\images\KundenBearbeiten.png[SD0203a, 100%, 100%, pdfwidth=100%, title= "Kunden bearbeiten", align=center]
+
+[[SD0203b]]
+image::..\models\analysis\images\MitarbeiterBearbeiten.png[SD0203b, 100%, 100%, pdfwidth=100%, title= "Mitarbeiter bearbeiten", align=center]
+
+___
+
+[[UC0204]]
+[cols="1,4"]
+|===
+|Name, ID | TAN anzeigen, <<UC0204>>
+|Beschreibung | Den Mitarbeitern soll es möglich sein, die derzeitige unverbrauchte TAN eines Kunden einzusehen.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Auf das TAN-Icon neben einem Nutzer klicken
+|Voraussetzungen | Eingeloggter Mitarbeiter klickt auf TAN-Icon.
+|Schritte a|
+1. Nutzerübersicht öffnen
+2. Neben betreffendem Nutzer Icon klicken
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0102>>, <<F0106>>, <<F0201>>
+|Sequenzdiagramm | <<SD0204>>
+|===
+
+[[SD0204]]
+image::..\models\analysis\images\TanAnzeigen.png[SD0204, 100%, 100%, pdfwidth=100%, title= "TAN anzeigen", align=center]
+
+___
+
+[[UC0205]]
+[cols="1,4"]
+|===
+|Name, ID | Login, <<UC0205>>
+|Beschreibung | Einem im System registrierten Nutzer soll es möglich sein, sich einzuloggen um sich als Mitarbeiter
+dem System zu kennnzeichnen und Zugriff auf interne Funktionen erhalten zu können.
+|Akteure | Nutzer, <<A01>>
+|Auslöser | Nutzer will sich als Mitarbeiter identifizieren, indem er sich einloggt.
+|Voraussetzungen | Nutzer ist noch nicht eingeloggt.
+|Schritte a|
+1. "Einloggen" in der Navigationsleiste betätigen
+2. Login Angaben eingeben
+3. "Log  in" betätigen
+|Funktionale Anforderungen | <<F0102>>, <<F0302>>, <<F0301>>
+|Sequenzdiagramm | <<SD0205>>
+|===
+
+[[SD0205]]
+image::..\models\analysis\images\Login.png[SD0205, 100%, 100%, pdfwidth=100%, title= "Login", align=center]
+
+___
+
+[[UC0206]]
+[cols="1,4"]
+|===
+|Name, ID | Logout, <<UC0206>>
+|Beschreibung | Einem im System authentifizierten Mitarbeiter soll es möglich sein sich auszuloggen.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Mitarbeiter will sich ausloggen, damit über seinen Account im System keine weiteren Aktionen erfolgen
+können.
+|Voraussetzungen | Mitarbeiter ist eingeloggt.
+|Schritte | "Logout" in der Navigationsleiste betätigen
+|Funktionale Anforderungen | <<F0102>>, <<F0303>>, <<F0301>>
+|Sequenzdiagramm | <<SD0206>>
+|===
+
+[[SD0206]]
+image::..\models\analysis\images\Logout.png[SD0206, 100%, 100%, pdfwidth=100%, title= "Logout", align=center]
+
+___
+
+[[UC0301]]
+[cols="1,4"]
+|===
+|Name, ID | Element hinzufügen _(Bestellung)_, <<UC0301>>
+|Beschreibung | Einem Mitarbeiter soll es möglich sein der Bestellung Elemente aus dem Katalog hinzuzufügen.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Eingeloggter Mitarbeiter klickt auf "Element hinzufügen"-Schaltfläche im Bestellvorgangsfenster.
+|Voraussetzungen | Mitarbeiter ist eingeloggt, ist in Bestellvorgang-Ansicht
+|Schritte a|
+1. Klicken auf Schaltfläche "Neue Bestellung"
+2. Klicken auf "Element hinzufügen" (Wahl aus Pizza, Getränk, Salat, Anderes)
+3. Wählen aus der angezeigten Katalogliste
+4. Eventuelle weitere Eingaben tätigen
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0102>>, <<F0103>>, <<F0101>>, <<F0106>>, <<F0601>>
+|Sequenzdiagramm | <<SD0301>>
+|===
+
+[[UC0302]]
+[cols="1,4"]
+|===
+|Name, ID | Element entfernen _(Bestellung)_, <<UC0302>>
+|Beschreibung | Einem Mitarbeiter soll es möglich sein ein Element von der Bestellung zu entfernen.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Eingeloggter Mitarbeiter klickt neben einem Element in der Bestellansicht auf "Entfernen"
+|Voraussetzungen | Mitarbeiter ist eingloggt, ist in Bestellvorgang-Ansicht
+|Schritte a|
+1. Klicken auf Schaltfläche "Neue Bestellung"
+2. Klicken auf "Entfernen" neben dem betreffenden Element
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0102>>, <<F0103>>, <<F0101>>, <<F0106>>, <<F0601>>, <<F0605>>
+|Sequenzdiagramm | <<SD0301>>
+|===
+
+[[UC0303]]
+[cols="1,4"]
+|===
+|Name, ID | Bestätigen, <<UC0303>>
+|Beschreibung | Einem Mitarbeiter soll es möglich sein die fertige Bestellung zu bestätigen.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Eingeloggter Mitarbeiter klickt in der Bestellansicht auf "Bestätigen".
+|Voraussetzungen | Mitarbeiter ist eingloggt, ist in Bestellvorgang-Ansicht
+|Schritte a|
+1. Klicken auf Schaltfläche "Neue Bestellung"
+2. Bestellung aufnehmen, TAN erfragen
+3. Klicken auf "Bestätigen"
+4. Nochmals prüfen
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0102>>, <<F0103>>, <<F0101>>, <<F0106>>, <<F0601>>, <<F0605>>, <<F0603>>,
+<<F0604>>, <<F0606>>
+|Sequenzdiagramm | <<SD0301>>
+|===
+
+[[UC0304]]
+[cols="1,4"]
+|===
+|Name, ID | Bestellung erstellen, <<UC0304>>
+|Beschreibung | Einem Mitarbeiter soll es möglich sein den Bestellvorgang einzuleiten.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Eingeloggter Mitarbeiter klickt in Übersicht auf "Neue Bestellung".
+|Voraussetzungen | Mitarbeiter ist eingloggt, ist in Übersicht-Ansicht
+|Schritte | Klicken auf "Neue Bestellung"
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0102>>, <<F0103>>, <<F0101>>, <<F0106>>, <<F0601>>
+|Sequenzdiagramm | <<SD0301>>
+|===
+
+[[UC0305]]
+[cols="1,4"]
+|===
+|Name, ID | Bestellung abbrechen, <<UC0305>>
+|Beschreibung | Einem Mitarbeiter soll es möglich sein, die Bestellung abzubrechen.
+|Akteure a|
+* Mitarbeiter _(Manager)_, <<A03>>
+* Mitarbeiter _(Normal)_, <<A04>>
+|Auslöser | Eingeloggter Mitarbeiter klickt in Bestellansicht auf "Abbrechen".
+|Voraussetzungen | Mitarbeiter ist eingloggt, ist in Bestellansicht
+|Schritte | Klicken auf "Bestellung abbrechen"
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0102>>, <<F0103>>, <<F0101>>, <<F0106>>, <<F0601>>, <<F0602>>
+|Sequenzdiagramm | <<SD0301>>
+|===
+
+[[SD0301]]
+image::..\models\analysis\images\Bestellungsvorgang.png[SD0301, 100%, 100%, pdfwidth=100%, title= "Bestellungsvorgang", align=center]
+
+___
+
+[[UC0401]]
+[cols="1,4"]
+|===
+|Name, ID | Wöchentliche Abrechnung, <<UC0401>>
+|Beschreibung | Einem Manager muss es möglich sein, die wöchentliche Abrechnung einzusehen.
+|Akteure | Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Klicken auf "Wochenübersicht" in der Übersicht
+|Voraussetzungen | Eingeloggter Mitarbeiter _(Manager)_ klickt in der Übersicht auf den Button
+|Schritte a|
+1. Übersichtsseite öffnen
+2. Auf "Wochenübersicht" klicken
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0504>>, <<F0102>>, <<F0103>>, <<F0802>>
+|Sequenzdiagramm | <<SD0401>>
+|===
+
+[[SD0401]]
+image::..\models\analysis\images\wöchentlicheAbrechnung.png[SD0401, 100%, 100%, pdfwidth=100%, title= "Wöchentliche Abrechnung", align=center]
+
+___
+
+[[UC0402]]
+[cols="1,4"]
+|===
+|Name, ID | Quartalszahlen für Öfen, <<UC0402>>
+|Beschreibung | Dem Manager muss es möglich sein, vierteljährlich die Zahlen für die Öfen zu vergleichen um
+gegebenenfalls Anpassungen vorzunehmen.
+|Akteure | Mitarbeiter _(Manager)_, <<A03>>
+|Auslöser | Klicken auf "Öfen" in der Übersicht
+|Voraussetzungen | Eingeloggter Mitarbeiter _(Manager)_ klickt in der Übersicht auf den Button
+|Schritte a|
+1. Übersichtsseite öffnen
+2. Auf "Öfen" klicken
+|Funktionale Anforderungen | <<F0302>>, <<F0301>>, <<F0504>>, <<F0102>>, <<F0105>>, <<F1001>>, <<F0801>>
+|Sequenzdiagramm | <<SD0402>>
+|===
+
+[[SD0402]]
+image::..\models\analysis\images\Quartalsberechnungen.png[SD0403, 100%, 100%, pdfwidth=100%, title= "Quartalszahlen Öfen", align=center]

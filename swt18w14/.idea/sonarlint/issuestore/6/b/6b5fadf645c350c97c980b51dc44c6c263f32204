@@ -1,0 +1,20 @@
+
+ 
+AWgE4viy3L3eEUoKyMDa-squid:RightCurlyBraceSameLineAsNextBlockCheck{"KMove this "finally" on the same line that the previous closing curly brace.(˜£­8À¡‹§€-
+I
+AWgE4viy3L3eEUoKyMDesquid:S00121}"Missing curly brace.(´Í›æ8À¡‹§€-
+
+AWgE4viy3L3eEUoKyMDS squid:LeftCurlyBraceEndLineCheckk"?Move this left curly brace to the end of previous line of code.(ÒÌâ–øÿÿÿÿ8À¡‹§€-
+x
+AWgE4viy3L3eEUoKyMDWsquid:S1695/"DThrow some other exception here, such as "IllegalArgumentException".(è™òè8À¡‹§€-
+¤
+AWgE4viy3L3eEUoKyMDZ-squid:RightCurlyBraceSameLineAsNextBlockCheckx"IMove this "catch" on the same line that the previous closing curly brace.(©¥–Üøÿÿÿÿ8À¡‹§€-
+ 
+AWgE4viy3L3eEUoKyMDc-squid:RightCurlyBraceSameLineAsNextBlockCheck€"IMove this "catch" on the same line that the previous closing curly brace.(…‰”Ï8À¡‹§€-
+‰
+AWgE4viy3L3eEUoKyMDYsquid:S00122}"TAt most one statement is allowed per line, but 2 statements were found on this line.(´Í›æ8À¡‹§€-
+†
+AWgOUaex3L3eEUoKyMZ-
+squid:S134S"NRefactor this code to not nest more than 3 if/for/while/switch/try statements.(òÃ±ıÿÿÿÿ8˜òÅò€-
+3squid:S00121~"Missing curly brace.(Ğ‹î8À¡‹§€-
+ssquid:S00122~"TAt most one statement is allowed per line, but 2 statements were found on this line.(Ğ‹î8À¡‹§€-

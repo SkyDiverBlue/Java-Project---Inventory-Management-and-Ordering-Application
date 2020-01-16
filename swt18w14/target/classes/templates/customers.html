@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Kundenverwaltung | PapaPizza</title>
+</head>
+<body>
+    <header>
+        <h1>Kundenverwaltung</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <div class="ui container">
+    <div class="ui two column grid">
+        <div class="column">
+            <a th:href="@{/registerCustomer}"><button type="button" class="ui button">Kundenregistrierung</button></a>
+        </div>
+        <div class="right aligned column">
+            <form class="ui action input" method="get" th:action="@{/searchc}">
+                <input placeholder="Search..." type="text" name="search">
+                <button class="ui icon button">
+                    <i class="search icon"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="ui positive message" th:if="${deleted==true}" th:text="'Der Kunde wurde aus dem System gelöscht.'" />
+    <div class="ui positive message" th:if="${registered==true}" th:text="'Der Kunde wurde erfolgreich angelegt.'"/>
+    <div class="ui positive message" th:if="${edited==true}" th:text="'Der Kunde wurde erfolgreich bearbeitet.'"/>
+    <div class="ui negative message" th:if="${unreturned>0}" th:text="${unreturned} + ' von ' + ${return} + ' Garnituren konnten nicht mehr zurückgegeben werden.'"/>
+    <div class="ui negative message" th:if="${noresult==true}" th:text="'Leider keinen passenden Kunden gefunden.'"/>
+
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th>Telefonnummer</th>
+            <th>TAN</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Adresse</th>
+            <th>Garnituren</th>
+            <th class="two wide" th:text="_"></th>
+        </tr>
+        </thead>
+
+        <tbody th:remove="all-but-first">
+        <tr th:each=" customer : ${customerList}">
+            <td th:text="${customer.tel}">11111</td>
+            <td th:text="${customer.tan}">TAN</td>
+            <td th:text="${customer.firstname}">Paul</td>
+            <td th:text="${customer.lastname}">Sonstwie</td>
+            <td th:text="${customer.address}">Nöthnitzer Straße 46</td>
+            <td th:text="${customer.countDiningSets}" >404</td>
+            <td class="right aligned">
+                <a th:href="@{/editCustomer/{id}(id=${customer.id})}"><button type="button" class="ui icon button"><i class="edit icon"></i></button></a>
+                <a th:href="@{/deleteCustomer/{id}(id=${customer.id})}"><button type="button" class="ui icon button"><i class="delete icon"></i></button></a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    </div>
+
+</body>
+</html>

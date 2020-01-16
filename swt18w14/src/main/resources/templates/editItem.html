@@ -1,0 +1,67 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Produkt bearbeiten</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <div class="ui container">
+    <div class="ui negative message" th:if="${error}" th:text="${error}"/>
+
+    <form method="post" role="form" class="ui form" id="form" th:action="@{/editItem/{id}(id=${item.id})}" >
+        <h3 class="ui dividing header"><span  th:text="${item.name}"></span> bearbeiten</h3>
+        <div class="fields">
+            <div class="seven wide field">
+                <label th:text="Produktname" for="name"></label>
+                <input id="name" required="required" th:field="*{item.name}" /><br/>
+            </div>
+
+            <div class="four wide field">
+                <label th:text="Verkaufspreis" for="price"></label>
+                <input th:value="${sell}" id="price" name="price" type="text" required="required"/><br/>
+            </div >
+
+            <div class="four wide field">
+                <label th:text="Einkaufspreis" for="purchasePrice"></label>
+                <input th:value="${purchase}" id="purchasePrice" name="purchasingPrice" type="text" required="required"/><br/>
+            </div>
+        </div>
+
+        <div class="fields">
+            <div class="three wide field">
+                <label th:text="Bildpfad" for="image"></label>
+                <input id="image" th:field="${item.image}" type="text" required="required"/><br/>
+            </div>
+
+            <div class="twelve wide field">
+                <label th:text="Beschreibung" for="description"></label>
+                <input id="description" th:field="${item.description}" type="text" required="required"/><br/>
+            </div>
+        </div>
+
+        <div class="field">
+            <button type="submit" class="ui button" th:text="Bearbeiten" style="margin-top: 5px"></button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+
+</html>

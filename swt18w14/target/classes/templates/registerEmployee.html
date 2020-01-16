@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Mitarbeiterregistrierung</title>
+</head>
+<body>
+
+    <header>
+        <h1>Mitarbeiterregistrierung</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <div class="ui container">
+
+    <form method="post" role="form" class="ui form" id="form" th:action="@{/registerEmployee}" th:object="${form}">
+        <h3 class="ui dividing header"> Daten des Mitarbeiters</h3>
+        <div class="fieldset">
+            <p><b>Mitarbeitertyp: </b></p>
+            <input type="radio" id="type1" name="type" value="b" checked="checked">
+            <label for="type1"> Bäcker</label>
+            <input type="radio" id="type2" name="type" value="o">
+            <label for="type2"> Bestellmanager</label>
+            <input type="radio" id="type3" name="type" value="d">
+            <label for="type3"> Lieferant</label>
+        </div>
+<br>
+        <div class="fields">
+            <div class="seven wide field">
+                <label for="firstname">Vorname</label>
+                <input id="firstname" name="firstname" th:field="*{firstname}" type="text" required="required"/><br/>
+            </div>
+
+
+            <div class="seven wide field">
+                <label for="lastname">Nachname</label>
+                <input id="lastname" name="lastname" th:field="*{lastname}"  type="text" required="required"/><br/>
+            </div>
+        </div>
+
+        <div class="fields">
+            <div class="five wide field">
+                <label for="number">Telefonnummer</label>
+                <input id="number" name="number" th:field="*{number}"  type="text" required="required"/><br/>
+            </div>
+
+            <div class="nine wide field">
+                <label for="address">Straße</label>
+                <input id="address" name="address" th:field="*{address}" type="text" required="required"/><br/>
+            </div>
+        </div>
+
+        <div class="fields">
+            <div class="seven wide field">
+                <label for="username">Nutzername</label>
+                <input id="username" name="username" th:field="*{username}" type="text" required="required"/><br/>
+            </div>
+
+            <div class="seven wide field">
+                <label for="password">Passwort</label>
+                <input id="password" name="password" th:field="*{password}" type="text" required="required"/><br/>
+            </div>
+        </div>
+        <div class="field">
+            <button type="submit" class="ui button" style="margin-top: 5px" >Registrieren</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

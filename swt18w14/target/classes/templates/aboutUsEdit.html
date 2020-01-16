@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet"
+          href="../static/resources/css/style.css" type="text/css"/>
+</head>
+
+<header>
+    <h1>Kontakt bearbeiten</h1>
+</header>
+
+<body>
+<nav th:include="navigation :: navigation"></nav>
+
+<div class="ui container">
+<div class="ui negative message" th:if="${error}" th:text="${error}"></div>
+<div class="ui positive message" th:if="${pos}" th:text="${pos}"></div>
+
+<form  class="ui form" method="get"  th:action="@{/aboutUsEdit/changeAdress}">
+    <div class="ui dividing header">Adresse</div>
+    <div class="fifteen wide field">
+        <label th:text="Name"></label>
+        <input id="name" required="required" th:type="text" th:name="name" th:value="${name}" /><br/>
+    </div>
+
+    <div class="fields">
+        <div class="five wide field">
+            <label for="street">Straße und Nummer</label>
+            <input id="street" required="required" th:type="text" th:name="street" th:value="${street}"/><br/>
+        </div>
+
+        <div class="five wide field">
+            <label th:text="Postleitzahl"> </label>
+            <input id="postCode" required="required" th:type="text" th:name="postCode"  maxlength="5" minlength="5" th:value="${postCode}" /><br/>
+        </div>
+
+        <div class="five wide field">
+            <label th:text="Stadt"> </label>
+            <input id="city" required="required" th:type="text" th:name="city" th:value="${city}" /><br/>
+        </div>
+    </div>
+
+    <div class="fifteen wide field">
+        <button class="ui right floated button" type="submit">Bearbeiten</button>
+    </div>
+</form><br>
+
+<form class="ui form" method="get"  th:action="@{/aboutUsEdit/changeNumber}" >
+    <div class="ui dividing header">Kontaktinformationen</div>
+    <div class="fifteen wide field">
+        <label for="tel">Telefonnummer</label>
+        <div class="ui action input">
+            <input id="tel" required="required" th:type="text" th:name="tel" th:value="${teleNum}" /><br/>
+            <button class="ui icon button">
+                <i class="edit icon"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+<form class="ui form" method="get"  th:action="@{/aboutUsEdit/email}">
+    <div class="fifteen wide field">
+        <label for="email">Email</label>
+        <div class="ui action input">
+            <input id="email" required="required" th:type="text" th:name="email" th:value="${email}"/><br/>
+            <button class="ui icon button">
+                <i class="edit icon"></i>
+            </button>
+        </div>
+    </div>
+</form><br>
+
+<form class="ui form" method="get"  th:action="@{/aboutUsEdit/weAreWorkingWeek}">
+    <div class="ui dividing header">Öffnungszeiten unter der Woche</div>
+    <div class="fields">
+        <div class="five wide field">
+            <label for="weekDaysOn">Von</label>
+            <input id="weekDaysOn" required="required" th:type="time" th:name="DayOn" /><br/>
+        </div>
+        <div class="five wide field">
+            <label for="weekDaysOn">Bis</label>
+            <input id="weekDaysOf" required="required" th:type="time" th:name="DayOf"/><br/>
+        </div>
+        <div class="fife wide field">
+            <br>
+            <button class="ui button" type="submit" style="margin-top: 5px">Bearbeiten</button>
+        </div>
+    </div>
+</form>
+
+<form class="ui form" method="get"  th:action="@{/aboutUsEdit/weAreWorkingSat}">
+    <div class="ui dividing header">Öffnungszeiten Samstag</div>
+    <div class="fields">
+        <div class="five wide field">
+            <label for="satDaysOn">Von</label>
+            <input id="satDaysOn" required="required" th:type="time" th:name="DayOn" /><br/>
+        </div>
+        <div class="five wide field">
+            <label for="satDaysOf">Bis</label>
+            <input id="satDaysOf" required="required" th:type="time" th:name="DayOf" /><br/>
+        </div>
+        <div class="fife wide field">
+            <br>
+            <button class="ui button" type="submit" style="margin-top: 5px">Bearbeiten</button>
+        </div>
+    </div>
+</form><br>
+
+<form class="ui form" method="get"  th:action="@{/aboutUsEdit/information}">
+    <div class="ui dividing header">Beschreibungstext</div><br>
+    <div class="fifteen wide field">
+        <textarea id="information" required="required" th:type="text" th:name="information" th:text="${info}"></textarea>
+    </div>
+    <div class="fifteen wide field">
+        <button class="ui right floated button" type="submit">Bearbeiten</button><br>
+    </div>
+
+</form>
+</div>
+</body>
+</html>

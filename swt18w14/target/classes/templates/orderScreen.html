@@ -1,0 +1,113 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:text="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+    <title>Bestellung | PapaPizza</title>
+</head>
+
+<body>
+<header>
+    <h1>Bestellung</h1>
+</header>
+<nav th:include="navigation :: navigation"></nav>
+<div class="ui container">
+<div class="ui negative message" th:if="${stockEmpty}" th:text="${stockEmpty}"/>
+<div class="ui positive message" th:if="${niceStock}" th:text="${niceStock}"/>
+<div class="ui negative message" th:if="${notInCart}" th:text="${notInCart}"/>
+<div class="ui positive message" th:if="${inCart}" th:text="${inCart}"/>
+<div class="ui positive message" th:if="${pizza}" th:text="${pizza}"/>
+<div class="ui negative message" th:if="${noOven}" th:text="${noOven}"/>
+    <div class="ui negative message" th:if="${emptyOrder == true}" th:text="'Sie könnnen keine leere Bestellung annehmen'"/>
+
+<div class="ui two column grid">
+    <div class="left floated nine wide column">
+        <div class="ui simple dropdown">
+            <span class="text">Kategorien</span>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" th:href="@{/orderScreen/toppings}">Pizzabeläge</a>
+                <a class="item" th:href="@{/orderScreen/beverages}">Getränke</a>
+                <a class="item" th:href="@{/orderScreen/salads}">Salate</a>
+                <a class="item" th:href="@{/orderScreen/diningSets}">Garnitur</a>
+            </div>
+        </div>
+        <div class="myBox">
+            <table class="ui celled table">
+                <thead>
+                <tr>
+                    <th th:text="Produkt"></th>
+                    <th th:text="Beschreibung"></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each=" item : ${orderScreen}">
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.description}"></td>
+                    <td>
+                        <form class="ui form" method="get" th:action="@{/orderScreen/remove}">
+                            <input type="hidden" name="p_id" th:value="${item.id}"/>
+                            <button type="submit" class="ui button">-</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form class="ui form" method="get" th:action="@{/orderScreen/add}">
+                            <input type="hidden" name="p_id" th:value="${item.id}"/>
+                            <button type="submit" class="ui button">+</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="right floated five wide column">
+        <div th:include="cart :: cart"></div>
+    </div>
+</div>
+
+<div class = "ui two column grid ">
+    <div class="left floated nine wide column">
+        <div class="ui vertical buttons">
+            <form class="ui form" method="get" th:action="@{/orderScreen/newPizza}">
+                <button type="submit" class="ui button" style="margin-left:10px"> <i class="plus icon"></i>neue Pizza</button>
+            </form>
+            <form class="ui form" method="get" th:action="@{/orderScreen/clear}">
+                <button type="submit" class="ui red button" style="margin:10px">Stornieren</button>
+            </form>
+        </div>
+    </div>
+    <div class="right floated five wide column">
+        <div class="ui right aligned container">
+            <div class="ui mini horizontal statistic">
+                <div class="label" th:text="Sum"></div>
+                <div class="value"><span th:text="${{cart?.price}}"></span></div> <!--the ? seems to resolve null errors-->
+            </div>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <!--very ugly quick fix for layout-->
+            <div class="ui buttons">
+                <form class="ui form" method="get" th:action="@{/orderScreen/orderConfirm}">
+                    <button type="submit" class="ui right floated positive button"^ name="decide" value="takeItYourself">Abholung</button>
+                </form>
+                <div class="or"></div>
+                <form class="ui form" method="get" th:action="@{/orderScreen/orderConfirm}">
+                    <button type="submit" class="ui right floated button" name="decide" value="getDelivered">Lieferung</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+
+</html>

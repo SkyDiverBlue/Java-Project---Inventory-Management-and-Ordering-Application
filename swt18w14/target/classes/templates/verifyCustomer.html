@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Kundenverifikation | PapaPizza</title>
+</head>
+<body>
+    <header>
+        <h1>Kundenverifikation</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+<div class="ui container">
+    <div class="loginBox">
+        <form method="post" role="form" class="ui form" id="form" th:action="@{/verifyCustomer}" th:object="${form}">
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                <p>Einige Angaben sind nicht korrekt.</p>
+            </div>
+
+            <div class="field">
+                <label for="tel">Telefonnummer</label>
+                <input id="tel" name="tel" th:field="*{tel}" th:errorclass="fieldError" type="tel" required="required"/><br/>
+                <div class="ui negative message" th:if="${message==1}" th:text="${'Die angegebene Telefonnummer ist nicht im System registriert'}"/>
+            </div>
+
+            <div class="field">
+                <label for="tan">TAN</label>
+                <input id="tan" name="tan" th:field="*{tan}" th:errorclass="fieldError" type="text" required="required"/><br/>
+                <div class="ui negative message" th:if="${message==2}" th:text="${'Die angegebene TAN ist falsch'}"/>
+            </div>
+
+            <button type="submit" class="ui button" >Verifizieren</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

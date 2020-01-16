@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+</head>
+<body>
+<nav th:fragment="navigation">
+    <div class="ui menu">
+        <a class="item" th:href="@{/toppings}" sec:authorize="!isAuthenticated()">Pizzabeläge</a>
+        <a class="item" th:href="@{/beverages}" sec:authorize="!isAuthenticated()">Getränke</a>
+        <a class="item" th:href="@{/salads}" sec:authorize="!isAuthenticated()">Salate</a>
+
+        <div class="ui simple dropdown item" sec:authorize="hasRole('ROLE_ADMIN')">
+            <span class="text">Warenverwaltung<i class="dropdown icon"></i></span>
+            <div class="menu">
+                <a class="item" th:href="@{/stock}" > Lager</a>
+                <a class="item" th:href="@{/productList}" >Katalog</a>
+            </div>
+        </div>
+
+        <a class="item" th:href="@{/employees}" sec:authorize="hasRole('ROLE_ADMIN')">Mitarbeiterverwaltung</a>
+        <a class="item" th:href="@{/customers}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_ORDERMANAGER')">Kundenverwaltung</a>
+
+        <div class="ui simple dropdown item" sec:authorize="hasRole('ROLE_ADMIN')">
+            <span class="text">Finanzen<i class="dropdown icon"></i></span>
+            <div class="menu">
+                <a class="item" th:href="@{/office}" sec:authorize="hasRole('ROLE_ADMIN')"> Buchhaltung</a>
+                <a class="item" th:href="@{/coupons}" >Coupons</a>
+
+            </div>
+        </div>
+
+        <div class="ui simple dropdown item" sec:authorize="hasRole('ROLE_ADMIN')">
+            <span class="text">Filiale<i class="dropdown icon"></i></span>
+            <div class="menu">
+                <a class="item" th:href="@{/completedOrders}" >Bestellungen</a>
+                <a class="item" th:href="@{/oven}" >Öfen</a>
+                <a class="item" th:href="@{/aboutUs}" sec:authorize="hasRole('ROLE_ADMIN')">Über uns</a>
+            </div>
+        </div>
+
+        <a class="item" th:href="@{/verifyCustomer}" sec:authorize="hasRole('ROLE_ORDERMANAGER')">Bestellung aufnehmen</a>
+        <a class="item" th:href="@{/stock}" sec:authorize="hasRole('ROLE_ORDERMANAGER')"> Lager</a>
+
+        <a class="item" th:href="@{/deliverableProducts}" sec:authorize="hasRole('ROLE_DELIVERER')" >Auszuliefernde Bestellungen</a>
+        <a class="item" th:href="@{/productsReadyForPickUp}" sec:authorize="hasRole('ROLE_ORDERMANAGER')" >Abzuholende Bestellungen</a>
+
+
+
+        <a class="item" th:href="@{/toBeBaked}" sec:authorize="hasRole('ROLE_BAKER')" >Zu Backende Pizzen</a>
+        <a class="item" th:href="@{/inOven}" sec:authorize="hasRole('ROLE_BAKER')" >Pizzen im Ofen</a>
+        <a class="item" th:href="@{/nextPizza}" sec:authorize="hasRole('ROLE_BAKER')" >Nächsten Backauftrag anfordern</a>
+
+
+        <div class="right menu">
+            <div class="item" sec:authorize="!isAuthenticated()">
+                <form class="ui action input" method="get" th:action="@{/searchca}">
+                        <input placeholder="Search..." type="text" name="search">
+                        <a th:href="@{/searchp}" >
+                            <button class="ui icon button">
+                                <i class="search icon"></i>
+                            </button>
+                        </a>
+                </form>
+            </div>
+            <a class="item" th:href="@{/aboutUs}" sec:authorize="!isAuthenticated()">Über uns</a>
+            <a class="item" th:href="@{/login}" sec:authorize="!isAuthenticated()">Mitarbeiter Login</a>
+            <a class="item" th:href="@{/logout}" sec:authorize="isAuthenticated()"> Logout</a>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

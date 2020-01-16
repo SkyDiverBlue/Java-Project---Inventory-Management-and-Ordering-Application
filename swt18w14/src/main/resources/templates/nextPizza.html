@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>nächste Pizza</title>
+</head>
+<body>
+
+<header>
+    <h1>Zu backende Pizza</h1>
+</header>
+<nav th:include="navigation :: navigation"></nav>
+<div class="ui container">
+<div class="ui negative message" th:if="${noOven}" th:text="${noOven}"/>
+<div class="ui positive message" th:if="${noPizza}" th:text="${noPizza}"/>
+
+
+<div class="error_msg" th:if="${alreadyBaking==true}" > Qualität ist uns wichtig. Backen Sie nie zwei Pizzen zur selben Zeit!</div>
+
+<div th:if="${nextPizza!=null}">
+    <p> Backen sie eine Pizza, welche die folgenden Zutaten enthält:</p>
+    <ul th:each="product : ${nextPizza.toppings}">
+        <li th:text="${product.getValue()} + 'mal ' + ${product.getKey()}"></li>
+    </ul>
+</div>
+
+<a th:if="${button==true}" th:href="@{/nextPizza/{uuid}(uuid=${nextPizza.getUUID()})}"><button th:text="'Beginne zu backen'" type="button" class="ui button">backen</button></a>
+</div>
+</body>
+</html>

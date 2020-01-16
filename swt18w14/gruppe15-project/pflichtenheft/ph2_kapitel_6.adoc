@@ -1,0 +1,16 @@
+:project_name: Papas Pizza
+:doctype: book
+:numbered:
+:source-highlighter: highlightjs
+
+== Systemgrenze und Top-Level-Architektur
+
+=== Kontextdiagramm
+Das Kontextdiagramm zeigt das geplante Software-System in seiner Umgebung. Zur Umgebung gehören alle Nutzergruppen des
+Systems und Nachbarsysteme.
+
+image::..\models\analysis\images\Kontextdiagramm.png[Kontextdiagramm, 100%, 100%, pdfwidth=100%, title= "Kontextdiagramm von {project_name}", align=center]
+
+
+=== Top-Level-Architektur
+image::..\models\analysis\images\TLA2.png[TLA, 100%, 100%, pdfwidth=100%, title= "Top Level Architektur von {project_name}", align=center]

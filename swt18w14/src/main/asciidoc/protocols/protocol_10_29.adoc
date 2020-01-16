@@ -1,0 +1,42 @@
+= Protokoll Gruppe 14
+
+Treffen am 29.10.2018
+
+Ort:      Andreas-Pfitzmann-Bau E006 +
+Beginn:   15.40 Uhr +
+Ende:     16.35 Uhr
+
+__Schriftführer: Moritz Voigt__
+
+*Nächstes Treffen:* +
+5.11.2018, 15:30 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+
+== Aktueller Stand
+
+- erste Version des Pflichtenheftes abgegeben und größten Teils vom Kunden akzeptiert, offene Fragen wurden geklärt und das Pflichtenheft wird entsprechend überarbeitet
+- Videoshopaufgaben weitgehend erledigt
+- Aufteilen des Klassendiagrammes auf disjunkte Komponenten zur besseren Arbeitsteilung
+
+== Entscheidungen
+
+- Wenn möglich alle Diagramme in MagicDrawUML oder vergleichbaren Programm umsetzen
+- Dringlichkeit im GUI entfernen
+- TAN entfällt nach Validierung der Bestellung
+- Kunde wünscht Produktsuche im Katalog
+- vorraussichtliche Lieferzeit erst nach dem Abschließen der Bestellung berechnen
+
+== Planung
+
+- Aufteilung der Komponenten zum implementieren der Prototypen in Spring/Salespoint
+- Verfeinerung des Pflichtenheftes (Anpassung an Kundenwünsche und Salespoint)
+
+

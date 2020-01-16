@@ -1,0 +1,55 @@
+= Protokoll Gruppe 14
+
+Treffen am 19.11.2018
+
+Ort:      Andreas-Pfitzman-Bau E067 +
+Beginn:   15:30 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer: Marine Lafin__
+
+*Nächstes Treffen:* +
+26.10.2018, 15:20 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+
+== Bemerkungen
+* Nächste Abgabefrist: Sonntag, der 25.11, um 23:59 (auf Master branch)
+* Besprechung der nötigen Basisfunktionalität der Applikation die bis zur Abgabefrist fertig sein müssen:
+ ** 1.)  Benutzerverwaltung (mit login-Seite)
+ ** 2.) Stock (Lager) verwaltung
+ ** 3.) Bestellung (Order) aufnehmen
+ * Code muss anhand von javaDoc kommentiert werden
+ * Funktionen sollten jUnit tests haben
+ * Besprechung eines Termins für die anstehende Projektpräsentation
+
+
+== Retrospektive des letzten Sprints
+
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |Prototypen       |fertig      |…
+|===
+
+
+== Aktueller Stand
+- Prototypen wurden fertig programmiert und vom Tutor geprüft
+- Basisfunktionalitäten wurden festgelegt
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |Basisfunktionalitäten     |besprochene Basisfunktionalitäten müssen implementiert werden           |-           |in Arbeit
+|===

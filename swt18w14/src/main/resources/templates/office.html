@@ -1,0 +1,109 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+    <title>Buchhaltung | PapaPizza</title>
+</head>
+
+
+<body>
+
+<header>
+    <h1>Buchhaltung</h1>
+</header>
+
+    <nav th:include="navigation :: navigation"></nav>
+<div class="ui container">
+
+<div class="ui two column grid ">
+    <div class="left floated wide column">
+        <h3> Zeitraum verändern</h3>
+        <form class="ui form" method="get" th:action="@{/changeInterval}">
+            <div class="three fields" style="margin-top: 30px">
+                <div class="field">
+                    <label for="start">Von</label>
+                    <input class="left floating" required="required" th:type="date" th:name="start" id="start" value="1111.11.11" th:value="${date}"/>
+                </div>
+                <div class="field">
+                    <label for="end">Bis</label>
+                    <input required="required" th:type="date" th:name="end" id="end" value="1111.11.11" th:value="${lastDate}"/>
+                </div>
+                <div class="field">
+                    <br>
+                    <button class="ui button" id="b" style="margin-top: 5px">Anzeigen</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="right floated column">
+        <div class="ui right floated bottom aligned vertical buttons">
+            <form method="get" th:action="@{/office}">
+                <button class="ui red button" style="margin-bottom: 4px"><i class="book icon"></i> Gesamter Zeitraum </button>
+            </form>
+            <form method="get" th:action="@{/getQuartal}">
+                <button class="ui orange button" style="margin-bottom: 4px" type="submit"><i class="book icon"></i> Quartalabrechnung</button>
+            </form>
+            <form method="get" th:action="@{/getWeeklyNews}">
+                <button class="ui yellow button" type="submit"><i class="book icon"></i> Wochenabrechnung</button>
+            </form>
+        </div>
+    </div>
+</div>
+<h3>
+    Gesamter Status beträgt:
+    <span th:text="${accountancy.sumValue(accountings)}">0</span>
+</h3>
+
+
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th>Datum</th>
+            <th> Einahmen/Ausgaben  </th>
+            <th> Beschreibung </th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each="accounting : ${accountings}">
+            <td th:text="${accounting.date.get().toLocalDate().format(format)}">11.11.1111</td>
+            <td th:text="${accounting.value.getNumber()}">Wert</td>
+            <td th:text="${accounting.description}">Text</td>
+        </tr>
+        </tbody>
+    </table>
+<br>
+<div>
+    <h3> Neuen Eintrag erstellen</h3>
+    <form class="ui form" method="get" th:action="@{/addAccountancyEntry}">
+        <div class="four fields">
+            <div class="four wide field">
+                <label for="date">Datum</label>
+                <input class="right aligned" required id="date" th:type="date" th:name="date"/>
+            </div>
+            <div class="four wide field">
+                <label for="value">Wert</label>
+                <input class="right aligned" required id="value" th:type="number" th:name="value"  pattern="[0-9]+([\.,][0-9]+)?" step="0.01"/>
+            </div>
+            <div class="six wide field">
+                <label for="des">Beschreibung</label>
+                <input class="right aligned" required id="des" th:type="text" th:name="description"/>
+            </div>
+            <div class="two wide field">
+                <br>
+                <button class="ui button" style="margin-top: 5px">Speichern</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+</body>
+</html>

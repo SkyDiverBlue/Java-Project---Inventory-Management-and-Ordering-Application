@@ -1,0 +1,101 @@
+/* CSS RESET */
+
+@font-face { font-family: 'pizzaschrift';
+    src: url('pizza.ttf') format('truetype'); }
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+    height:100%;
+}
+
+body {
+    margin: auto;
+	width: 940px;
+	font: 13px/22px Helvetica, Arial, sans-serif;
+    padding-bottom: 50px;
+    overflow-y: auto;
+    background: #f0f0f0;
+    height:100%;
+}
+
+
+header{
+    margin-top: 20px;
+    background-image: url("wallpaper.jpeg");
+    border-radius: 25px 25px 0px 0px;
+    padding: 30px 0px 20px 45px;
+}
+
+li {
+	margin-left: 12px;
+}
+
+.ui.container{
+    margin-top:1px;
+    background: white;
+    padding: 20px 15px 20px 20px;
+    margin-bottom:20px;
+    min-height:80%;
+}
+
+.ui.menu{
+    border-radius: 0px;
+}
+
+.ui.table tr.warning{
+    box-shadow: 0 0 0 #c9ba9b inset;
+    background: rgba(255, 212, 158, 0.67) !important;
+    color: #573a08 !important;
+}
+
+.ui.table tr.error {
+
+    box-shadow: 0 0 0 #E0B4B4 inset;
+    background: rgba(141, 0, 0, 0.68) !important;
+    color: #fffaf3 !important;
+
+}
+
+h1 {
+    color:#faf5dc;
+    font-family: pizzaschrift;
+	font-size: 2em;
+	line-height: 3.2em;
+	text-align:left;
+}
+
+/* for the scrollable box in orderScreen */
+.myBox {
+	margin-top: 20px;
+	margin-bottom: 0px;
+	border: none;
+	padding: 0px;
+	width: 600px;
+	height: 400px;
+	overflow-y: auto;
+}
+
+.loginBox {
+    border-radius: 20px;
+    border: 2px solid darkgray;
+    padding-top: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    width: 300px;
+    min-height: 250px;
+    height:auto;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    box-shadow: 10px 10px 5px lightgrey;
+}
+
+p.thick {
+    font-weight: bold;
+}

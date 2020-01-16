@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"> <!-- damit funktioniert es anscheinend besser  -->
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Coupons | PapaPizza</title>
+</head>
+<body>
+<header>
+    <h1>Coupons</h1>
+</header>
+
+    <nav th:include="navigation :: navigation"></nav>
+
+<div class="ui container">
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th th:text="Code"></th>
+        <th th:text="Erstellsdatum"></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <form>
+    <tr th:each="coupon : ${allCoupons}">
+        <td th:text="${coupon.getCode()}"></td>
+        <td th:text="${coupon.getDate()}"></td>
+        <td th:text="${coupon.getDescription()}"></td>
+        <td>
+            <a th:href="@{coupons/removeCoupon/{id} (id=${coupon.getId()})}" ><button type="button" class="ui right floated icon button"><i class="delete icon"></i></button></a>
+        </td>
+
+    </tr>
+    </form>
+    </tbody>
+</table>
+<br>
+<div>
+    <h3> Neuen Coupon erstellen:</h3>
+    <form class="ui form" method="post" th:action="@{/coupons/generateNewCoupon}">
+        <div class="three fields">
+            <div class="field">
+                <label for="code">Code</label>
+                <input class="right aligned" th:type="text" th:name="code" id="code" minlength="5" maxlength="30"/>
+            </div>
+            <div class="field">
+                <label for="des">Wert</label>
+                <input class="right aligned" th:type="text" th:name="description" id="des"/>
+            </div>
+            <div class="field">
+                <br>
+                <button class="ui right floated button" style="margin-top: 5px">Coupon erstellen</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+    <title>Deliverer</title>
+</head>
+<body>
+<header>
+    <h1>Bestellungen</h1>
+</header>
+
+    <nav th:include="navigation :: navigation"></nav>
+<div class="ui container">
+
+    <div class="ui negative message" th:if="${unreturned>0}" th:text="${unreturned} + ' von ' + ${returned} + ' Garnituren konnten nicht mehr zurückgegeben werden. Abgelaufene Garnituren fallen entsprechend des Vertrages an den Kunden.'"/>
+    <div class="ui positive message" th:if="${unreturned>0}" th:text="'PapaPizza nimmt ' + ${returned-unreturned} + ' der Garnituren zurück. Dem Kunden werden ' + ${(returned-unreturned)*15} + ' EURO ausgezahlt.'"/>
+    <div class="ui positive message" th:if="${returned!=null && unreturned==0}" th:text="${returned} + ' Garnituren wurden zurückgegeben. Dem Kunden werden ' + ${returned*15} + ' EURO ausgezahlt.'"/>
+    <div class="ui negative message" th:if="${notValid==true}" th:text="'ungültige Eingabe'"/>
+    <div class="ui negative message" th:if="${noReturn==true}" th:text="'Der Kunde hat keine gültigen Garnituren, die er zurückgeben könnte.'"/>
+
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th> TAN  </th>
+        <th> Adresse  </th>
+        <th> Preis</th>
+        <th> Person</th>
+        <th> Datum </th>
+        <th> Rechnung drucken</th>
+        <th> Rechnung der Buchhaltung hinzufügen </th>
+        <th> Garnituren zurückgeben </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${bills}">
+        <td th:text="${order.getCustomer().getTan()}">Tab</td>
+        <td th:text="${order.getCustomer().getAddress()}">hierda</td>
+        <td th:text="${order.getTotalPrice()}">Tab</td>
+        <td th:text="${order.getCustomer().getFullName()}">Tab</td>
+        <td th:text="${order.getFormattedDateCreated()}">Billli</td>
+        <td>
+            <form action="#" data-th-action="@{/printBill}" method="post" th:target="_blank">
+                <input type="hidden" name="id" th:value="${order.getId()}" />
+                <button type="submit" class="button" name="action" > drucken </button>
+            </form>
+        </td>
+        <td>
+            <form action="#" data-th-action="@{/addNewPizzaToAccountancy}" method="post">
+                <input type="hidden" name="id" th:value="${order.getId()}" />
+                <button type="submit" class="button" name="action" > bezahlt </button>
+            </form>
+        </td>
+        <td>
+            <form action="#" data-th-action="@{/returnDiningSetsD}" method="post">
+                <input type="hidden" name="id" th:value="${order.getId()}" />
+                <input class="form-control" required="true" th:type="number" th:name="value"/>
+                <button type="submit" class="button" name="action" > Garnitur zurückgeben </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+
+
+
+</body>
+</html>

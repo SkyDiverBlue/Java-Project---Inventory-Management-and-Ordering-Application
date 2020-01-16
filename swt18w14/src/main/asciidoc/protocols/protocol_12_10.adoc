@@ -1,0 +1,37 @@
+= Protokoll Gruppe 14
+
+Treffen am 10.12.2018
+
+Ort:      Andreas-Pfitzmann-Bau E067 +
+Beginn:   15:00 Uhr +
+Ende:     16:00 Uhr
+
+__Schriftführer: Moritz Voigt__
+
+*Nächstes Treffen:* +
+17.12.2018, 14:50 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+- Mitglieder der Gruppe 15
+
+== Bemerkungen
+* Zwischenpräsentation zusammen mit Gruppe 15 und Tutor
+* Nutzung von Jenkins und SonarCube möglich (fix)
+* Planung von Crosstesting mit Gruppe 15
+
+== Aktueller Stand
+* Muss-Kriterien weitgehend erfüllt
+* einige Probleme bei Persistenz und paralleler Ausführung der Webapplikation
+
+== Planung des nächsten Sprints
+* Crosstesting mit der anderen Gruppe
+* Bugfixing
+* ausbessern von Dokumentationen

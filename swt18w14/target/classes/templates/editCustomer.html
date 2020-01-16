@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Kunde Bearbeiten | PapaPizza</title>
+</head>
+<body>
+
+    <header>
+        <h1>Kunden bearbeiten</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <div class="ui container">
+
+    <div>
+        <form class="ui form" role="form" id="editcustomerForm" th:action="@{/editCustomer/{id}(id=${customer.id})}" method="post" >
+
+            <h3 class="ui dividing header">Daten des Kunden</h3>
+
+            <div class="ui negative message" th:if="${edited==false}" th:text="'Der Kunde konnte nicht bearbeitet werden.'"/>
+            <div class="ui positive message" th:if="${edited==true && telExists==true}" th:text="'Der Kunde wurde teilweise bearbeitet.'"/>
+            <div class="ui negative message" th:if="${unreturned>0}" th:text="${unreturned} + ' von ' + ${return} + ' Garnituren konnten nicht mehr zurückgegeben werden.'"/>
+            <div class="ui negative message" th:if="${telExists==true}" th:text="'Die angegebene Telefonnummer existiert bereits im System.'"/>
+
+            <div class="fields">
+                <div class="seven wide field">
+                    <label for="firstname">Vorname</label>
+                    <input type="text" id="firstname" name="firstname"  minlength="2" maxlength="30" required="required" th:value="${customer.firstname}"/> <br/>
+                </div>
+
+                <div class="seven wide field">
+                    <label for="lastname">Nachname</label>
+                    <input type="text" id="lastname" name="lastname" minlength="2" maxlength="30" required="required" th:value="${customer.lastname}" /> <br/>
+                </div>
+            </div>
+
+            <div class="fields">
+                <div class="five wide field">
+                    <label for="tel">Telefonnummer</label>
+                    <input type="tel" id="tel" name="tel" minlength="3" maxlength="15" required="required" th:value="${customer.tel}" /> <br/>
+                </div>
+
+                <div class="nine wide field">
+                    <label for="address">Adresse</label>
+                    <input type="text" id="address" name="address" required="required" th:value="${customer.address}" /> <br/>
+                </div>
+            </div>
+
+            <div class="fourteen wide field">
+                <label for="returnDiningSet">Zurückgegebene Garnituren</label>
+                <input type="number" id="returnDiningSet" name="returnDiningSet" min="0" max="1000" required="required" th:value="0" /> <br/>
+            </div>
+
+            <div class="field">
+                <button type="submit" class="ui button" style="margin-top: 5px">Ändern</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+</div>
+</body>
+</html>

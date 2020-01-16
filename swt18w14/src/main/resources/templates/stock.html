@@ -1,0 +1,88 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}"/>
+    <title>Lager | PapaPizza</title>
+</head>
+
+<body>
+<header>
+    <h1>Lager</h1>
+</header>
+
+    <nav th:include="navigation :: navigation"></nav>
+<div class="ui container">
+
+
+    <div class="ui two column grid">
+        <div class="column">
+            <form class="ui form" method="post" id="form" th:action="@{/stock}" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div class="inline field">
+                    <label for="criticalAmount">Kritische Menge</label>
+                    <div class="ui action input">
+                        <input th:value="${criticalAmount}" type="number" min="0" id="criticalAmount" name="criticalAmount" required>
+                        <button class="ui icon button">
+                            <i class="edit icon"></i>
+                        </button>
+                   </div>
+                </div>
+            </form>
+        </div>
+        <div class="right aligned column">
+            <form class="ui action input" method="get" th:action="@{/searchi}">
+                <input placeholder="Search..." type="text" name="search">
+                <button class="ui icon button">
+                    <i class="search icon"></i>
+                </button>
+            </form>
+        </div></div>
+
+
+
+    <div class="ui positive message" th:if="${editQuantity==true}" th:text="${'Der Lagerbestand wurde erfolgreich bearbeitet.'}"></div>
+    <div class="ui negative message" th:if="${editQuantity==false}" th:text="${'Der Lagerbestand konnte nicht bearbeitet werden.'}"></div>
+    <div class="ui negative message" th:if="${format==false}" th:text="${'Das angegebene Format war nicht lesbar.'}"></div>
+    <div class="ui negative message" th:if="${noresult==true}" th:text="'Leider kein passendes Produkt gefunden.'"/>
+
+    <table class="ui sortable celled table">
+        <thead>
+        <tr>
+            <th class="eight wide" th:text="Produkt"></th>
+            <th th:text="Anzahl"></th>
+            <th class="one wide" th:text="_" sec:authorize="hasRole('ROLE_ADMIN')"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="error" th:each=" item3 : ${zerostock}">
+            <td th:text="${item3.product.name}"></td>
+            <td th:text="${{item3.quantity}}"></td>
+            <td class="center aligned" sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/stock/{id}(id=${item3.id})}"><button type="button" class="ui icon button"><i class="edit icon"></i></button></a></td>
+        </tr>
+        <tr class="warning" th:each=" item2 : ${lowstock}">
+            <td th:text="${item2.product.name}"></td>
+            <td th:text="${{item2.quantity}}"></td>
+            <td class="center aligned" sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/stock/{id}(id=${item2.id})}"><button type="button" class="ui icon button"><i class="edit icon"></i></button></a></td>
+        </tr>
+        <tr th:each=" item : ${stock}">
+            <td th:text="${item.product.name}"></td>
+            <td th:text="${{item.quantity}}"></td>
+            <td class="center aligned" sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/stock/{id}(id=${item.id})}"><button type="button" class="ui icon button"><i class="edit icon"></i></button></a></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+= Cross-Testing Feedback
+
+** __Durchführende Gruppe:__ 15
+** __Anwendung von Gruppe:__ 14
+
+== Getestetes System
+Papas Pizza Aufgabe.
+
+== Fehler-Report
+[options="header"]
+|===
+|Pfad |Parameter |Beschreibung |Rückgabe
+| /addItem | Name: Pilze; Einkaufspreis: 1,0; Verkaufspreis: 2,0, Menge: 10, Produktart: Belag, Bildpfad: /home/nick/Desktop/test.jpg (existiert nicht); Beschreibung: Das sind halt Pilze | Versuch, normales Item hinzuzufügen | Leerer Produktkatalog (Route immer noch /addItem)
+| /employees | Löschen geklickt | Versuch, einen Mitarbeiter zu löschen | zürück auf Startseite geleitet und nicht zurück in die Liste
+| /oven |  jegliche positive Zahl (1,2,5,10,1000000) | der Versuch neue Öfen hinzuzufügen |  Anzahl der vorhanden Öfen bleibt bei 1 (Route nach Bestätigung wieder bei /oven)
+| /oven | jegliche negative Zahl (-1,...,-10000) | der Versuch neue Öfen hinzuzufügen | bei der Eingabe wird man auf die Wilkommens-Seite weitergeleitet und Anzahl der Öfen bleibt unveränder (Route nach Bestätigung wieder bei localhost:8080
+| /office | Start:01.12.2018, End:03.12.2018 | der Versuch die Buchhaltung nach Datums-Intervall zu filtern in dem keine Einträge vorhanden sind, wird ein Error ausgegben | Whitelable Error Page (Route: http://localhost:8080/changeInterval?start=2018-12-01&end=2018-12-03);
+| /getQuartal | (Hinzufügen von Einträgen) Datum: 01.12.2016, Wert: 0, Beschreibung: öläü | der Versuch einen Eintrag zu speichern, der in einem vergangenen/zukünftigen Jahr liegt wird automatisch auf das aktuelle Jahr geändert | alles bis auf Datum korrekt (Datum: 2016-10-05 -> 2018-10-05)
+| /getQuartal | (Hinzufügen von Einträgen) Datum: 13.12.2018, Wert: -0.5, Beschreibung: wieso??! | der Versuch einen Eintrag zu speichern, der einen negativen Wert mit Nachkommerstellen hat wird nicht zugelassen | keinen
+| z.B. /editCustomer | zu große Zahl (Integer Overflow): z.B. 1000000000000000000000000 bei Garnitur mieten | zu große Zahlen werden nicht abgefangen (nicht nur an dieser Stelle) | java.lang.NumberFormatException
+|===
+
+== Sonstiges
+* Optik der Anwendung
+    - Öfen
+        - Öfen-Seite nicht sehr aufschlussreich -> Auslastung?
+    - Bestellung
+        - Datum für Bestellungen nicht bis auf die Millisekunde angeben, unnütze Info
+    - Buchhaltung
+        ** Aufschlüsseln der Einnahmen / Ausgaben
+        ** Garnituren mit aufnehmen?
+
+* Fehlende Features
+    - Lagerverwaltung
+        ** Fehlende Sortierungsmöglichkeit in der Lagerverwaltung; Sortierung nach letztem Update macht wenig Sinn
+        ** Beim Eintragen von viel zu großen Zahlen oder negativen Zahlen, z.B. 100000000000000000000000000000000000000000 oder -5, wird nichts verändert, aber auch kein Fehler geworfen
+    - Produktverwaltung
+        ** Eingabefeld für das Bild beim Hinzufügen ist nur ein Textfeld; Filepicker wäre passender
+        ** Keine Möglichkeit, das Bild nach dem Erstellen eines Produktes zu ändern
+    - Mitarbeiter
+        ** Keine Möglichkeit, einen neuen Manager hinzuzufügen
+    - Kundenliste
+        ** Manager kann Kunden bearbeiten, also sollte er auch neue hinzufügen können
+        ** Kunden können nicht gelöscht werden (obwohl es im Pflichtenheft steht)
+        ** Zwei Kunden sollten nicht die selbe Telefonnummer haben können
+    - Bestellung
+        ** Nach der Verifizierung eines Kunden sollte sein Name in der Bestellung auftauchen
+        ** Selbstabholerrabatt sollte in der Rechnung mit auftauchen und nicht unsichtbar abgezogen werden
+        ** Funktion _Bestellung einsehen_ (siehe Pflichtenheft) fehlt für Mitarbeiter (z.B. Ordermanager)
+    - Rechnung
+        ** zeigt nicht die neue TAN an
+        ** wird überhaupt eine Rechnung generiert? -> persistent gespeichert? (siehe Pflichtenheft)
+    - Öfen
+        ** Auslastung fehlt komplett (siehe Pflichtenheft)
+
+* Interaktion mit der Anwendung (Usability)
+    - Homepage
+        ** bei Preisen ohne Dezimalanteil wird keine .00 angezeigt, was etwas schief aussieht
+    - Katalog
+        ** Titel ist anders ("Produktverwaltung")
+        ** Produkttypen sind komisch benannt/formattiert; sind beim Hinzufügen anders benannt als im select beim Hinzufügen
+    - Produktverwaltung
+        ** Negative Einkaufs- und Verkaufspreise sind aktuell noch zulässig
+        ** Zwei Produkte können den gleichen Namen haben
+        ** Beim Eingeben ungültiger Daten wird man immer auf eine leere Seite (/addItem) weitergeleitet
+        ** Bei fehlerhaften Eingaben im Bearbeitungsformular wird man auf eine leere Seite weitergeleitet
+    - Mitarbeiter
+        ** Passwort wird leider im Formular im Klartext angezeigt
+        ** Zahlen sind als Namen erlaubt
+        ** Telefonnummern können beliebige Zahlen oder Strings sein
+        ** als Anschrift lässt sich nur eine Straße angeben, was aber nicht eindeutig ist; Postleitzahl und Ort sollten hinzugefügt werden
+        ** Registrierung neuer Mitarbeiter könnte als "Hinzufügen" Button über der Mitarbeiterliste erreichbar sein (für alle Typen von Mitarbeitern)
+    - Kundenverwaltung
+        ** Unklar, was bei TAN mit "INITIAL" gemeint ist
+    - Ordermanager
+        ** Manager sollte seine gesamten Bestellungen einsehen können
+    - Bestellung
+        ** Stornieren sollte eher Abbrechen heißen, da man nur bereits aufgegebene Bestellungen stornieren kann
+        ** man kann noch gar nicht vorhandene Items abziehen und diese werden dann mit einer Anzahl von 0 initialisiert
+        ** Bestellungen mit einem negativen Wert sind möglich
+        ** Produktauswahl sollte dem Mitarbeiter auch noch den Preis und den Bestand des jeweiligen Items anzeigen
+        ** ausgegangene Items sollten eventuell direkt aus der Liste entfernt werden
+        ** TANs könnten kürzer und verständlicher sein (z.B. 4 Zahlen)
+        ** beim Belegen einer Pizza ist nicht sofort klar, dass man am Anfang die Zutaten für eine Pizza aussucht und erst durch das Betätigen der "+ neue Pizza"-Taste eine Pizza mit den ausgewählten Zutaten erstellt wird
+        ** der Fahrer erfährt nicht welche Pizzen zu einer und der selben Bestellung gehören (vllt auch für den Bäcker von Vorteil)
+
+== Verbesserungsvorschläge
+
+* Beim Aufnehmen einer Bestellung wäre es für den Mitarbeiter sicherlich hilfreich, wenn er direkt im Prozess der Besteullungsaufnahme auch noch einen neuen Kunden hinzufügen könnte
+* Aufnehmen von Bestellungen in die initialen Daten würde das Testen sehr erleichtern

@@ -1,0 +1,45 @@
+﻿= Protokoll Gruppe 14
+
+Treffen am 22.10.2018
+
+Ort:      Andreas-Pfitzmann-Bau E065 +
+Beginn:   15:45	 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer: Felix Fischer__
+
+*Nächstes Treffen:* +
+29.10.2018, 15:45 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+
+== Bemerkungen
+
+- Erstellen eines Google-Docs zur gemeinsamen Arbeit am Pflichtenheft
+- Aufteilung der Aufgaben bezüglich des Videoshops
+
+
+== Retrospektive des letzten Sprints
+- Gemeinsame Arbeit am UML-Diagramm 
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|UML-Diagramm|Fertigstellung des UMLs|fast Fertig|Grobe Strucktur steht. Es fehlen nur noch die Atribute
+|===
+
+
+== Aktueller Stand
+- fertiges Klassendiagramm
+- weiterhin Arbeit am Pflichtenheft
+- Videoshop ist in Arbeit
+
+

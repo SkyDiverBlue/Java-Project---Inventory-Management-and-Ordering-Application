@@ -1,0 +1,472 @@
+:project_name: Papas Pizza
+:doctype: book
+:numbered:
+:source-highlighter: highlightjs
+
+== Datenmodell
+
+=== Überblick: Klassendiagramm
+UML-Analyseklassendiagramm
+
+image::..\models\analysis\images\Klassendiagramm.png[KD01, 100%, 100%, pdfwidth=100%, title= "Klassendiagramm von {project_name}", align=center]
+
+=== Klassen und Enumerationen
+Dieser Abschnitt stellt eine Vereinigung von Glossar und der Beschreibung von Klassen/Enumerationen dar. Jede Klasse und
+Enumeration wird in Form eines Glossars textuell beschrieben.
+
+[cols = "1, 4"]
+[options="header"]
+|===
+|Klasse/Enumeration |Beschreibung
+
+|Bestellogik
+|Klasse zur Verarbeitung aller Aktionen die Bestellung betreffend.
+
+|Bestellung
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von Bestellungen.
+
+|Buchhaltung
+|Klasse zur Verarbeitung aller Aktionen die Abrechnungen/Berechnungen betreffend.
+
+|Datenbanklogik
+|Klasse zur Verarbeitung aller Aktionen die Datenbankkommunikation betreffend.
+
+|Essgarnitur
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von Essgarnituren.
+
+|Getränk
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von Getränken.
+
+|Kataloglogik
+|Klasse zur Verarbeitung aller Aktionen den Katalog betreffend.
+
+|Kunde
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von Kundendaten.
+
+|Mitarbeiter
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von Mitarbeiterdaten.
+
+|[E] MitarbeiterTyp
+|Enumeration zur Überprüfung der Adminrechte des Mitarbeiters.
+
+|Nutzer
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von allgemeinen Nutzerdaten.
+-> Generalisierung von Aktionen für Kunden- und Mitarbeiterdaten.
+
+|Nutzerlogik
+|Klasse zur Verarbeitung aller Aktionen die Nutzer (Mitarbeiter / Kunde) betreffend.
+
+|Ofen
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von den Öfen.
+
+|Ofenlogik
+|Klasse zur Verarbeitung aller Aktionen die Öfen und Warteschlangen betreffend.
+
+|Pizza
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von Pizzen.
+
+|Salat
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von Salaten.
+
+|Template
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von Templates für Salate und Pizzen.
+
+|Ware
+|Abstrakter Datentyp zur Verarbeitung und Übertragung von allgemeinen Waren.
+-> Generalisierung von Aktionen für Pizzen, Salate, Getränke und Essgarnituren.
+
+|[E] WarenTyp
+|Enumeration zur Angabe des Waren-Typs für Methoden, die allgemeine Waren entgegen nehmen, aber die konkreten Waren
+je nach Typ verschieden verarbeiten (z.B. Bestellung).
+
+|===
+
+== Akzeptanztestfälle
+Mithilfe von Akzeptanztests wird geprüft, ob die Software die funktionalen Erwartungen und Anforderungen im Gebrauch
+erfüllt. Diese sollen und können aus den Anwendungsfallbeschreibungen und den UML-Sequenzdiagrammen abgeleitet werden.
+D.h., pro (komplexen) Anwendungsfall gibt es typischerweise mindestens ein Sequenzdiagramm (welches ein Szenarium
+beschreibt).
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0101>>
+|Use Case       |<<UC0101>>
+|Voraussetzung  a|- Login als Manager
+- Eintrag im Katalog vorhanden
+|Szenario       |Ein Manager entfernt eine Ware aus dem Katalog.
+|erwartetes Ergebnis a|- der, der Ware entsprechende, Eintrag aus der Datenbank wird gelöscht
+- die Ware wird nicht mehr im Katalog angezeigt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0102>>
+|Use Case       |<<UC0102>>
+|Voraussetzung  a|- Login als Manager
+|Szenario       |Ein Manager fügt eine Ware zum Katalog hinzu.
+|erwartetes Ergebnis a|- Ein neuer Eintrag in der Datenbank entsteht
+   - die Ware wird im Katalog angezeigt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0103a>>
+|Use Case       |<<UC0103>>
+|Voraussetzung  a|- Login als Manager
+- Eintrag im Katalog vorhanden
+|Szenario       |Ein Manager verändert eine der Waren im Katalog.
+|erwartetes Ergebnis a|- die Ware wird verändert un wieder in der Datenbank gespeichert
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0103b>>
+|Use Case       |<<UC0103>>
+|Voraussetzung  a|- Eintrag im Katalog
+- Login als Manager
+|Szenario       |Der Manager bearbeitet einen Eintrag im Katalog, lässt aber eines der Felder unausgefüllt.
+|erwartetes Ergebnis a| - Ein Fehler wird angezeigt "Unvollständiger Eintrag"
+- Das Bearbeiten schlägt fehl
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0104>>
+|Use Case       |<<UC0104>>
+|Voraussetzung  a|- Login als Manager
+- Eintrag in Lagerdatenbank vorhanden
+|Szenario       |Ein Manager verändert den Eintrag einer Lagerware.
+|erwartetes Ergebnis a|- der veränderte Eintrag wird in der Lagerdatenbank an der entsprechenden Stelle abgelegt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0105>>
+|Use Case       |<<UC0105>>
+|Voraussetzung  a|Nutzer ruft die Webanwendung auf
+|Szenario       |Ein Nutzer drückt auf die Schaltfläche für den Katalog und lässt sich den Katalog anzeigen.
+
+|erwartetes Ergebnis a|- der Katalog wird geöffnet
+- alle bestellbaren Waren werden mit ihren zugehörigen Preisen angezeigt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID            |<<AT0106>>
+|Use Case       |<<UC0106>>
+|Voraussetzung  a| - Login als Mitarbeiter
+- eine Garnitur wurde ausgeliehen
+|Szenario       |Ein registrierter Kunde gibt seine ausgeliehene Garnitur zurück. Der eingeloggte Mitarbeiter löscht sie aus der Datenbank
+|erwartetes Ergebnis a|- Anzahl der Garnituren im Lager  wird um eins erhöht
+- der Kunde wird aus dem Datenbankeintrag der Granitur gelöscht
+- 15€ werden ausgezahlt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0107>>
+|Use Case       |<<UC0107>>
+|Voraussetzung  a|Login als Manager
+|Szenario       |Der Manager erstellt eine neue Vorlage für eine Pizza.
+|erwartetes Ergebnis a|- die Vorlage erscheint im Katalog
+- die Vorlage ist bei Bestellungen auswählbar
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0108>>
+|Use Case       |<<UC0108>>
+|Voraussetzung  a|Login als Manager
+|Szenario       |Der Manager löscht eine der erstellten Vorlagen.
+|erwartetes Ergebnis a|- die Vorlage verschwindet aus dem Katalog
+- die Vorlage kann nicht länger in den Bestellungen ausgewählt werden
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0109>>
+|Use Case       |<<UC0109>>
+|Voraussetzung  a|Login als Manager
+|Szenario       |Der Manager ändert den Namen oder die Zutaten einer Vorlage.
+|erwartetes Ergebnis a|- Die Änderung wird abgespeichert und in den Katalog übernommen
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID            |<<AT0201a>>
+|Use Case       |<<UC0201>>
+|Voraussetzung  |Login als Manager
+|Szenario       |Ein Manager erstellt einen neuen Mitarbeiter.
+|erwartetes Ergebnis a|
+- neuer Eintrag in der Mitarbeiterdatenbank
+- neuer Mitarbeiter erhält seinen Login + Passwort
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT201b>>
+|Use Case       |<<UC0201>>
+|Voraussetzung  a|- Login als Mitarbeiter
+ - Kunde ist in der Filiale
+|Szenario       |Ein Mitarbeiter erstellt einen neuen Kunden.
+|erwartetes Ergebnis a|- ein neuer Eintrag in der Kundendatenbank entsteht
+- der neue Kunde erhält seine erste TAN
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0201c>>
+|Use Case       |<<UC0201>>
+|Voraussetzung  a|Login als Manager
+|Szenario       |Beim Erstellen eines neuen Mitarbeiters wird eines der Felder nicht ausgefüllt.
+|erwartetes Ergebnis a|- Ein Fehler wird angezeigt "Unvollständiger Eintrag"
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0202>>
+|Use Case       |<<UC0202>>
+|Voraussetzung  a|- Login als Mitarbeiter
+- Eintrag in der Kundendatenbank
+|Szenario       |Ein Mitarbeiter löscht auf dessen Wunsch einen Kunden aus der Kundendatebank.
+|erwartetes Ergebnis a|- der Eintrag für den Kunden wird aus der Kundendatenbank entfernt
+|===
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0203a>>
+|Use Case       |<<UC0203>>
+|Voraussetzung  a|- Login als Mitarbeiter
+ - Kunde in Kundendatenbank vorhanden
+|Szenario       |Ein Mitarbeiter bearbeitet einen Kundeneintrag
+|erwartetes Ergebnis a|- der bearbeitete Kunde wird an seiner alten Stelle in der Kundendatenbank abgelegt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0203b>>
+|Use Case       |<<UC0203>>
+|Voraussetzung  a|- Eintrag in der Mitarbeiterdatenbank
+- Login als Manager
+|Szenario       |Der Eintrag eines Mitarbeiters in der Mitarbeiterdatenbank wird bearbeitet.
+|erwartetes Ergebnis a|- Der Eintrag wird verändert und an der selben Stelle wieder abgespeichert
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0204>>
+|Use Case       |<<UC0204>>
+|Voraussetzung  a|- Login als Mitarbeiter
+|Szenario       |Ein Mitarbeiter lässt sich die Tan eines Kunden anzeigen.
+|erwartetes Ergebnis a|- die entsprechende Tan wird aus der Datenabnk ausgelesen und dem Mitarbeiter angezeigt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0205a>>
+|Use Case       |<<UC0205>>
+|Voraussetzung  a|- Eintrag in der Mitarbeiterdatenbank
+|Szenario       | Ein Mitarbeiter gibt korrekte Logindaten (Loginname ,Passwort) in den Loginscreen ein und drückt
+auf Login.
+|erwartetes Ergebnis a|- der Mitarbeiter wird eingeloggt
+- er wird auf die Startseite weitergeleitet
+- er erhält Zugiff zum System entsprechend seiner Rechte (seines Mitarbeitertyps)
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0205b>>
+|Use Case       |<<UC0205>>
+|Voraussetzung  a|-
+|Szenario       |Ein Nutzer gibt falsche Login-Daten ein und drückt auf Login.
+|erwartetes Ergebnis a|Ein Fehler wird angezeigt "Name oder Passwort nicht korrekt"
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0206>>
+|Use Case       |<<UC0206>>
+|Voraussetzung  a|- Login
+|Szenario       |Ein eingeloggter Mitarbeiter drückt den "Logout" Knopf.
+|erwartetes Ergebnis a|- der Mitarbeiter wird ausgeloggt
+- er wird auf die Startseite weitergeleitet
+- er verliert jeglichen Zugriff auf das System, mit Ausnahme der Katalogansicht und des Logins
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0301>>
+|Use Case       |<<UC0301>>
+|Voraussetzung  a|- offene Bestellung
+|Szenario       |Ein Mitarbeiter fügt eine Ware der Bestellung hinzu.
+|erwartetes Ergebnis a| - die Ware wird der offenen Bestellung hinzugefügt
+- handelt es sich um eine Pizza hat er die Mögichkeit Beläge auszuwählen
+- der Preis der Ware wird dem Gesamtpreis hinzugefügt
+- mögliche Rabatte werden überpüft
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0302>>
+|Use Case       |<<UC0302>>
+|Voraussetzung  a|- offene Bestellung
+- Ware in der Bestellung
+|Szenario       |Ein Mitabeiter entfernt eine Ware aus der Bestellung.
+|erwartetes Ergebnis a|- die Ware wird aus der Bestellung entfernt
+- der Preis der Ware wird vom Gesamtpreis abgezogen
+-  etwaige Rabatte werden überprüft
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0303a>>
+|Use Case       |<<UC0303>>
+|Voraussetzung  a|- offene Bestellung
+- Ware in der Bestellung
+|Szenario       |Ein Mitarbeiter schließt eine Bestellung ab und schickt sie an die Öfen.
+|erwartetes Ergebnis a|- die Bestellung wird geschlossen
+- der endgültige Preis wird angezeigt
+- die voraussichtliche Lieferzeit wird berechnet
+- die bestellten Pizzen werden an die Öfen weitergeleitet
+- alle bestellten Waren werden aus dem Lager entfernt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0303b>>
+|Use Case       |<<UC0303>>
+|Voraussetzung  a|- offene Bestellung
+|Szenario       |Ein Mitarbeiter betätigt eine leere Bestellung.
+|erwartetes Ergebnis a|- Ein Fehler wird angezeigt "Unvollständige Bestellung"
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0304>>
+|Use Case       |<<UC0304>>
+|Voraussetzung  a|- Login als Mitarbeiter
+- Kunde in der Filliale oder registrierter Kunde am Telefon mit korekter Tan
+|Szenario       |Ein Mitarbeiter startet eine neue Bestellung.
+|erwartetes Ergebnis a|- eine neue Bestellung wird geöffnet
+- der Mitarbeiter kann aus allen Waren im Katalog auswählen
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0305>>
+|Use Case       |<<UC0305>>
+|Voraussetzung  a|- offene Bestellung
+|Szenario       |Ein Mitarbeiter bricht die aktuelle Bestellung ab.
+|erwartetes Ergebnis a|- die Bestellung wird geschlossen
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0401>>
+|Use Case       |<<UC0401>>
+|Voraussetzung  a|- Login als Manager
+|Szenario       |Ein Manager lässt sich die Abrechnung der letzten Woche anzeigen.
+|erwartetes Ergebnis a|- alle Bestellungen der letzten  Woche werden aus der Datenbank ausgelesen und angezeigt
+- es wird ein gesamt Umsatz errechnet und angezeigt
+|===
+
+
+[cols="1h, 4"]
+[options="header"]
+|===
+|ID             |<<AT0402>>
+|Use Case       |<<UC0402>>
+|Voraussetzung  a|- Login als Manager
+|Szenario       |Ein Manager lässt sich die Nutzungszahlen der Öfen im letzten Quartal anzeigen.
+|erwartetes Ergebnis a|- die Nutzungszahlen der Öfen im letzten Quartal anzeigen
+- eine Empfehlung für das Anschaffen neuer Öfen wird ausgestellt
+|===
+
+== Glossar
+
+[cols="1,5"]
+[options="header"]
+|===
+|Name |Bedeutung
+|Bestelllogik		|System, zuständig für die Verarbeitung aller Aktionen der Bestellung
+|Bestellung		|eingegangener Auftrag des Kunden
+|Buchhaltung		|System, zuständig für die Verarbeitung der Ab-/Berechnungen
+|Kataloglogik		|System, zuständig für die Verarbeitung  aller Aktionen im Katalog
+|Nutzerlogik		|System, zuständig für die Verarbeitung aller Aktionen über Nutzer
+|Ofenlogik		|System, zuständig für die Verarbeitung aller Aktionen der Öfen
+|Datenbanklogik		|System, zuständig für die Verarbeitung der Datenbankkommunikation
+|Mitarbeiter		|Person die bei dem Betrieb eingestellt ist (Nutzer des Systems)
+|Kunde			|Person die eine Bestellung getätigt hat (NdS.)
+|Manager		|Person zuständig für die Verwaltung der der Systeme (NdS.)
+|Nutzer			|all die Personen, die mit der Seite interagieren
+|Service-Fachkraft	|Person die für die Entgegenahme der Bestellung zuständig ist (NdS.)
+|Datenbank		|Datenträger mit der gesamten Information der einzelnen Systeme
+|Bäcker			|Person zuständig für das Zubereiten der Gerichte (NdS.)
+|Fahrer			|Person zuständig für die Auslieferung des Gerichtes (NdS.)
+|Kontextmodell		|Abgrenzung für die Mitarbeiter von Papas Pizza
+|Verwaltung		|Abgrenzung für die Systeme die für die Verwaltung zuständig sind
+|Bestellverwaltung		|System, zuständig für die Bestellung
+|Kundenverwaltung		|System, zuständig für die Kunden
+|Katalogverwaltung		|System, zuständig für den Katalog
+|Personalverwaltung		|System, zuständig für das Personal
+|Pizzaverwaltung		|System, zuständig für die Pizza
+|Bestellungsinformationen		|Datenbankeinträge über die Bestellung
+|Kundeninformationen		|Datenbankeinträge über die Kunden
+|Kataloginformationen |Datenbankeinträge über den Katalog
+|Personalinformationen		|Datenbankeinträge über das Personal
+|Pizzainformationen		|Datenbankeinträge über die Pizza
+
+
+|===

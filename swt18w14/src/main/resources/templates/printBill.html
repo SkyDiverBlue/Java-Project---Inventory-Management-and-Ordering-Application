@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+   <a><h3> Rechnung</h3></a>
+   <p></p>
+   <a>Ihre neue TAN lautet:</a>
+   <td th:text="${tan}"></td>
+</div>
+
+   <p><p></p></p>
+
+<div>
+   <table class="table tab-header-area">
+       <tr>
+           <th>Produkt</th>
+           <th>Preis</th>
+           <th>Anzahl</th>
+
+       </tr>
+       <tr th:each="product : ${products}">
+           <td th:text="${product.productName}">Billli</td>
+           <td th:text="${product.price}">Tab</td>
+           <td th:text="${product.quantity}">Tab</td>
+       </tr>
+       <tr th:if="${discounted}">
+           <td>Rabatt</td>
+           <td th:text="${discount}">EUR -0.8</td>
+           <td>1</td>
+       </tr>
+   </table>
+</div>
+<div>
+    <p></p>
+    <td th:text="${informationPurpose}"> dicountOrNoDiscount... that's the question </td>
+    <p></p>
+    <td th:text="${totalPrice}"> Gesammtpreis</td>
+    <p></p>
+    <td th:text="${informationAboutThePrice}"> fhf</td>
+    <p></p>
+    <td th:text="${stayingPolite}"> greetings</td>
+</div>
+</body>
+</html>

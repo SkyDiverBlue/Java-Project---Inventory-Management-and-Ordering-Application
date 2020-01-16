@@ -1,0 +1,50 @@
+﻿= Zeiterfassung für Gruppe 14
+
+Notieren Sie die Zeit in Minuten für jeden Entwickler und – getrennt davon – für Team-Treffen pro Woche (Wochengranularität).
+Die individuell erfasste Zeit beinhaltet auch das Lesen von Dokumentationen, Besprechungen mit Teamkollegen und sonstige auf das Praktikum bezogene Aufgaben, jedoch *nicht* das Team-Treffen (= letzte Spalte).
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+[option="headers"]
+|===
+|Woche |Felix |Marine |Moritz | Toni|Emely |Meeting
+|1     |2     |4      |2      |2    |1     |2   
+|2     |5     |6      |5      |2    |6     |10    
+|3     |12    |23     |16     |17   |28    |6   
+|4     |10    |5      |2      |2    |13    |2    
+|5     |27    |27     |25     |20   |25    |1    
+|6     |25    |25     |10     |7    |13    |1  
+|7     |25    |8      |8      |6    |14    |1,5
+|8     |10    |5      |10     |7    |13    |1,5
+|9     |18    |8      |9      |11   |17    |0
+|10    |7     |10      |11     |8    |14    |3
+|11    |50     |55      |22     |20   |40    |1
+|12    |14     |14      |15    |10    |13     |1,5
+|===
+
+Bitte tragen Sie am Ende des Praktikums noch folgende weitere Werte ein:
+
+**Summe der Arbeitsstunden pro Student:**
+
+|===
+|Felix |Marine |Moritz | Toni|Emely |Meeting
+|205 | 190 | 135 | 112 | 197 |30,5
+|===
+
+SUMME(SPALTE(DevX))
+
+**Arbeitsstunden pro Woche pro Student:**
+
+|===
+|Felix |Marine |Moritz | Toni|Emely |Meeting
+|17,1 | 15,8 | 11,2 | 9,3 | 16,4 |2,5
+|===
+
+SUMME(SPALTE(DevX)) / 12
+
+**Durchschnittliche Arbeitzeit aller Studenten pro Woche:**
+
+167,8 Stunden durchschnittlich pro Student + Meeting (30.5 Stunden gemeinsam) +
+14 Stunden durchschnittlich pro Student pro Woche + 2,5 Meeting Stunden durchschnittlich pro Woche +
+
+
+(SUMME(SPALTE(Dev1)) + SUMME(SPALTE(Dev2)) + SUMME(SPALTE(Dev3)) + SUMME(SPALTE(Dev4)) + SUMME(SPALTE(Dev5)) +SUMME(SPALTE(Dev6))) / 6

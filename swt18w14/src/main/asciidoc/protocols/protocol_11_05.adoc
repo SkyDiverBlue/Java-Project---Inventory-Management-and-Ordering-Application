@@ -1,0 +1,37 @@
+= Protokoll Gruppe 14
+
+Treffen am 05.11.2018
+
+Ort:      Andreas-Pfitzmann-Bau E069 +
+Beginn:   15.30 Uhr +
+Ende:     16.05 Uhr
+
+__Schriftführer: Toni Tanneberger__
+
+*Nächstes Treffen:* +
+12.11.2018, 15:35 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+
+== Aktueller Stand
+
+- Videoshop Prototypen vom Tutor akzeptiert
+- Aufteilen des Projektes in Packages
+
+== Entscheidungen
+
+- Prototypen müssen nicht untereinander kommunizieren können
+- Klassendiagramm in Packages unterteilen
+- Top-Level Diagramm für die Packages, für jedes Package eigenes Klassendiagramm
+
+== Planung
+
+- Bis 11.11.2018 23:59 Uhr: Deadline Entwicklerdoku
+- Bis 16.11.2018 23:59 Uhr: Deadline Prototypen

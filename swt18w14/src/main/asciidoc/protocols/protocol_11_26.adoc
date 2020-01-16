@@ -1,0 +1,49 @@
+﻿Ort:      Andreas-Pfitzman-Bau E067 +
+Beginn:   15:30 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer: Felix Fischer__
+
+*Nächstes Treffen:* +
+10.12.2018, 15:20 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+
+== Bemerkungen
+* Nächste Abgabefrist: Sonntag, der 09.12, um 23:59 (auf Master branch)
+* Muss-Kriterien müssen erfüllt sein
+* Code muss anhand von javaDoc kommentiert werden
+* Funktionen sollten jUnit tests haben
+* Projektpräsentation vorbereiten
+
+
+== Retrospektive des letzten Sprints
+
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |Basisfunktionalität       |fertig      |…
+|===
+
+
+== Aktueller Stand
+- Basisfunktionalität wurde gezeigt, geprüft und abgenommen
+- Muss-Kriterien besprochen
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |Muss-Kriterien     |Fertigstellung           |jeder        |in Arbeit
+|…     |Test-Klassen 	   |Bereitstellung der Testklassen|jeder   |in Arbeit
+|===

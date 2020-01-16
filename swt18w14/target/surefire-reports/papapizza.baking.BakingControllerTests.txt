@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: papapizza.baking.BakingControllerTests
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.741 s - in papapizza.baking.BakingControllerTests

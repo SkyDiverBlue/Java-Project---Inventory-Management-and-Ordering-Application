@@ -1,0 +1,46 @@
+= Protokoll Gruppe 14
+
+Treffen am 09.10.2018
+
+Ort:      Seminarraum Andreas-Pfitzmann-Bau +
+Beginn:   15:40 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer: Emely Himmstedt__
+
+*Nächstes Treffen:* +
+19.11.2018, 15:20 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+
+== Retrospektive des letzten Sprints
+
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |Entwicklerdokumentation       |fertig      |siehe Aktueller Stand
+|...    |Prototypen |In Arbeit  |-
+|===
+
+
+== Aktueller Stand
+- Funktionen der Controllerklassen in packages einfügen, wenn außer mapping andere Funktionalitäten enthalten sind
+- Testfälle ergänzen (technischer als im Pflichtenheft)
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |Basisfunktionalität     |Gedanken: Welche Basisfunktionalitäten müssen für die Application vorliegen?             |…                |
+Erste Vorstellungen: funktionierendes mapping, useraccountverwaltung, bestellform, mit ersten tests
+|===

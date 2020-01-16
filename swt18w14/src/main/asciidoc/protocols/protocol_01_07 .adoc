@@ -1,0 +1,47 @@
+= Protokoll Gruppe 14
+
+Treffen am XX.XX.20XX
+
+Ort:      APB Raum E042
+Beginn:   15:20 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer:__Emely Himmstedt
+
+*Nächstes Treffen:* +
+17.01.2019, 16:40 Uhr, APB
+
+__Teilnehmer:__
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+
+== Bemerkungen
+
+- Probleme mit der Anzeige der Testcoverage auf Sonarcube
+- Testcoverage-Soll auf 50% herabgesetzt und damit schon erfüllt
+- Terminfestlegung für Abschlusspräsentation (siehe nächstes Treffen)
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+- Überraschender Kundenwunsch vollständig in die Anwendung integriert
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+== Planung des nächsten Sprints
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |Diagramme aktuallisieren     |…            |…                |…
+|…     |Präsentationsfolien als PDF in den asciidoc-ordner     |…            |…                |…
+|===

@@ -1,0 +1,13 @@
+
+Zsquid:S2039""<Explicitly declare the visibility for "inventoryController".(””´Ø8¥Å½Ì‚-
+Zsquid:S2039%"7Explicitly declare the visibility for "productCatalog".(ÈŞ­àùÿÿÿÿ8¥Å½Ì‚-
+t
+squid:S1099"RAssign this magic number 3 to a well-named constant, and use the constant instead.(ŠÓËÈúÿÿÿÿ8¥Å½Ì‚-
+~squid:S00116/"ZRename this field "NFEQuantityForm" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Åò‚úÿÿÿÿ8¥Å½Ì‚-
+Rsquid:S2039("/Explicitly declare the visibility for "office".(Ê™Şäÿÿÿÿÿ8¥Å½Ì‚-
+u
+squid:S109<"SAssign this magic number 10 to a well-named constant, and use the constant instead.(…¢˜şÿÿÿÿ8¥Å½Ì‚-
+p
+squid:S109H"SAssign this magic number 2L to a well-named constant, and use the constant instead.(¤¿ë8¥Å½Ì‚-
+t
+squid:S1099"RAssign this magic number 4 to a well-named constant, and use the constant instead.(ŠÓËÈúÿÿÿÿ8¥Å½Ì‚-

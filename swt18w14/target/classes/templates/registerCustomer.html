@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Kundenregistrierung</title>
+</head>
+<body>
+
+    <header>
+        <h1>Kundenregistrierung</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <div class="ui container">
+
+    <div class="ui negative message" th:if="${registered==false}" th:text="'Der Kunde konnte nicht angelegt werden.'"/>
+    <div class="ui negative message" th:if="${telExists==true}" th:text="'Die angegebene Telefonnummer existiert bereits im System.'"/>
+
+
+    <form method="post" role="form" class="ui form" id="form" th:action="@{/registerCustomer}" th:object="${form}">
+
+        <h3 class="ui dividing header"> Daten des Kunden</h3>
+
+        <div class="fields">
+            <div class="seven wide field">
+                <label for="firstname">Vorname</label>
+                <input id="firstname" name="firstname" th:field="*{firstname}" type="text" required="required"/><br/>
+            </div>
+
+            <div class="seven wide field">
+                <label for="lastname">Nachname</label>
+                <input id="lastname" name="lastname" th:field="*{lastname}" type="text" required="required"/><br/>
+            </div>
+        </div>
+
+        <div class="fields">
+            <div class="five wide field">
+                <label for="tel">Telefonnummer</label>
+                <input id="tel" name="tel" th:field="*{tel}" type="tel" required="required"/><br/>
+            </div>
+
+            <div class="nine wide field">
+                <label for="address">Adresse</label>
+                <input id="address" name="address" th:field="*{address}"  type="text" required="required"/>
+                <br/>
+            </div>
+        </div>
+
+        <div class="field">
+            <button type="submit" class="ui button " style="margin-top: 5px" >Registrieren</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

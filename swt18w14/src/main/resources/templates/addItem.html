@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet"
+          href="../static/resources/css/style.css" type="text/css"/>
+</head>
+<body>
+
+    <header>
+        <h1>Produkt erstellen</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+
+    <div class="ui container">
+
+    <div class="ui negative message" th:if="${error}" th:text="${error}"/>
+    <form method="post" role="form" class="ui form" id="form" th:action="@{/addItem}" th:object="${form}">
+        <h3 class="ui dividing header">Neues Produkt hinzufügen</h3>
+        <div class="fields">
+            <div class="five wide field">
+                <label for="name">Name</label>
+                <input id="name" th:field="*{name}" type="text" required="required"/><br/>
+             </div>
+
+            <div class="ten wide field">
+                <label th:text="Bildpfad" for="image"></label>
+                <input id="image" th:field="*{image}" type="text" required="required"/><br/>
+            </div>
+
+        </div>
+
+        <div class="fields">
+            <div class="five wide field">
+                <label th:text="Einkaufspreis" for="purchasePrice"></label>
+                <input id="purchasePrice" th:field="*{purchasingPrice}" type="text" required="required"/><br/>
+            </div>
+
+            <div class="five wide field">
+                <label th:text="Verkaufspreis" for="sellingPrice"></label>
+                <input id="sellingPrice" th:field="*{price}" type="text" required="required"/><br/>
+            </div >
+
+            <div class="five wide field">
+                <label th:text="Menge" for="quantity"></label>
+                <input id="quantity" th:field="*{quantity}" type="text" required="required"/><br/>
+            </div>
+        </div>
+
+        <div class="fields">
+
+            <div class="three wide field">
+                <label th:text="Produktart" for="enum"></label>
+                <select id="enum" th:field="*{type}">
+                    <option th:text="Belag" th:value="${topping}" selected></option>
+                    <option th:text="Getränk" th:value="${beverage}"></option>
+                    <option th:text="Salat" th:value="${salad}"></option>
+                </select>
+            </div>
+
+            <div class="twelve wide field">
+                <label th:text="Beschreibung" for="description"></label>
+                <input id="description" th:field="*{description}" type="text" required="required"/><br/>
+            </div>
+        </div>
+
+        <div class="field">
+            <button type="submit" class="ui button" th:text="Hinzufügen" style="margin-top: 5px"></button>
+        </div>
+
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+= Cross-Testing Feedback
+
+__Durchführende Gruppe:14__
+
+__Anwendung von Gruppe:15__
+
+== Getestetes System
+Anwendung für die Verwaltung des Pizzaservice Papa Pizza
+
+== Fehler-Report
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="header"]
+|===
+|Pfad |Parameter |Beschreibung |Rückgabe
+| /catalog | löschen | selbst erstellte Produkte löschen | selbst erstellte Produkte können nicht gelöscht werden
+| /employees | keine | auf Profil klicken | Error 404 weiterleitung auf /profil.html
+| /employees/add | schon vergebener Nutzername | Mitarbeiter erstellen | Error 500 
+| /home | bereits gelöschte Templates | werden noch angezeigt | --
+| /help | keine | Navigieren zur "Hilfe"-Seite | Es wird nur eine englische Variante der Seite angezeigt
+| /new_item | Getränk, Bier, 4, 3, png/jpg (jeweils ca. 600kBite) | Versuch Katalog-item hinzuzufügen | redirect auf die new_item-site, keine neue Zutat hinzufügbar
+| /new_item | Salad Template, just salad, Mushroom, png/jpg (jeweils ca. 600kBite) | Versuch Salat hinzuzufügen | redirect auf die new_item-site, kein Salat hinzufügbar
+| /new_item | Pizza Template, just pizza, Pepper, png/jpg (jeweils ca. 600kBite) | Versuch Pizza hinzuzufügen | redirect auf die new_item-site, keine Pizza hinzufügbar
+| /order_creation | Phonenumber: 21461645716 TAN: 56788 | bei drücken auf Submit bei Kundenvalidierung | redirect auf addCustomer mit 500
+| /order_creation | Pizza Marvellous + Pizza Basicale | "confirm order" sowohl ohne als auch mit korrekter Validierung | nichts passiert (reload auf order creation)
+| /inventory | Bacon Order 10| Test für Accounting| im Accounting findet sich nicht der Einkaufspreis
+| /inventory | Garnitur 1.10.2018 | Return | Sold garnish. Es wird aber nicht im Accounting abgerechnet
+| /order_creation | ohne login | URL Sicherheitstest | weiterleitung auf leere Seite
+| /customers und /employees | ohne login | URL Sicherheitstest | Zugriff auf alle Opertaionen innerhalb des Usermanagements ohne Login
+| /accounting/money | ohne login | URL Sicherheitstest | Einsicht auf Wochenübersicht, keine weiteren Optionen ohne login möglich
+|===
+
+
+== Sonstiges
+* Die Tan des Kunden kann nicht angezeigt werden (Kein Tan Symbol)
+* Ein gelöschter Mitarbeiter kann, solange er eingeloggt ist weiter auf all seine ehemaligen Zugriffsbereiche einwirken
+* Wenn ein Mitarbeiter bearbeitet wird, und das Passwort nicht eingegeben/geändert wird, kann sich der Mitarbeiter nicht mehr mit den alten Logindaten einloggen
+* Wenn beim Login nicht vorhandene Daten eingegeben wurden wird auf eine andere Login Seite umgeleitet (anderes Design)
+* keine Möglichkeit einmal abgeschlossene Bestellungen wieder einzusehen?
+* Das Hintergrundbild im Kunden-Bereich zeigt am linken Rand ein objekt, was jedoch abgeschnitten ist
+* Dashboard-Layout für mitarbeiter geht (vermutlich wegen zu langen ids der bestellungen) kaputt
+* Ofenkalkulation weißt über dem container mit den Öfen einen weiteren großen, leeren container auf
+* Neuer Kunde kann als Telefonnummer und Postleitzahl nur Buchstaben eingeben
+* Pizza im Ofen kann bereits eingesammelt werden
+* keine Möglichkeit eine Pizza der Kategorie "Selbstabhohler" als abgehohlt zu markieren
+* es können nicht mehr als 50 Garnituren hinzugefügt werden 
+
+== Verbesserungsvorschläge
+* Preise mit 2 Nachkommastellen angeben
+* In der Kundenansicht die Zutaten für Pizzen und die Zutaten für Salate trennen um sich die "kann hierfür genutzt werden" zu sparen
+* Dass sich die Software, bei der Rückgabe von Garnituren, auf die Fähigkeit des Mitarbeiters verlässt, immer die älteste auszuwählen ist evt suboptimal
+* nach z.B. Löschung eines Getränkes besser gleich wieder die getränke statt den pizza-produkten anzeigen
+* sehr träge Suchfunktion (springt nur an, wenn nach genau einer Schreibweise des Produktes in der richtigen kategorie gesucht wird
+* Öfen besitzen keine wirkliche Limitierung nach oben, eventuell Limitierung auf realistische Zahl legen
+* entweder eine Sprache benutzen oder an allen Stellen die Sprachunterstützungen implementieren (in englischer Version sind einige Buttons deutsch z.B neuer Kunde/Bestellung)
+* es sollte möglich sein per Hand die Menge von Lagerbeständen zu reduzieren z.B. wenn bei einer Inventur etwas fehlt oder Lebensmittel verfallen
+* es sollte möglich sein das Mitarbeiterbild zu bearbeiten (da es schon existiert)
+* 0,5 EUR (Beispiel) das "," wird zwar abgefangen (kein Crash), man könnte es aber auch zulassen
+* nicht benutzte Garnituren tauchen auch bei Garnituren auf, sehr unübersichtlich wenn man z.B. über 100 hat (rausfilter)

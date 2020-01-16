@@ -1,0 +1,26 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2017/18
+
+**Von:** Toni Tanneberger
+
+**Gruppe:** 14
+
+== Was habe ich gelernt?
+In dem Softwarepraktikum konnte ich mehr Erfahrung in objektorientierter Programmierung mit Java, dem Entwickeln einer Anwendung im Team und der breiten Nutzung von Bibliotheken und Frameworks sammeln. Außerdem war dies eine Möglichkeit unter Aufsicht eines Tutors den Prozess des Entstehens einer Anwendung von der Designphase bis hin zur Implementierung der Funktionen und dem Testen durchzuarbeiten. Die wöchentlichen Meilensteine waren dabei gute Richtlinien, die die Gruppe durch das Projekt geleitet haben. Auch durch das Arbeiten im Team über einen längeren Zeitraum, habe ich gelernt, selbst Initiative ergreifen zu müssen um das Team auch dann zu unterstützen, wenn nicht extra danach gefragt wird.
+
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+Die Teamarbeit lief im Allgemeinen gut. Von Anfang an konnte man gut miteinander diskutieren, Vorschläge wurden gemeinsam überdacht und bei Problemen konnte man zusammen über Lösungswege nachdenken. An manchen Stellen gab es aber trotzdem zu wenig Kommunikation, wenn es zum Beispiel darum ging wer nun gerade an welchen Stellen arbeitet. Allgemein sollte man selbst Initiative ergreifen aber trotzdem nicht versuchen jedes offene Problem selbst zu erledigen. 
+
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+Die Einarbeitung in Spring und Salespoint war (hauptsächlich am Anfang des Projektes) recht mühsam und undurchsichtlich, vor Allem wenn man vorher nicht viel mit der Enwicklung von Web Applications zu tun hatte. Dabei schien die Dokumentation von Salespoint teilweise nicht ausführlich genug, aber im Laufe des Projektes konnte man das Framework dann effektiv nutzen und es stellte einige grundlegende Funktionen zur Verfügung, die uns halfen, die Anwendung zu entwickeln. Trotzdem gab es auch viele Stellen an denen das Framework nicht direkt nutzbar war, was es schwierig machte, Salespoint zu benutzen aber trotzdem passende Lösungen für die Problemstellung zu finden.
+// Einschätzung der Arbeit mit den bereitgestellten und zusätzlich genutzten Frameworks. Was War gut? Was war verbesserungswürdig?
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+Es war äußerst schwierig am Anfang des Projektes mit den geforderten UML Diagrammen und dem Pflichtenheft schon einen guten Uberblick über den Aufbau des Programmes zu bekommen, wodurch viele Ideen vom Anfang verworfen werden mussten, da sich diese so nicht wie gedacht umsetzen ließen. Vor allem die Einarbeitung der Frameworks war in der Analysephase aufgrund der zu geringen Kenntnisse nicht gut möglich.
+
+
+== Feedback für den Tutor
+Die Kommunikation mit dem Tutor war angenehm und lief größtenteils ohne Probleme ab. Er hat sich um unsere Fragen schnellstmöglich gekümmert, aber allgemein hätten manche Informationen, die er uns gab, genauer seinen können.
+
+== Sonstiges und Anmerkungen

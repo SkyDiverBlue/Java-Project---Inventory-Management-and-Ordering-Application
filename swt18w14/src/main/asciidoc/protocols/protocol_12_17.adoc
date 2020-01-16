@@ -1,0 +1,42 @@
+= Protokoll Gruppe 14
+
+Treffen am 17.12.2018
+
+Ort:      Andreas-Pfitzmann-Bau E067 +
+Beginn:   14:50 Uhr +
+Ende:     15:40 Uhr
+
+__Schriftführer: Toni Tanneberger__
+
+*Nächstes Treffen:* +
+07.01.2019, 15:35 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+- Mitglieder der Gruppe 15
+
+== Bemerkungen
+* Vorstellen der Ergebnisse des Crosstestings, Fragen bei Unklarheiten
+* cross_testing.adoc soll bis zum 19.12.2018 verfeinert werden
+* Neuer Kundenwunsch vom Tutor: Rabattgutscheine
+** einzigartige, zufällig erstellte Coupons, die nach einmaliger Nutzung verfallen
+** der Admin kann Codes ansehen und hinzufügen
+** Ordermanager gibt den Gutscheincode bei der Bestellung ein
+** standardmäßig bringt der Gutschein 10% Rabatt
+** in Verbindung mit Selbstabholerrabatt 20% Rabatt
+
+== Aktueller Stand
+* Crosstesting teilweise erfüllt
+* Bugfixing im Laufe
+
+== Planung des nächsten Sprints
+* Crosstesting verfeinern
+* weiteres Bugfixing und auf Crosstesting Ergebnisse eingehen
+* Entwicklerdoku und Anwenderdoku

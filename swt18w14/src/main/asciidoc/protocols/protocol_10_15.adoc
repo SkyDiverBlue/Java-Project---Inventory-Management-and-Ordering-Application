@@ -1,0 +1,42 @@
+= Protokoll Gruppe 14
+
+Treffen am 15.10.2019
+
+Ort:      Andreas-Pfitzmann-Bau E065 +
+Beginn:   15:37 Uhr +
+Ende:     16:20 Uhr
+
+__Schriftführer:__ Marine Lafin
+
+*Nächstes Treffen:* +
+22.10.2019, 15:45 Uhr, Andreas-Pfitzmann-Bau
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Kraatz, Gustav Elias Landfried (Tutor)
+- Fischer, Felix
+- Himmstedt, Emely
+- Lafin, Marine
+- Tanneberger, Toni
+- Voigt, Moritz
+
+== Bemerkungen
+
+- Besprechung der zu wichtigen Deadlines: 28 Oktober abgabe des Pflichtenheftes
+- besprechung mit dem Kunde bezüglich der Kann und Muss Kriterien der Software
+    |-> es wurde verdeutlicht dass der Kunde von Papa's Pizza nicht in der Lage sein muss online zu bestellen sondern
+    dass die Bestellung per telefon oder in der Filiale statt findet.
+
+
+== Aktueller Stand
+
+- grobe Kann und Muss Kriterien sind vorhanden
+
+== Planung des nächsten Sprints
+
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|UML-Diagramm     |Ein aUML diagram musst entworfen werden um die Datenstruktur des Programs zu erfassen  |ganze Gruppe          |noch nicht angefangen               |…
+|===

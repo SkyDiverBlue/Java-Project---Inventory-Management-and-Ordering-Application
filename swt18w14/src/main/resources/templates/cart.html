@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+</head>
+<body>
+<div th:fragment="cart">
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th th:text="Entfernen"></th>
+            <th th:text="Anzahl"></th>
+            <th th:text="Produkt"></th>
+            <th th:text="Preis"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${cart} ">
+            <td>
+                <form class="ui form" method="get" th:action="@{/cart/delete}">
+                    <input type="hidden" name="p_id" th:value="${item.id}"/>
+                    <button type="submit" class="ui button">X</button>
+                </form>
+            </td>
+            <td th:text="${item.quantity}"></td>
+            <td th:text="${item.product.name}"></td>
+            <td th:text="${item.product.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

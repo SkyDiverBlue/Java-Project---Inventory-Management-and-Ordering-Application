@@ -1,0 +1,41 @@
+﻿= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2017/18
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von:**Felix Fischer
+
+**Gruppe:**swt14w18
+
+== Was habe ich gelernt?
+Das Praktikum im gesammten bereitete mir einen tieferen Einblick in die Progammiersprache Java, sowie deren Nutzung in der Erstellung von Web-Applications.
+Der Umgang mit einem bis dahin unbekannten Framework, in diesem Falle Salespoint, auf welches ich in Frage Drei genauer eingehen werde, war anfangs eine Herausforderung, welche man
+aber im Laufe des Praktikums zu bewältigen hatte.
+Zeitplanung und vorausschauendes Arbeiten sowie arbeiten im Team war eindeutig ein Punkt, den man nicht vernachlässigen durfte. Es war wichtig sich vorher schon sehr viele Gedanken über das gesammte Projekt zu machen. Etwas, was man vorher nicht kannte bzw nicht in diesem ausmaß machen musste.
+Daher war das Praktikum eine gute möglichkeit seine Teamfähigkeit zu stärken und zu verbessern.
+Auch der Code-Style wurde durch Teamarbeit verbessert.
+
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+Die Zusammenarbeit im Team lief im allgemeinen reibungslos und stellte sich als sehr angenehm und produktiv dar. 
+Kommunikation und absprachen waren manchmal etwas schwamming, liesen sich aber, dank des recht professionellen umgangs untereinander, schnell richtig stellen.
+Man stellt darüber hinaus schnell fest, wie unterschiedlich der Programmierstil und die eigenen persönlichen Anforderungen sind und lernt mit anderen Personen sich auf gleiche Punkte zu einigen.
+
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+Der Einsatz von third party Software oder frameworks war im großen und ganzen recht angenehm. Salespoint stellte sich aber als wiederwillig heraus. Die Dokumentation ist limitiert, der Zugriff stark eingeschränkt und die Serialisierbarkeit vieler Funktionen 
+gerade für die geforderte Persistents des Programmes einfach nicht gegeben. Der Einsatz gewissen Klassen, welcher gefordert ist, sorgt daher für große komplikationen beim Versuch diese Klassen in die Datenbanken einzufügen.
+Umwege bzw allgemeine Lösungsansätzte bringen einen weit weg von Salespoint und erzwingen teilweise recht unschöne Lösungen.
+Vor allem für Beginner auf dem Gebiet der Web-Entwicklung stellt sich der Anfang des Projekts als sehr kompliziert dar, da man sich gleichzeitig in verschiedene Dokumentationen einzulesen hat. Neben Spring und dessen Mappings, welche anfangs recht verwirrend sind, kommt eine viele Fragen offenlassende und recht kurz ausfallende Salespoint Dokumentation.
+Dazu kommt noch Thymeleaf, welches eigene Syntax und weitere Dokumentationen bereitstellt.
+Es ist schwer, sich anfangs reinzuarbeiten, vorallem da man nicht viel Zeit dafür hat. Dennoch waren diese Tools, nachdem man sie verstanden hatte, äußerst hilfreich. 
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+Ich persönlich empfand den Anfang des Pojekts recht schwer, da man neben den bereits erwähnten Dokumentationen, durch die man sich arbeiten musste, auch bereits ein Pflichtenheft mit wichtigen Designfragen zu erstellen hatte.
+Man hatte nicht wirklich Zeit sich durch die ganzen Dokus zu arbeiten und wurde schon aufgefordert UML- und Sequenzdiagramme zu erstellen über Prozeduren, welche man weder kannte noch wirklich verstand.
+
+== Feedback für den Tutor
+Die Kommunikation verlief reibungslos, manchmal hätte man sich aber genauere Angaben gewünscht.
+
+== Sonstiges und Anmerkungen
+Zeitlich war das Praktikum im verlgeich zu anderen Modulen bei weitem zu fordernd

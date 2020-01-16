@@ -1,0 +1,46 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2017/18
+
+**Von:** Marine Lafin
+
+**Gruppe:** swt14w18
+
+== Was habe ich gelernt?
+
+Dieses Praktikum war eine spannende Herausforderung einen Einblick in der Welt der Softwareentwicklung zu erlangen und dabei aktiv den Entwicklungsprozess einer 
+Anwendung zu erleben. Gleichzeitig hat es mir ermöglicht ein verbessertes Verständnis der Programmiersprache Java in der Web-Applikation Entwicklung mit Spring zu erlangen.
+Zu Beginn war es eine Herausforderung mit dem unbekannten Framework „Salespoint“ arbeiten zu müssen, dennoch lernte ich schnell ein Weg sich in eine fremde Dokumentation einzulesen 
+und die vorgegebenen Funktionen geschickt für unser Projekt zu verwenden. Die straffen Zwischenabgabetermine erzwangen  eine sinnvolle Aufteilung der Aufgaben  aber erforderten auch 
+eine proaktive Kommunikation zwischen den verschiedenen Teammitgliedern.
+Man realisierten schnell wie wichtig sorgfältige Planung aber auch manchmal Flexibilität war, um die Aufgaben termingerecht zu erledigen. Das Praktikum gab die Möglichkeit das gesammelte 
+theoretische Wissen des SWT Moduls praktisch umzusetzen und darauf aufzubauen. Zudem wurde während des Praktikums nicht nur die eigene Teamfähigkeit sondern auch das selbständige Arbeiten gestärkt.
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+
+Zwischen den Teammitgliedern herrschte eine angenehme Arbeitsatmosphäre in der jeder zu Wort kam und auch Vorschläge jedes Einzelnen berücksichtigt wurden. Alle waren stets hilfsbereit und die Aufgaben 
+wurden je nach Disponibilität und Fähigkeiten bzw. Neigungen aufgeteilt.
+In der OOA und OOD Phase wurde viel miteinander diskutiert und gemeinsam die vielen Diagramme erstellt. Dennoch gab es während der Entwicklungsphase ab und zu einen Mangel an Kommunikation, was vorüber gehend 
+ein wenig die Zusammenarbeit und Verteilung der Aufgaben erschwerte. Dies wurde aber schnell bemerkt und besprochen, was am Ende zu einen stärkeren Team führte und eine zielführende Verständigung ergab.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+
+Es war eine neue Erfahrung mit fremden Frameworks zu arbeiten und am Anfang auch eine echte Herausforderung. In der Planungsphase war noch nicht klar wie viel SalesPoint von den verwendeten Prozessen übernehmen konnte,  
+dies führte zu Diagrammenentwürfen die zunächst nicht die Funktionen von SalesPoint berücksichtigten. Im Laufe der Entwicklung, wurde es einfacher zu verstehen wie SalesPoint am besten in der Applikation verwendet werden 
+konnte und dies ersparte damit die Arbeit, selbst die Funktionen zu programmieren. Die SalesPoint Dokumentation war da eine sehr wichtige Quelle an Informationen aber auch die Vorlesungen von Herr Oliver Girke waren äußerst 
+hilfreich. Da aber SalesPoint außerhalb des Universität nicht verbreitet ist, war es schwieriger an Informationen zu gelangen und man wurde schnell von der Menge an neuen Informationen überwältigt.
+Nachdem man aber alle benutzten Bibliotheken/Frameworks beherrschten, konnten man reibungslos weiter arbeiten und merkten wie eefektiver man beim Programmieren wurden. Das Arbeiten mit diesen Bibliotheken/Frameworks war stets 
+eine Herausforderung aber auch eine lehrreiche Lernerfahrung bei der jeder dazu heraus gefordert wurde seine eigenen Grenzen and Kenntnissen und Fertigkeiten zu überwinden.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+
+Das Softwarepraktikum war zwar auf der einen Seite eine sehr interessante Lernmöglichkeit dennoch war dieses auf der anderen Seite sehr zeitintensiv, was leicht dazu führen konnte andere Fächer zu vernachlässigen.
+Die Einarbeitungszeit war retrospektiv betrachet zu kurz was dazu führte, dass manche Entwurfsentscheidungen erst spät in der Entwicklungsphase geändert wurden mussten um besser die Frameworks verwenden zu können. Somit ist  wünschenswert zu Beginn 
+des Praktikums mehr Zeit zu verwenden um sich mit den Frameworks vertraut zu machen und auch mehr Vorlesungen spezifisch über Salespoint bei Herr Oliver Girke zur Verfügung zu stellen.
+
+== Feedback für den Tutor
+
+Es war verblüffend wie schnell der Tutor immer, auch zu unangemessenen Zeiten gestellte Fragen, stets hoch reaktiv antwortete. Auch die Diskussionen über die Gruppenzusammenarbeit waren freundlich geführt und hilfreich. Da der Tutor aber nicht 
+mit SalesPoint vertraut war, konnte er verständlicherweise keine fachliche Unterstützung bei der Einarbeitung zur Benutzung des Frameworks geben. Vereinzelt wurden wichtige Informationen erst mit Verspätung an die Gruppe weiter gegeben, was aber 
+glücklicherweise nicht zu weiteren Problemen führte. Der Tutor bemühte sich auch, der Gruppe bei den Jenkins-Build Fehlern zu helfen und gab Hinweise wie man die zuvor jUnit4 Tests in jUnits5 umschreiben sollte.  
+
+== Sonstiges und Anmerkungen
+Aus Rücksprachen mit anderen Gruppen stellte sich heraus dass die fachlichen Anforderungen an die verschiedenen Gruppen stark variierten, was möglicherweise an den unterschiedlichen Tutoren lag.

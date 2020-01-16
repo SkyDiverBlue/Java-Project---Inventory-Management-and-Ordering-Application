@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Öfen | PapaPizza</title>
+</head>
+<body>
+
+    <header>
+        <h1>Ofen</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+
+    <div class="ui two column grid container">
+        <div class="left floated five wide column">
+
+            <h3 class="ui dividing header">Ofenverwaltung</h3>
+
+            <div class="ui negative message" th:if="${error==true}" th:text="${'Die Ofenanzahl konnte nicht bearbeitet werden.'}"/>
+            <div class="ui positive message" th:if="${error==false}" th:text="${'Die Ofenanzahl wurde erfolgreich bearbeitet.'}"/>
+
+
+            <form class="ui form" role="form" id="editOvenForm" th:action="@{/oven}" method="post">
+
+                <div class="ui form">
+                    <label for="ovens">Ofenanzahl:</label>
+                    <input type="number" id="ovens" name="ovens" min="0" max="1000" required="required" th:value="${oven}" /> <br/>
+                </div>
+                <br/>
+                <button type="submit" class="ui right floated button">Bearbeiten</button>
+
+            </form>
+        </div>
+        <div class="right floated nine wide column">
+
+            <div class="ui segment">
+                    <div>
+                        <p>Derzeit durch Mitarbeiter abdeckbare Öfen:</p>
+                        <div class="ui horizontal statistic">
+                            <div class="value">
+                                <p th:text="${inUsage}" >unbekannt</p>
+                            </div>
+                            <div class="label">
+                                Ofen
+                            </div>
+                        </div>
+                    </div>
+                <br/>
+                    <div>
+                        <p>Durchschnittliche Wartezeit der Kunden:</p>
+                        <div class="ui horizontal statistic">
+                            <div class="value">
+                                <p th:text="${timeAverage}" >unbekannt</p>
+                            </div>
+                            <div class="label">
+                                Minuten
+                            </div>
+                        </div>
+                    </div>
+                <br/>
+                    <div>
+                        <b th:text="${utilization}" >unbekannt</b>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

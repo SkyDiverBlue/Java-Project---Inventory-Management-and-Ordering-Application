@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Katalog | PapaPizza</title>
+</head>
+<body>
+    <header>
+        <h1 th:text="${title}">Type</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <div class="ui container">
+
+    <div class="ui negative message" th:if="${noresult==true}" th:text="'Leider kein passendes Produkt gefunden.'"/>
+
+    <div class="ui items">
+        <div class="item" th:if="${noresult==false}" th:each="item : ${items}">
+            <div class="ui small image">
+                <img th:src="@{/resources/img/{image}.png (image=${item.image})}"/>
+            </div>
+            <div class="content">
+                <div class="header" th:text="${item.name}">Arrowhead Valley Camp</div>
+                <div class="meta">
+                    <span class="price" th:text="${item.price}">$1200</span>
+                </div>
+                <div class="description" th:text="${item.description}">beschreibung</div>
+            </div>
+        </div>
+</div>
+</div>
+</body>
+</html>

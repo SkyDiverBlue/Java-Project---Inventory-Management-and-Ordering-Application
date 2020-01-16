@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+
+    <title>Mitarbeiterverwaltung | PapaPizza</title>
+</head>
+<body>
+
+    <header>
+        <h1>Mitarbeiterverwaltung</h1>
+    </header>
+    <nav th:include="navigation :: navigation"></nav>
+    <div class="ui container">
+
+    <div class="ui two column grid">
+        <div class="column">
+            <a th:href="@{/registerEmployee}"><button type="button" class="ui button">Mitarbeiterregistrierung</button></a>
+        </div>
+        <div class="right aligned column">
+            <form class="ui action input" method="get" th:action="@{/searche}">
+                <input placeholder="Search..." type="text" name="search">
+                <button class="ui icon button">
+                    <i class="search icon"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="ui negative message" th:if="${noresult==true}" th:text="'Leider keinen passenden Kunden gefunden.'"/>
+
+    <div class="ui positive message" th:if="${deleted}" th:text="${'Der Mitarbeiter wurde erfolgreich gelöscht.'}"/>
+    <div class="ui positive message" th:if="${edit==true}" th:text="${'Der Mitarbeiter wurde erfolgreich bearbeitet.'}"/>
+    <div class="ui negative message" th:if="${edit==false}" th:text="${'Der Mitarbeiter konnte nicht bearbeitet werden.'}"/>
+
+    <div class="ui negative message" th:if="${registered==false}">
+        <p>Der Mitarbeiter konnte nicht erstellt werden.</p>
+    </div>
+    <div class="ui positive message" th:if="${registered==true}">
+        <p>Der Mitarbeiter wurde erfolgreich erstellt.</p>
+    </div>
+    <div class="ui negative message" th:if="${nameExists}">
+        <p>Der eingegebene Nutzername existiert bereits.</p>
+    </div>
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th >Rolle</th>
+            <th >Vorname</th>
+            <th >Nachname</th>
+            <th >Telefonnummer</th>
+            <th >Anschrift</th>
+            <th class="two wide" th:text="_"></th>
+
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each=" employee : ${employeeList}">
+            <td th:text="${employee.getRole()}">Rollen</td>
+            <td th:text="${employee.useraccount.firstname}">Paul</td>
+            <td th:text="${employee.useraccount.lastname}">Bauer</td>
+            <td th:text="${employee.number}">01010101
+            <td th:text="${employee.address}">Nöthnitzer Straße 46</td>
+            <td class="right aligned">
+                <a th:href="@{/employee/{id}(id=${employee.getId()})}"><button type="button" class="ui icon button"><i class="edit icon"></i></button></a>
+                <a th:href="@{/employee/{id}/delete(id=${employee.getId()})}"><button type="button" class="ui icon button"><i class="delete icon"></i></button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

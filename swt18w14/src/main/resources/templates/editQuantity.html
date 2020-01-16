@@ -1,0 +1,43 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script th:src="@{/webjars/Semantic-UI/semantic.min.js}"
+            src="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <link th:href="@{/webjars/Semantic-UI/semantic.min.css}" rel="stylesheet"
+          href="http://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+    <title>Papa Pizza Warenbestand</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Menge bearbeiten</h1>
+    </header>
+    <nav th:include="navigation :: navigation" ></nav>
+    <div class="ui container">
+
+    <h3 class="ui dividing header">Menge an <span  th:text="${item.product.name}"></span> bearbeiten</h3>
+
+    <form method="post" role="form" class="ui form" id="form" th:action="@{/editQuantity/{id}(id=${item.id})}" >
+
+        <div class="four wide field">
+            <div class="ui negative message" th:if="${editQuantity==false}" th:text="${'Der Lagerbestand konnte nicht bearbeitet werden.'}"/>
+            <input required="required" type="number" th:field="${item.quantity}" /><br/>
+        </div>
+
+        <button type="submit" class="ui button" th:text="Bearbeiten"></button>
+    </form>
+
+</div>
+
+
+</body>
+</html>

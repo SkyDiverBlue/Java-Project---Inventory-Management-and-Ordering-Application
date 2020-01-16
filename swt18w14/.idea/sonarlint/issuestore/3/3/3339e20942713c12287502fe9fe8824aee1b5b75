@@ -1,0 +1,33 @@
+
+‡
+AWeYsa2J3L3eEUoKxu5dsquid:S1142¢"MReduce the number of returns of this method 5, down to the maximum allowed 3.(÷„Ô¨øÿÿÿÿ8ð‰ÆÅù,
+†
+AWfSjyW03L3eEUoKyG1S
+squid:S109„"RAssign this magic number 5 to a well-named constant, and use the constant instead.(€’£8Ø…¼”ý,
+†
+AWeYsa2J3L3eEUoKxu5R
+squid:S109þ"RAssign this magic number 5 to a well-named constant, and use the constant instead.(–žµŒ8ð‰ÆÅù,
+‹
+AWfSjyW03L3eEUoKyG1T
+squid:S109†"RAssign this magic number 5 to a well-named constant, and use the constant instead.(ÑÆ÷üÿÿÿÿ8Ø…¼”ý,
+Œ
+AWeYsa2J3L3eEUoKxu5Q
+squid:S109"SAssign this magic number 30 to a well-named constant, and use the constant instead.(¯£ú˜ùÿÿÿÿ8ð‰ÆÅù,
+p
+squid:S109‹"SAssign this magic number 30 to a well-named constant, and use the constant instead.(×Üó>8“«—ó•-
+‰-squid:RightCurlyBraceSameLineAsNextBlockCheckÙ"HMove this "else" on the same line that the previous closing curly brace.(á¢–¬8“«—ó•-
+q
+squid:S134á"NRefactor this code to not nest more than 3 if/for/while/switch/try statements.(ŽÐä£ùÿÿÿÿ8“«—ó•-
+psquid:S00103"KSplit this 121 characters long line (which is greater than 120 authorized).(Œü¶˜ûÿÿÿÿ8“«—ó•-
+-squid:RightCurlyBraceSameLineAsNextBlockCheckÕ"IMove this "catch" on the same line that the previous closing curly brace.(ñ“Š±üÿÿÿÿ8“«—ó•-
+v
+squid:S109Š"SAssign this magic number 15 to a well-named constant, and use the constant instead.(žË¸ÿÿÿÿÿ8“«—ó•-
+psquid:S00103ð"KSplit this 136 characters long line (which is greater than 120 authorized).(±É‹Ëúÿÿÿÿ8“«—ó•-
+v
+squid:S109Š"SAssign this magic number 30 to a well-named constant, and use the constant instead.(žË¸ÿÿÿÿÿ8“«—ó•-
+psquid:S00103Š"KSplit this 141 characters long line (which is greater than 120 authorized).(žË¸ÿÿÿÿÿ8“«—ó•-
+‰-squid:RightCurlyBraceSameLineAsNextBlockCheckö"HMove this "else" on the same line that the previous closing curly brace.(á¢–¬8“«—ó•-
+p
+squid:S109‹"SAssign this magic number 15 to a well-named constant, and use the constant instead.(×Üó>8“«—ó•-
+q
+squid:S134†"NRefactor this code to not nest more than 3 if/for/while/switch/try statements.(ñ‘”Êûÿÿÿÿ8“«—ó•-

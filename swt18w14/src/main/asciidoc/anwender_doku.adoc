@@ -1,0 +1,360 @@
+= Anwender Dokumentation
+:toc: macro
+:toclevels: 4
+:toc-title: Inhaltsverzeichnis
+:numbered:
+
+Intuitiv einsichtige Workflows wie zum Beispiel Eingaben von Daten in Textfeldern
+werden hier nicht behandelt.
+
+toc::[]
+
+
+== Erwähnte Benutzer der Software
+
+[cols="1h,3"]
+|===
+|Kunde |Nutzer des unautorisierten Bereichs, kein Zugriff auf interne Bereiche. Nutzer sind natürliche Personen des
+öffentlichen Rechts, welche mit PapaPizza ein Verkaufverhähltnis eingehen
+|Admin | Verwalter der Software in logistischen Angelegenheiten
+|Bestellmanager  |Lokale Vermittlungsperson zwischen dem System und dem Kunden. Primär zuständig zur Abarbeitung des Bestellprozesses
+|Bäcker |Exekutivkraft des Unternehmens. Zuständig für die Erstellung der vom Kunden gewünschten Bestellungen.
+|Auslieferer |externe Vermittlungsperson, die für den Transport von Bestellungen zuständig ist
+|===
+
+== Anmeldedaten des Admins
+[cols="1, 1]
+|===
+|Benutzername | Passwort
+|boss | 123
+|===
+
+== Suchfelder in der Anwendung
+
+* An vielen Stellen in der Anwendung existieren Suchfelder
+* Dort kann ein Suchbegriff eingeben werden
+* Bringt Suchergebnisse gelistet oder einen Hinweis, dass kein passendes Produkt gefunden
+wurde.
+
+== Ausloggen in der Anwendung
+
+* Wenn eingeloggt, wird das Feld 'Logout' in der Navigationsleiste immer rechts angezeigt
+* Falls der Nutzer dieses Feld anklickt, wird er ausgeloggt und zur Ansicht für Kunden weitergeleitet
+
+== Ansicht für Kunden (nicht eingeloggt)
+
+=== Produktkatalog einsehen:
+
+* Auf Pizzabeläge, Getränke oder Salate klicken, führt zur Ansicht der zur Verfügung stehenden Produkte, der jeweiligen Kategorie, welche
+wiederum in Listenform mit Bildern und Preisangaben aufgeführt sind.
+
+
+=== Mitarbeiter einloggen:
+
+* Auf Mitarbeiterlogin klicken -> führt zur einer Eingabemaske mit Feldern für Nutzername und Passwort.
+* Dort kann sich der Mitarbeiter im System anmelden und wird zur Mitarbeiteransicht weitergeleitet.
+
+
+== Ansicht für den Admin
+
+=== _Produktverwaltung_
+
+* Unter Navigationsleisteneintrag "Warenverwaltung" -> auf "Katalog" navigieren
+
+==== Neues Produkt hinzufügen:
+
+* Durch Klicken auf 'neues Produkt hinzufügen' -> öffnet sich eine neue Eingabemaske
+* Dort können die einzelnen Parameter für das Produkt eingegeben werden
+* Alle Felder müssen ausgefüllt werden, sonst erscheint ein Hinweis
+
+==== Produkte entfernen:
+
+* In der rechten Spalte der Listeneinträge -> Klicken auf das jeweilige Entfernungssymbol "X"
+* Produkt wird aus dem Bestand entfernt und der Hinweis "Produkt wurde erfolgreich gelöscht"
+erscheint
+
+==== Produktparameter ändern:
+
+* In der rechten Spalte der Listeneinträge -> Klicken auf das jeweilige Bearbeitungssymbol
+* Die Maske "Produkt Bearbeiten" öffnet sich
+* Dort können die einzelnen Parameter für das Produkt bearbeitet werden
+* Alle Felder müssen ausgefüllt werden, sonst erscheint ein Hinweis
+
+
+=== _Lagerverwaltung_
+
+* Unter Navigationsleisteneintrag "Warenverwaltung" -> auf "Lager" navigieren
+
+==== Kritische Menge bearbeiten
+
+_Kritische Menge_: stellt die Höhe des Warenbestandes dar unter deren Menge dieser nicht
+sinken sollte, muss eine positive ganze natürliche Zahl sein. Alle Einträge in der tabellarischen Lageransicht
+werden farblich markiert falls deren Warenbestand unter der kritische Menge fällt.
+
+* Im Feld "Kritische Menge" wird der gewünschte Mindestbestand eingegeben und mit klicken auf das
+rechts neben dem Eingabefeld befindlichen Symbols abgespeichert.
+
+
+==== Menge eines Produktbestandes im Lager ändern:
+
+* In der rechten Spalte der Listeneinträge -> Klicken auf das jeweilige Bearbeitungssymbol
+* Die Maske "Menge an 'Produkt' Bearbeiten" öffnet sich
+* In das Mengeneingabefeld sind ganze Natürliche positive Zahlen einzugeben und mit dem Klick
+auf den Knopf "Bearbeiten", werden die Werte im System erfasst
+* Bei korrekter Eingabe erfolgt der Hinweis "Der Lagerbestand wurde erfolgreich bearbeitet" auf der
+Lagerseite
+
+
+
+=== _Mitarbeiterverwaltung_
+
+* In der Navigationsleiste auf den Navigationsleisteneintrag 'Mitarbeiterverwaltung' klicken
+
+==== Neuen Mitarbeiten registrieren
+
+* Durch Klicken auf 'Mitarbeiterregistrierung' → öffnet sich eine neue Eingabemaske
+* Dort muss der Mitarbeitertyp gewählt werden, die restlichen
+Felder sind auszufüllen und die Eingabe ist zu bestätigen.
+* Falls der Nutzername im System schon vorhanden ist, erscheint ein Hinweis in der "Mitarbeiterliste"
+dass jener Mitarbeiter nicht erstellt werden konnte, da dieser bereits im System existiert
+
+==== Mitarbeiter entfernen
+
+* In der rechten Spalte der Listeneinträge -> Klicken auf das jeweilige Bearbeitungssymbol
+* Der Mitarbeiter wird aus dem System entfernt und der Hinweis "Der Mitarbeiter wurde erfolgreich gelöscht"
+wird angezeigt
+* Dabei wird der Nutzeraccount des gelöschten Mitarbeiters deaktiviert und kann nicht mehr benutzt werden
+
+==== Mitarbeiterparameter ändern
+
+* In der rechten Spalte der Listeneinträge -> Klicken auf das jeweilige Bearbeitungssymbol
+* Die Maske "Daten des Mitarbeiters" öffnet sich
+* Dort können die einzelnen Parameter für den Mitarbeiter bearbeitet werden
+* Alle Felder müssen ausgefüllt werden, sonst erscheint ein Hinweis
+* Nach dem Bestätigen der Eingaben durch klicken auf "Ändern" erscheint ein Hinweis in der Ansicht der
+Mitarbeiterliste "Der Mitarbeiter wurde erfolgreich bearbeitet".
+
+=== _Kundenverwaltung_
+
+* In der Navigationsleiste auf den Navigationsleisteneintrag 'Kundenverwaltung' klicken
+
+==== Neuen Kunden registrieren
+
+* Durch Klicken auf 'Kundenregistrierung' → öffnet sich eine neue Eingabemaske
+* Dort sind alle Felder auszufüllen und die Eingabe ist zu bestätigen
+* Falls die Telefonnummer im System bereits vorhanden ist, erscheint ein Hinweis, dass diese
+bereits im System existiert
+
+==== Kunden entfernen
+
+* In der rechten Spalte der Listeneinträge → Klicken auf das jeweilige Entfernungssymbol
+* Der Kunde wird aus dem System entfernt und der Hinweis "Der Kunde wurde aus dem System gelöscht." wird angezeigt
+
+==== Kundenparameter ändern
+
+* In der rechten Spalte der Listeneinträge → Klicken auf das jeweilige Bearbeitungssymbol
+* Die Maske "Daten des Kunden" öffnet sich
+* Alle Felder müssen ausgefüllt werden, sonst erscheint ein Hinweis
+* Nach dem Bestätigen der Eingaben durch klicken auf "Ändern" erscheint ein Hinweis in der Ansicht der
+Mitarbeiterliste "Der Kunde wurde erfolgreich bearbeitet."
+
+==== Garnituren zurückgeben
+
+* Die Anzahl der zurückgegebenen Garnituren des Kunden können während der Kundenparameteränderung im Feld 'Zurückgegebene Garnituren'
+im System als 'zurückgegeben' gespeichert werden  -> siehe <<Kundenparameter ändern>>
+* Bei erfolgreicher Rückgabe darüber wird ein Eintrag in der Buchhaltung hinzugefügt
+* Garnituren können auch zurückgegeben werden, wenn der Kunde eine Bestellung abholt oder geliefert bekommt
+
+=== _Buchhaltung_
+* Unter Navigationsleisteneintrag "Finanzen" -> auf "Buchhaltung" navigieren
+* Auswertung von Geschäftsvorfällen in tabellarischer Form. Ermöglicht transparente Einsicht in Einnahmen und Ausgaben
+
+==== Geschäftsvorfälle einer bestimmten Zeitperiode anzeigen
+
+* In den Feldern gekennzeichnet mit 'Start' und 'End' kann das gewünschte Start- und Enddatum
+eigegeben und bestätigt werden
+* Die relevanten Geschäftsvorfälle für diese Zeitperiode werden in tabellarischer Form angezeigt
+* Beide Felder müssen ausgefüllt werden, sonst erscheint ein Hinweis
+
+==== Finanzielle Quartalabrechnung anzeigen
+
+* Nach dem Klicken auf dem Knopf 'Quartalabrechnung' werden alle Geschäftsvorfälle
+des aktuellen Quartals in tabellarischer Form angezeigt
+
+==== Finanzielle Wochenabrechnung anzeigen
+
+* Nach dem Klicken auf den Knopf 'Wochenabrechnung' werde alle Geschäftsvorfälle
+der aktuellen Woche in tabellarischer Form angezeigt
+
+==== Geschäftsvorfall hinzufügen
+
+* Die Eingabefelder befinden sich unter der Liste der Geschäftsvorfälle
+*  Dort kann der Wert und das Datum des Geschäftsvorfalls mit der dazugehörigen
+Beschreibung eingetragen und dem System übermittelt werden
+* Alle Felder müssen ausgefüllt werden, sonst erscheint ein Hinweis
+
+=== _Couponverwaltung_
+
+* Unter Navigationsleisteneintrag "Finanzen" -> auf "Coupons" navigieren
+
+==== Coupon erstellen
+
+* Die Eingabefelder befinden sich unter der Liste der Coupons, die bereits im System sind
+* Im Eingabefeld "Passwort" kann der jeweilige Rabattcouponcode festgelgt werden
+* Falls dieses Feld leer gelassen wird, generiert das System über einen Zufallsgenerator einen Rabattcode
+* Im Eingabefeld "Beschreibung" kann ein Freitext eingetragen werden, wird der Eintrag leer gelassen,
+nutzt das System einen vordefinierten Eintrag
+
+==== Coupons löschen
+
+* In der rechten Spalte der Listeneinträge -> Klicken auf das jeweilige Entfernungssymbol
+
+=== _Ofenverwaltung_
+* Hier werden in Echtzeit zur Firma relevanten Statistiken angezeigt
+
+==== Öfenanzahl bearbeiten
+
+* Unter Navigationsleisteneintrag "Filiale" -> auf "Öfen" navigieren
+* Im Ofenanzahlfeld kann eine ganze natürliche Zahl eingegeben und mit Klick auf "Bearbeiten"
+im System abgespeichert werden
+* Wenn die Anzahl der Öfen erfolgreich im System geändert wurde, wird der Hinweis
+Die Ofenanzahl wurde erfolgreich bearbeitet." angezeigt
+
+==== _Bestellungen einsehen_
+
+* Unter Navigationsleisteneintrag "Filiale" -> auf "Bestellungen" navigieren
+* Dort können eingegangene Bestellungen in tabellarischer Form eingesehen werden
+
+== Ansicht für die Bestellmanager
+
+=== _Kundenverwaltung_
+* Auf den Navigationsleisteneintrag "Kudenverwaltung" klicken
+* Funktionen: siehe unter <<Ansicht für den Admin>>
+
+=== _Bestellprozess_
+* Auf den Navigationsleisteneintrag "Bestellung aufnehmen" klicken
+
+ Ablauf:
+ 1. Kunden verfizieren
+ 2. Bestellung aufnehmen
+ 3. Optional: Coupon Code eingeben
+
+ Mögliche Aktionen:
+ 1. Coupon Code -> 10% Rabatt
+ 2. Selbstabholerrabatt -> 10% Rabatt
+ 3. Coupon Code und Selbstabholerrabatt -> 20% Rabatt
+ 4. Bestellwert über 30 Euro -> ein Gratisgetränk
+
+
+==== Kunden verifizieren
+
+ * In den Eingabefeldern die Telefonnummer und TAN des Kunden eingeben
+ * Falls die Telefonnummer nicht im System existiert, erscheint der Hinweis
+ "Die angegebene Telefonnummer ist nicht im System registriert"
+ * Falls die TAN nicht die richtige ist, erscheint der Hinweis "Die angegebene TAN ist falsch"
+ * Nach einer erfolgreichen Verifizierung wird der Bestellmanager zur Bestellansicht weitergeleitet
+ wo er die Bestellung des verifizierten Kunden aufnehmen kann
+
+==== Produkt zur Bestellung hinzufügen/entfernen
+
+* Kategorie des Produkts im Dropdown-Menü "Kategorie" auswählen -> relevante Produkte werden in tabellarischer Form angezeigt
+* In der Listenansicht der vorhandenen Produkte -> Klicken auf das jeweilige "+"-Symbol oder "-"-Symbol
+* Das Produkt wird mit einer Menge von 1 dem Warenkorb hinzugefügt oder aus diesem entfernt
+* Falls nicht mehr genügend der gewünschte Zutat im Lager vorhanden ist, erscheint beim Hinzufügen der Hinweis
+'Es gibt derzeit keine 'Zutat' mehr.' und die Zutat wird nicht dem Warenkorb hinzugefügt
+* Falls es versucht wird eine, im Warenkorb nichtexistierende, Zutat zu entfernen wird der Hinweis
+'Es ist gar kein(e) 'Zutat' in der Bestellung.' angezeigt
+
+
+==== Produkt aus dem Warenkorb löschen
+
+* In der Listenansicht des Warenkorb -> Klicken auf das jeweilige Entfernungssymbol
+* Produkt wird aus dem Warenkorb gelöscht
+
+==== Neue Pizza erstellen
+
+* Nach dem hinzufügen der Pizzabeläge einer ersten Pizza, muss der Knopf 'neue Pizza'
+geklickt werden um die Zusammenstellung der nächsten Pizza beginnen zu können
+* Alle Pizzabeläge der ersten Pizza werden im Warenkorb zu einer Pizza zusammengefügt mit dem passenden Gesamtpreis
+
+==== Bestellung stornieren
+
+* Die Bestellung kann mit dem Knopf 'stornieren' storniert werden
+* Der Kunde wird ausgeloggt und der Bestellmanager wird zurück zur
+Hauptansicht weitergeleitet
+
+
+==== Bestellung bestätigen
+
+* Die Bestellung kann entweder mit dem Knopf 'Lieferung' oder 'Abholung' bestätig werden
+** *Lieferung*: Der Kunde kriegt seine Bestellung zur angegebene Adresse geliefert
+** *Abholung*: Der Kunde holt seine Pizza in der Filiale ab und erhält einen Rabatt von 10% auf seiner Bestellung
+* Der Benutzer wird zur "Bestellung abgeschlossen!" Übersicht weitergeleitet
+* Dort werden die in der Bestellung enthaltende Produkte und der Gesamtbetrag angezeigt. Rabatte werden
+dort auch aufgelistet.
+
+==== Gratisgetränk hinzufügen
+
+* Bei einem Bestellwert von über 30 Euro wird dem Kunden nach der Bestellbestätigung ein Gratisgetränk angeboten
+* Nach Bestätigung der Bestellung -> Liste an Getränken wird angezeigt
+* Gewünschtes Getränk zur Bestellung hinzufügen -> siehe <<Produkt zur Bestellung hinzufügen/entfernen>>
+* Getränk wird kostenfrei der Bestellung hinzugefügt
+* Der Benutzer wird zur "Bestellung abgeschlossen!" Übersicht weitergeleitet
+
+==== Couponcode eingeben
+
+* In der "Bestellung abgeschlossen!" Übersicht kann unter der Lister der bestellten Produkte ein Couponcode eingegeben werden
+* Dieser wird mit dem "Coupon Code" Button bestätigt
+* Wenn der Coupon im System vorhanden ist, wird der Bestellung ein Rabatt hinzugefügt
+
+=== _Abzuholende Bestellungen einsehen_
+
+* Auf den Navigationsleisteneintrag "Abzuholende Bestellungen" klicken
+* Bestellungen, welche von Kunden in der Filiale abgeholt werden,
+werden in tabellarischer Form angezeigt
+
+
+== Ansicht für die Bäcker
+
+=== Zu backende Pizzen einsehen
+
+* Auf den Navigationsleisteneintrag "Zu Backende Pizzen" klicken
+* Bestellte Pizzen die noch gebacken werden müssen, werden hier mit ihren Zutaten, ihrem Preis und ihrem Bestellzeitpunkt in tabellarischer Form angezeigt
+
+=== Aktuelle Pizza im Ofen einsehen
+
+* Auf den Navigationsleisteneintrag "Pizzen im Ofen" klicken
+* Alle Pizzen die sich aktuell im Ofen befinden, werden hier mit ihren Zutaten, ihrem Preis und dem Ende der Backzeit in tabellarischer Form angezeigt
+
+
+=== Nächsten Backauftrag anfordern
+
+* Auf den Navigationsleisteneintrag "Nächsten Backauftrag anfordern" klicken
+* Die nächste Pizza, die gebacken werden muss, wird mit einer Liste ihrer Zutaten angezeigt
+* Der Backauftrag, kann mit dem Knopf 'Beginne zu backen' angenommen werden
+* Falls nicht genügend Öfen zur Verfügung stehen um eine Pizza zu backen,
+wird der Hinweis "Es gibt derzeit keinen freien Ofen, der bedient werden könnte." angezeigt
+
+== Ansicht für die Lieferanten
+
+=== _Auszuliefernde Bestellung Verwaltung_
+
+* Auf den Navigationsleisteneintrag 'Auszuliefernde Bestellungen' klicken
+* Dort werden in tabellarischer Form alle Bestellungen, die auszuliefern sind, mit ihren notwendigen Informationen angezeigt
+
+==== Rechnung drucken
+
+* In der Listenansicht -> klicken auf den jeweiligen 'drucken' Knopf
+* Die Rechnung öffnet sich in einem neuen Tab
+
+
+==== Rechnung der Buchhaltung hinzufügen (bezahlte Bestellung)
+
+* In der Listenansicht -> klicken auf das jeweilige 'bezahlt' Knopf
+* Die Rechnung wird aus der Listenansicht entfernt und der Betrag als
+Geschäftsvorfall der Buchhandlung hinzugefügt
+
+==== Garnituren zurückgeben
+
+* Hier können zurückgegebene Garnituren vom Kunden eingetragen werden -> siehe <<Garnituren zurückgeben>> 
+

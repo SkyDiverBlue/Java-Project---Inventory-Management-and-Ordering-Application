@@ -1,0 +1,37 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2017/18
+
+**Von:** Himmstedt, Emely
+
+**Gruppe:** 14
+
+== Was habe ich gelernt?
+
+Allgemein sind im Laufe des Softwarepraktikums immer wieder die Vorteile einer strukturierten Arbeitsweise aufgefallen.
+Durch den Zwang die verschiedenen Analyse- und Entwurfsphasen durchlaufen zu müssen, gelangen später Aufgabenverteilung etc. deutlich leichter. Insbesondere die gemeinsame Erarbeitung des Analyseklassendiagrammes sorgte für die Herausbildung einer gemeinsamen Vorstellung des Projektes und der Aufgabe.
+Das Modul war außerdem eine seltene Gelegenheit sich selbst auf verschiedene Arten zu verbesern oder Grenzen festzustellen. Dazu gehören die Arbeit im Team, die Verbesserung von Codestyle (da einem ja sonst als student nur selten jemand über den code schaut), und vor Allem auch die Fähigkeit sich selbstständig in ein Unbekanntes Framework einzuarbeiten. Darauf habe ich besonderen Wert gelegt, da es schließlich das ist, was man aus dem Studium mitnehmen sollte. Sich etwas Neues auf Grundlage von dem was man schon weiß neu aneignen zu können.
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+
+Der Umgang innerhalb der Gruppe war stets angemessen und respektvoll. Es wurde sich in großem Maße an Absprachen und Zeiten gehalten (auch bei Treffen ohne den Tutor). Für zeitweise Ausfälle von Arbeitskraft herrschte stets Verständnis vor.
+Insbesondere in der ersten Hälfte des Praktikums verlief die Teamarbeit äußerst gut. Durch die relativ kleine Gruppe war es gut möglich, durch konstruktive Zusammenarbeit, Stärken und Schwächen der verschiedenen Mitglieder zu erkennen und auszugleichen. Die wöchentliche, planmäßige Verteilung von Aufgaben war dabei essenziell. Im späteren Verlauf des Praktikums spezifizierten sich die Aufgaben zunehmend und oft stellte sich ein package mit der Zeit doch als deutlich aufwendiger heraus, als ein anders. Dennoch fiel es Gruppenmitgliedern oft schwer, sich in einen ganz neuen Teil einzuarbeiten (insbesonder anfangs aufgrund der stark voneinander abweichenden Codestile). Genauso fällt es natürlich oft schwer jemand "fremdes" an den eigenen Code zu lassen, wenn man ihn vom Prototyp an aufgebaut hat. Somit wurde die Teamarbeit gegen Ende, wiederum durch diese strickte Einteilung gehemmt. Ich nehme daraus mit, dass man früher die verschiedenen Typen-Mensch erkennen sollte, um zu wissen wen man antreiben muss und wem die Arbeit hin und wieder aus der Hand reißen. Alles in allem war es aber eine sehr angenehme Zusammenarbeit und ich würde gerne noch weiter machen.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+
+Es ist eine sehr komplexe Angelegenheit sich in ein bis dato vollkommen unbekanntes Framework einzuarbeiten. Anfangs hangelt man sich mittels Adaption durch seine Aufgaben bis man überhaupt dazu kommt zu hinterfragen was man da schreibt und was es tut und warum. Das trägt natürlich nicht gerade zu gutem Stil oder Erkenntnissgewinn bei. Zunächst die Aufgaben anhand der Prototypen zu bewältigen war in jedem Fall ein guter Start.
+Salespoint war eine große Hilfe und konnte einem viel Arbeit abnehmen. Jedoch gestaltete es sich mitunter schwierig das Framework weiter zu nutzen, wenn man auf Sonderfälle stößt, so dass man etwas anders bauen muss, als ursprünglich vom Framework vorgesehen.
+Es war auch interessant bei dieser Gelegenheit die java Bibliotheken weiter zu entdecken und immer neue Funktionen zu nutzen, an die man früher nie gedacht hätte.
+Mit Spring umgehen zu lernen dauert(e) vermutlich am längsten, da es so gewaltig ist und vollkommen ungewohnt. So hatte man zu Beginn zum Teil das Gefühl es sei gar kein java mehr, was man da schreibt.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+
+ - Da das Praktikum eng mit dem Softwaretechnologiemodul verbunden ist, hätte ich mir gewünscht dass auch im bereich coding, die Vorlesung etwas gezielter auf das Projekt vorbereitet.
+ - Es darf nicht sein, das die Behandlung der verschiedenen Gruppen durch ihre Tutoren so stark abweicht wie sie es aktuell tut.
+ - Während der Arbeit mit CrudRepositories zur Persistenten Speicherung kam es leider immer wieder zu Problemen, die man aufgrund fehlender Kenntnisse über Datenbanken kaum bewältigen konnte. Da die Vorlesung hierzu dem Praktikum nicht vorangeht wäre es gut eine übersicht darüber zu geben was machbar ist und wie man bestimmte fälle händeln sollte.
+
+== Feedback für den Tutor
+Mit der Betreuung durch den Tutor war ich im Grunde sehr zufrieden. Die Zusammenarbeit hat menschlich gut funktioniert und er war auch bemüht uns auf Fehler, insbesondere mit dem Jenkis-Build hinzuweisen. Die von ihm hervorgebrachte Kritik war immer nachvollziehbar und verständlich. Leider war die fachliche Unterstützung bezüglich Salespoint nur begrenzt gegeben, da er selbst nicht so gut damit vertraut war. Allerdings waren uns dafür ja auch andere Anlaufstellen gegeben, um Fragen loszuwerden. Auffälligkeiten zum Beispiel im time_recording hat er zur Diskussion gebracht, sodass sich die Gruppe nicht auf der Arbeit eines Mitgliedes hätte ausruhen können. Zudem war der Tutor stets gut erreichbar und hat sich bei Fragen schnell und klar geäußert. 
+
+== Sonstiges und Anmerkungen
+
+ - Das auditoriums-Forum war bis zum Schluss eine sehr gute Unterstützung.
+ - Die Salespointdokumentation hat sehr dabei geholfen, einem Überblich über die Möglichkeiten zu erhalten.

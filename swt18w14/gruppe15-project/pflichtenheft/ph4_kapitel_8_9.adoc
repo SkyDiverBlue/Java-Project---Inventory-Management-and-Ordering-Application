@@ -1,0 +1,302 @@
+:project_name: Papas Pizza
+:doctype: book
+:numbered:
+:source-highlighter: highlightjs
+
+== Funktionale Anforderungen
+
+=== Muss-Kriterien
+Was das zu erstellende Programm auf alle Fälle leisten muss.
+
+[options="header", cols="2h, 3, 12"]
+|===
+|ID
+|Name
+|Beschreibung
+
+|[[F0101]]<<F0101>>
+|Kunden Verwaltung
+a|
+Das System soll eine Datenbank mit allen registrierten Nutzern (<<F0501>>) und ihren
+Informationen haben.
+
+|[[F0102]]<<F0102>>
+|Mitarbeiter Verwaltung
+a|
+Das System soll eine Datenbank mit allen registrierten Mitarbeitern (<<F0501>>) und ihren
+Informationen haben.
+
+|[[F0103]]<<F0103>>
+|Bestellung-Verwaltung
+a|
+Das System soll eine Datenbank mit allen getätigten Bestellungen (<<F0603>>) bereitstellen.
+Die Einträge sollen nur eine begrenzte Zeit gespeichert werden (für die wöchentliche
+Abrechnung (<<F0802>>)).
+
+|[[F0104]]<<F0104>>
+|Katalog-Verwaltung
+a|
+Das System soll eine Datenbank mit allen im Angebot befindlichen Artikeln haben.
+
+|[[F0105]]<<F0105>>
+|Öfen-Verwaltung
+a|
+Das System soll eine Datenbank mit allen Öfen der Filiale haben.
+
+|[[F0106]]<<F0106>>
+|TAN Verwaltung
+a|
+Das System soll intern die TANs der registrierten Kunden abspeichern können.
+
+|[[F0107]]<<F0107>>
+|Garnitur Verwaltung
+a|
+Das System soll in der Lage sein die vorhandenen Garnituren der Filialie zu verwalten.
+Dazu gehört auch das abspeichern welcher Kunde sie ausgeliehen hat und wann dies
+geschah.
+
+|[[F0201]]<<F0201>>
+|TAN Zuweisung
+a|
+Das System soll nach abgeschlossener Bestellung (<<F0603>>) eines Kunden diesem eine
+neue TAN zuweisen.
+
+|[[F0202]]<<F0202>>
+|TAN Überprüfung
+a|
+Das System soll bei einer Bestellung vom eingeloggten Mitarbeiter (<<F0302>>) eingegebenen
+(und vorher vom Kunden erfragten) TAN, diese mit der im System vorliegenden abgleichen.
+
+|[[F0301]]<<F0301>>
+|Interner / Öffentlicher Bereich
+a|
+Das System soll einen internen Bereich für eingeloggte Mitarbeiter (<<F0302>>) bieten,
+von dem aus sie auf alle internen Funktionen Zugriff haben. Das System soll einen
+Öffentlichen Webauftritt bieten, auf den jeder Nutzer Zugriff hat.
+
+|[[F0302]]<<F0302>>
+|Login
+a|
+Das System soll einem nicht eingeloggten Nutzer die Möglichkeit bieten sich als Mitarbeiter
+zu authentifzieren. Dadurch wird der interne Bereich (<<F0301>>) einsehbar. Dazu wird benötigt:
+
+* Nutzername (einzigartig)
+* Passwort
+
+|[[F0303]]<<F0303>>
+|Logout
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) die Möglichkeit geben sich vom
+System abzumelden. An seinem Rechner sind danach die internen Bereiche (<<F0301>>)
+nicht mehr einsehbar.
+
+|[[F0401]]<<F0401>>
+|Katalog-Element hinzufügen oder entfernen
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) mit Manager-Rechten (<<F0504>>)
+die Möglichkeit geben dem Katalog neue Elemente hinzuzufügen oder zu entfernen.
+Dabei wird diesen eine ID zugewiesen. Außerdem erhalten sie Informationen ob es sich um
+ein Getränk oder eine Zutat (Salat oder Pizza) handelt.
+
+Gelöscht werden können alle im Katalog eingetragenen Elemente (Vorlagen, Zutaten, Getränke).
+
+|[[F0402]]<<F0402>>
+|Katalog-Element bearbeiten
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) mit Manager-Rechten (<<F0504>>) die Möglichkeit geben
+die bereits im Katalog gespeicherten Elemente zu bearbeiten. Dazu gehört auch die Lagerzahlen der einzelnen
+Waren anzupassen.
+
+|[[F0501]]<<F0501>>
+|Nutzer registrieren
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) mit Manager-Rechten (<<F0504>>)
+die Möglichkeit geben einen neuen Mitarbeiter anzulegen. Dabei soll er alle nötigen
+Informationen eingeben können.
+
+Ohne Manager-Rechte soll er lediglich Kunden anlegen können.
+
+|[[F0502]]<<F0502>>
+|Nutzer löschen
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) mit Manager-Rechten (<<F0504>>)
+die Möglichkeit geben einen bereits registrierten Mitarbeiter (<<F0501>>) aus dem
+System zu entfernen.
+
+|[[F0503]]<<F0503>>
+|Nutzer bearbeiten
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) die Möglichkeit geben einen
+registrierten Kunden (<<F0501>>) zu bearbeiten (seine gespeicherten Informationen
+anpassen).
+
+|[[F0504]]<<F0504>>
+|Manager-Rechte
+a|
+Das System soll eine Möglichkeit bieten einem Mitarbeiter gesonderte Rechte zuzuordnen.
+Mit diesen kann er auf erweiterte interne Funktionen zugreifen.
+
+Falls der Mitarbeiter Manager-Rechte (<<F0504>>) hat soll er auch Mitarbeiter bearbeiten
+können.
+
+|[[F0601]]<<F0601>>
+|Bestellung aufnehmen
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) die Möglichkeit geben eine Bestellung zu
+erstellen, falls ein Kunde anruft oder im Laden zugegen ist. Danach soll es dem Mitarbeiter
+möglich sein der Bestellung Dinge aus dem Sortiment (Vorlagen, Getränke, Garnituren), sowie selbst
+zusammengestellte Pizzen oder Salate hinzuzufügen. Auch sollen Elemente entfernt werden
+können.
+
+Dabei soll auch vermerkt werden ob die BEstellung geliefert wird oder abgeholt wird (10% Rabatt)
+
+|[[F0602]]<<F0602>>
+|Bestellung abbrechen
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) die Möglichkeit geben eine erstellte
+Bestellung (<<F0601>>) wieder zu stornieren.
+
+|[[F0603]]<<F0603>>
+|Bestellung bestätigen
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) die Möglichkeit geben eine erstellte
+Bestellung (<<F0601>>), zu welcher Elemente hinzugefügt wurden zu bestätigen
+und somit den Bestellvorgang intern auszulösen.
+
+|[[F0604]]<<F0604>>
+|Bestellung verarbeiten
+a|
+Das System soll eine eingegangene Bestelliung verarbeiten können und auf die vorliegenden
+Öfen aufteilen. Bevor dies geschieht soll die TAN überprüft werden (<<F0202>>).
+Zudem soll es danach sobald ein Fahrer verfügbar ist diesem zugeteilt werden.
+
+|[[F0605]]<<F0605>>
+|Preis berechnen
+a|
+Das System soll während dem Hinzufügen von Elementen zu einer Bestellung (<<F0601>>)
+den Gesamtpreis neu berechnen und auch Rabatte dabei berücksichtigen. Der Preis soll
+auch auf der Bestellseite angezeigt werden.
+
+|[[F0606]]<<F0606>>
+|Lieferzeit berechnen
+a|
+Das System soll während der Verarbeitung der Bestellung (<<F0604>>) die Lieferzeit
+berechnen können anhand der Kapazitäten der Öfen und dem nächsten Eintreffen eines
+Fahrers. Das Ergebnis dieser BErechnung soll dem eingeloggten Mitarbeiter nach
+bestätigen der Bestellung (<<F0603>>) angezeigt werden.
+
+|[[F0701]]<<F0701>>
+|Garnitur Ausleih
+a|
+Das System soll angemeldeten Mitarbeitern (<<F0302>>) die Möglichkeit geben in Bestellvorgang
+eine Garnitur der Bestellung hinzuzufügen. Im Hintergrund soll dabei automatisch
+die Garnitur als ausgeliehen vermerkt werden.
+
+|[[F0702]]<<F0702>>
+|Garnitur zurückgeben
+a|
+Das System soll angemeldeten Mitarbeitern (<<F0302>>) die Möglichkeit geben in wenigen Schritten
+eine Garnitur wieder im System zu vermerken. Dazu soll der Mitarbeiter lediglich
+den Kunden angeben. Falls die Garnitur zu lange ausgeliehen wurde soll ein
+Fehler angezeigt werde (die Garnitur gilt als verkauft)
+
+|[[F0703]]<<F0703>>
+|Garnitur abrechnen
+a|
+Das System soll automatisch, nachdem eine Garnitur länger als 4 Wochen ausgeliehen
+wurde diese aus dem System entfernen und der wöchentlichen Abrechnung (<<F0802>>)
+hinzufügen.
+
+|[[F0801]]<<F0801>>
+|Quartalszahlen
+a|
+Das System soll in der Lage sein die Öfen zu überwachen und eventuelle Zeiten in denen
+zu viele Pizzen vorliegen zu registrieren, um somit vierteljährlich einen Bericht zu
+erstellen und Vorschläge für neue Öfen machen zu können.
+
+|[[F0802]]<<F0802>>
+|wöchentliche Abrechnung
+a|
+Das System soll in der Lage sein die Verkäufe und Lagerbewegungen aufzuzeichnen um
+somit eine wöchentliche Abrechnung, welche eine Auflistung dieser Bewegung darstellt
+anzufertigen.
+
+|[[F1001]]<<F1001>>
+|Öfen hinzufügen / entfernen
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) mit Manager-Rechten (<<F0504>>) die Möglichkeit geben
+mehr Öfen hinzuzufügen oder zu entfernen.
+|===
+
+=== Kann-Kriterien
+Anforderungen die das Programm leisten können soll, aber für den korrekten Betrieb entbehrlich sind.
+
+[options="header", cols="2h, 3, 12"]
+|===
+|ID
+|Name
+|Beschreibung
+
+|[[F0901]]<<F0901>>
+|Vorlage erstellen
+a|
+Das System soll eine Möglichkeit bieten, dass ein eingeloggter Mitarbeiter (<<F0302>>) mit Manager-Rechten
+eine neue Vorlage für Pizzen oder Salate erstellen kann. Dabei soll er eine Pizza die angeboten wird
+mit Zutaten versehen können und im Katalog abspeichern können.
+
+|[[F0902]]<<F0902>>
+|Vorlage bearbeiten
+a|
+Das System soll einem eingeloggten Mitarbeiter (<<F0302>>) mit Manager-Rechten die Möglichkeit
+geben ein vorhandenes Pizza oder Salat Vorlage zu bearbeiten, dabei sollen Zutaten entfernt und
+hinzugefügt werden können und Name und Preis bearbeitet werden können.
+|===
+
+== Nicht-Funktionale Anforderungen
+
+=== Qualitätsanforderungen
+
+Dokumentiert sind im Folgenden in einer Tabelle die Qualitätsziele, welche das System erreichen soll,
+sowie deren Priorität.
+
+1 = geringe Priorität ..
+5 = hohe Priorität
+[options="header", cols="3h, ^1, ^1, ^1, ^1, ^1"]
+|===
+|Qualitätsanforderung       | 1 | 2 | 3 | 4 | 5
+|Wartbarkeit                | . | . | x | . | .
+|Erweiterbarkeit            | . | x | . | . | .
+|Bedienbarkeit              | . | . | . | . | x
+|Skalierbarkeit             | . | . | x | . | .
+|Zuverlässigkeit            | . | . | . | . | x
+|Sicherheit                 | . | . | . | x | .
+|Leistung/Efizienz          | . | x | . | . | .
+|===
+
+
+=== Konkrete Nicht-Funktionale Anforderungen
+
+Nicht-Funktionale Anforderungen, welche dazu dienen, die zuvor definierten Qualitätsziele zu erreichen.
+
+[options="header", cols="2h, 3, 12"]
+|===
+|ID
+|Name
+|Beschreibung
+
+|[[NF0001]]<<NF0001>>
+|Speicherung der Passwörter als Hash-Values
+a|
+Zur Verbesserung der Sicherheit des Systems sollen die Passwörter als Hash-Values in der Datenbank eingetragen werden.
+
+|[[NF0002]]<<NF0002>>
+|Verschlüsselung der Kunden- und Mitarbeiterdaten
+a|
+Zur Verbesserung der Sicherheit des Systems sollen die Nutzerdaten verschlüsselt werden.
+
+|[[NF0003]]<<NF0003>>
+|Intuitive Gestaltung der grafischen Benutzerschnittstelle
+a|
+Zur Verbesserung der Bedienbarkeit des Systems sollen die Benutzeroberflächen intuitiv gestaltet werden.
+
+|===
